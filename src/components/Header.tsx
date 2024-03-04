@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { css } from "../../styled-system/css";
 import { useState } from "react";
-import { Montserrat } from "next/font/google";
+
+//consts
+import { Montserrat400 } from "@/const/font";
 
 const fixed = css({
 	position: "fixed",
@@ -32,7 +34,7 @@ const burgerMenuStyle = css({
 		left: "0",
 		width: "100%",
 		height: "4px",
-		backgroundColor: "#333",
+		backgroundColor: "#4C4C4C",
 		borderRadius: "4px",
 		display: "inline-block",
 		transition: "all .5s",
@@ -60,6 +62,7 @@ const burgerMenuStyle = css({
 
 const headerTextStyle = css({
 	fontSize: "clamp(14px, 7dvw, 24px)",
+	color: "#4C4C4C",
 });
 
 const menuStyle = css({
@@ -94,13 +97,8 @@ const menuItemStyle = css({
 	},
 	"& a": {
 		textDecoration: "none",
-		color: "#333",
+		color: "#4C4C4C",
 	},
-});
-
-const MontserratFont = Montserrat({
-	weight: "400",
-	subsets: ["latin"],
 });
 
 interface MenuItem {
@@ -120,7 +118,7 @@ export const Header = ({ menuItems }: HeaderProps) => {
 			<div className={headerStyle}>
 				<div>
 					<Link
-						className={`${MontserratFont.className} ${headerTextStyle} `}
+						className={`${Montserrat400.className} ${headerTextStyle} `}
 						href="/"
 					>
 						Yumilc's Portfolio
@@ -138,7 +136,7 @@ export const Header = ({ menuItems }: HeaderProps) => {
 			<div className={`${menuStyle} ${isActive ? "active" : ""}`}>
 				{menuItems.map((item) => (
 					<div
-						className={`${menuItemStyle} ${MontserratFont.className}`}
+						className={`${menuItemStyle} ${Montserrat400.className}`}
 						key={item.href}
 					>
 						<Link href={item.href}>{item.label}</Link>
