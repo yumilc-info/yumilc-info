@@ -76,8 +76,8 @@ const menuStyle = css({
 	top: "0", // ヘッダーの直下に配置
 	right: "0",
 	width: {
-		mdTo2xl: "max-content",
-		sm: "100dvw",
+		base: "max-content",
+		smToMd: "100dvw",
 	},
 	height: "100dvh",
 	backgroundColor: "#fff",
@@ -87,8 +87,8 @@ const menuStyle = css({
 	transition: "transform 0.3s ease",
 	"&.active": {
 		transform: {
-			mdTo2xl: "translateX(calc(100dvw - 100%))",
-			sm: "translateX(0)",
+			base: "translateX(calc(100dvw - 100%))",
+			smToMd: "translateX(0)",
 		},
 	},
 });
