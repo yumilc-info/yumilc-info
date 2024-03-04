@@ -60,13 +60,6 @@ const burgerMenuStyle = css({
 
 const headerTextStyle = css({
 	fontSize: "clamp(14px, 7dvw, 24px)",
-	color: {
-		sm: "red",
-		md: "blue",
-		lg: "green",
-		xl: "yellow",
-		base: "orange",
-	},
 });
 
 const menuStyle = css({
@@ -76,7 +69,7 @@ const menuStyle = css({
 	top: "0", // ヘッダーの直下に配置
 	right: "0",
 	width: {
-		base: "max-content",
+		base: "300px",
 		smToMd: "100dvw",
 	},
 	height: "100dvh",
@@ -144,7 +137,10 @@ export const Header = ({ menuItems }: HeaderProps) => {
 			</div>
 			<div className={`${menuStyle} ${isActive ? "active" : ""}`}>
 				{menuItems.map((item) => (
-					<div className={menuItemStyle} key={item.href}>
+					<div
+						className={`${menuItemStyle} ${MontserratFont.className}`}
+						key={item.href}
+					>
 						<Link href={item.href}>{item.label}</Link>
 					</div>
 				))}
