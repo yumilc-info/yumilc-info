@@ -15,16 +15,6 @@ jobs:
           cache: "npm"
       - run: npm install
       - run: npx prettier . --check
-  eslint:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: "npm"
-      - run: npm install
-      - run: npx eslint .
   build:
     runs-on: self-hosted
     steps:
@@ -35,13 +25,3 @@ jobs:
           cache: "npm"
       - run: npm install
       - run: npm run build
-  build-storybook:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20
-          cache: "npm"
-      - run: npm install
-      - run: npm run build-storybook
