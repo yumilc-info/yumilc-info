@@ -4,7 +4,7 @@ import Link from "next/link";
 import { css } from "../../styled-system/css";
 import { useState } from "react";
 
-//consts
+// consts
 import { Montserrat400 } from "@/const/font";
 
 const fixed = css({
@@ -110,7 +110,7 @@ interface HeaderProps {
 	menuItems: MenuItem[];
 }
 
-export const Header = ({ menuItems }: HeaderProps) => {
+export const Header = ({ menuItems }: HeaderProps): JSX.Element => {
 	const [isActive, setIsActive] = useState(false);
 
 	return (
@@ -126,7 +126,9 @@ export const Header = ({ menuItems }: HeaderProps) => {
 				</div>
 				<div
 					className={`${burgerMenuStyle} ${isActive ? "active" : ""}`}
-					onClick={() => setIsActive(!isActive)}
+					onClick={() => {
+						setIsActive(!isActive);
+					}}
 				>
 					<span></span>
 					<span></span>

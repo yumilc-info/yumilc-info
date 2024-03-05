@@ -1,12 +1,12 @@
 import { css } from "../../styled-system/css";
 
-//components
+// components
 import { Header } from "@/components/Header";
 import { WorksText } from "@/components/WorksText";
 
-//consts
+// consts
 import { menuItems } from "@/const/headerMenuItem";
-import { Montserrat900, Zen_Maru_Gothic400 } from "@/const/font";
+import { Montserrat900, ZenMaruGothic400 } from "@/const/font";
 import {
 	aboutText,
 	scienceCommunicatorText,
@@ -25,7 +25,7 @@ const headingStyle = css({
 	color: "#4C4C4C",
 });
 
-export default function Home() {
+export default function Home(): JSX.Element {
 	return (
 		<div>
 			<Header menuItems={menuItems} />
@@ -35,7 +35,7 @@ export default function Home() {
 						About
 					</h1>
 					<div
-						className={`${Zen_Maru_Gothic400.className}`}
+						className={`${ZenMaruGothic400.className}`}
 						style={{ whiteSpace: "pre-wrap" }}
 					>
 						{aboutText}
