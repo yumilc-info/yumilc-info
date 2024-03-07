@@ -2,7 +2,7 @@
 
 import { css } from "../../styled-system/css";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 // components
 import { Header } from "@/components/Header";

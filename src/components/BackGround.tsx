@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { css } from "../../styled-system/css";
 
 const BackGroundStyle = css({
