@@ -9,6 +9,8 @@ import { Montserrat400 } from "@/const/font";
 
 const fixed = css({
 	position: "fixed",
+	zIndex: "1000",
+	height: "70px",
 });
 
 const headerStyle = css({
@@ -19,6 +21,8 @@ const headerStyle = css({
 	borderBottom: "3px solid #CACACA",
 	width: "100dvw",
 	height: "70px",
+	backgroundColor: "white",
+	position: "relative",
 });
 
 const burgerMenuStyle = css({
@@ -72,8 +76,8 @@ const menuStyle = css({
 	top: "0", // ヘッダーの直下に配置
 	right: "0",
 	width: {
-		base: "300px",
-		smToMd: "100dvw",
+		sm: "300px",
+		base: "100dvw",
 	},
 	height: "100dvh",
 	backgroundColor: "#fff",
@@ -83,14 +87,21 @@ const menuStyle = css({
 	transition: "transform 0.3s ease",
 	"&.active": {
 		transform: {
-			base: "translateX(calc(100dvw - 100%))",
-			smToMd: "translateX(0)",
+			sm: "translateX(calc(100dvw - 100%))",
+			base: "translateX(0)",
 		},
 	},
 });
 
 const menuItemStyle = css({
-	padding: "10px 20px",
+	padding: {
+		base: "10px 20px",
+		lg: "1dvw 2dvw",
+	},
+	fontSize: {
+		base: "16px",
+		lg: "1.6dvw",
+	},
 	borderBottom: "1px solid #CACACA",
 	"&:last-child": {
 		borderBottom: "none",
