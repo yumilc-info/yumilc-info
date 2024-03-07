@@ -71,7 +71,7 @@ const profileImageStyle = css({
 	},
 });
 
-export const aboutTextStyle = css({
+const aboutTextStyle = css({
 	color: "#4C4C4C",
 	letterSpacing: "0.1em",
 	lineHeight: "2em",

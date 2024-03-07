@@ -7,7 +7,6 @@ import {
 	ZenMaruGothic400,
 	ZenMaruGothic500,
 } from "@/const/font";
-import { aboutTextStyle } from "@/app/page";
 
 interface WorksTextProps {
 	heading: string;
@@ -34,6 +33,16 @@ const worksLinkStyle = css({
 	color: "#4C4C4C",
 	textDecorationLine: "underline",
 	textAlign: "right",
+});
+
+const aboutTextStyle = css({
+	color: "#4C4C4C",
+	letterSpacing: "0.1em",
+	lineHeight: "2em",
+	fontSize: {
+		base: "16px",
+		lg: "1.6dvw",
+	},
 });
 
 export const WorksText = ({
