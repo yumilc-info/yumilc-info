@@ -11,7 +11,9 @@ interface ContactsImageLinkProps {
 	link: string;
 }
 const contactsImageStyle = css({
-	width: "10dvw",
+	position: "relative",
+	width: "100%",
+	height: "100px",
 });
 const aboutTextStyle = css({
 	color: "#4C4C4C",
@@ -39,7 +41,7 @@ export const ContactsImageLink = ({
 				})}
 			>
 				<div className={contactsImageStyle}>
-					<Image src={image} alt={description} />
+					<Image src={image} layout="fill" alt={description} />
 				</div>
 				<div
 					className={`${Montserrat400.className} ${aboutTextStyle} ${css({ margin: "10px 0" })}`}
