@@ -8,6 +8,7 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { WorksText } from "@/components/WorksText";
 import { ContactsImageLink } from "@/components/ContactsImageLink";
+import { BackGround } from "@/components/BackGround";
 
 // consts
 import { useSmQuery } from "@/const/breakpoint";
@@ -105,6 +106,7 @@ const contactsFlex = css({
 		sm: "row",
 	},
 });
+const keywordStyle = css({});
 
 export default function Home(): JSX.Element {
 	const isSm = useSmQuery();
@@ -112,6 +114,14 @@ export default function Home(): JSX.Element {
 		<div>
 			<Header menuItems={menuItems} />
 			<div className={mainStyle}>
+				<div className={keywordStyle}>
+					<Image
+						src="/decoration/keyword.svg"
+						sizes="4dvw"
+						alt="keyword"
+						layout="fill"
+					/>
+				</div>
 				<div>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
 						About
@@ -229,6 +239,7 @@ export default function Home(): JSX.Element {
 					</div>
 				</div>
 			</div>
+			<BackGround />
 		</div>
 	);
 }
