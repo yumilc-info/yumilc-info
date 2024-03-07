@@ -2,7 +2,7 @@
 
 import { css } from "../../styled-system/css";
 import Link from "next/link";
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 // components
 import { Header } from "@/components/Header";
@@ -111,16 +111,11 @@ const keywordStyle = css({});
 export default function Home(): JSX.Element {
 	const isSm = useSmQuery();
 	return (
-		<div>
+        <div>
 			<Header menuItems={menuItems} />
 			<div className={mainStyle}>
 				<div className={keywordStyle}>
-					<Image
-						src="/decoration/keyword.svg"
-						sizes="4dvw"
-						alt="keyword"
-						layout="fill"
-					/>
+					<Image src="/decoration/keyword.svg" alt="keyword" fill sizes="4dvw" />
 				</div>
 				<div>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
@@ -130,7 +125,13 @@ export default function Home(): JSX.Element {
 						<div>
 							<div className={profileImageStyle}>
 								{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-								<Image src={yumic} alt="yumilc" />
+								<Image
+                                    src={yumic}
+                                    alt="yumilc"
+                                    style={{
+                                        maxWidth: "100%",
+                                        height: "auto"
+                                    }} />
 							</div>
 							<div className={aboutMargin}>
 								<div
@@ -178,7 +179,13 @@ export default function Home(): JSX.Element {
 
 							<div className={profileImageStyle}>
 								{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
-								<Image src={yumic} alt="yumilc" />
+								<Image
+                                    src={yumic}
+                                    alt="yumilc"
+                                    style={{
+                                        maxWidth: "100%",
+                                        height: "auto"
+                                    }} />
 							</div>
 						</div>
 					)}
@@ -241,5 +248,5 @@ export default function Home(): JSX.Element {
 			</div>
 			<BackGround />
 		</div>
-	);
+    );
 }

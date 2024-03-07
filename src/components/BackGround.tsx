@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { css } from "../../styled-system/css";
 
 const BackGroundStyle = css({
@@ -12,7 +12,7 @@ const BackGroundStyle = css({
 
 export const BackGround = (): JSX.Element => {
 	return (
-		<div className={BackGroundStyle}>
+        <div className={BackGroundStyle}>
 			<div
 				className={css({
 					position: "absolute",
@@ -22,7 +22,7 @@ export const BackGround = (): JSX.Element => {
 					left: "0",
 				})}
 			>
-				<Image src="/decoration/blue.svg" layout="fill" alt="blue" />
+				<Image src="/decoration/blue.svg" alt="blue" fill sizes="100vw" />
 			</div>
 			<div
 				className={css({
@@ -33,7 +33,7 @@ export const BackGround = (): JSX.Element => {
 					left: "0",
 				})}
 			>
-				<Image src="/decoration/green.svg" layout="fill" alt="green" />
+				<Image src="/decoration/green.svg" alt="green" fill sizes="100vw" />
 			</div>
 			<div
 				className={css({
@@ -44,8 +44,8 @@ export const BackGround = (): JSX.Element => {
 					left: "0",
 				})}
 			>
-				<Image src="/decoration/red.svg" layout="fill" alt="red" />
+				<Image src="/decoration/red.svg" alt="red" fill sizes="100vw" />
 			</div>
 		</div>
-	);
+    );
 };
