@@ -1,7 +1,3 @@
-import mailImage from "public/contacts/mail.svg";
-import xImage from "public/contacts/X.svg";
-import instagramImage from "public/contacts/instagram.svg";
-
 export const aboutText = `ゆーみるしーです。理学博士（素粒子物理）。
 素粒子アクセサリー販売、実験教室、動画編集、自分の研究に関する講演や、実験教室を行なっています。
 講演や実験教室、アクセサリーショップ出張販売等の依頼はお問合せからお願いいたします。`;
@@ -34,19 +30,19 @@ export const worksInclusiveProject = {
 };
 
 export const contactsMail = {
-	image: mailImage as string,
+	image: "/contacts/mail.svg",
 	description: "yumilc.science@gmail.com",
 	link: "mailto:yumilc.scence@gmail.com",
 };
 
 export const contactsX = {
-	image: xImage as string,
+	image: "/contacts/x.svg",
 	description: "@yumILC_",
 	link: "https://twitter.com/yumILC_",
 };
 
 export const contactsInstagram = {
-	image: instagramImage as string,
+	image: "/contacts/instagram.svg",
 	description: "yumilc_",
 	link: "https://www.instagram.com/yumilc_/",
 };
