@@ -14,8 +14,7 @@
 		"next": "14.0.2",
 		"react": "^18",
 		"react-dom": "^18",
-		"react-responsive": "^9.0.2",
-		"sharp": "^0.33.2"
+		"react-responsive": "^9.0.2"
 	},
 	"devDependencies": {
 		"@pandacss/dev": "^0.33.0",
