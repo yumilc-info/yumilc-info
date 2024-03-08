@@ -5,8 +5,6 @@
 		"node": true
 	},
 	"extends": [
-		"standard-with-typescript",
-		"airbnb/hooks", // reactのhooksの設定は別れているので別途入れます
 		"plugin:@typescript-eslint/recommended-requiring-type-checking", // typescriptの型チェックをします
 		"plugin:@next/next/core-web-vitals", // Next.jsとCore Web Vitalsのチェック
 		"prettier"
