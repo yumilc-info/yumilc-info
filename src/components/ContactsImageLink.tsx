@@ -31,7 +31,7 @@ export const ContactsImageLink = ({
 	link,
 }: ContactsImageLinkProps): JSX.Element => {
 	return (
-        <Link href={link} target="_blank">
+		<Link href={link} target="_blank">
 			<div
 				className={css({
 					display: "flex",
@@ -41,15 +41,7 @@ export const ContactsImageLink = ({
 				})}
 			>
 				<div className={contactsImageStyle}>
-					<Image
-                        src={image}
-                        alt={description}
-                        fill
-                        sizes="100vw"
-                        style={{
-                            maxWidth: "100%",
-                            height: "auto"
-                        }} />
+					<Image src={image} alt={description} fill sizes="100vw" />
 				</div>
 				<div
 					className={`${Montserrat400.className} ${aboutTextStyle} ${css({ margin: "10px 0" })}`}
@@ -58,5 +50,5 @@ export const ContactsImageLink = ({
 				</div>
 			</div>
 		</Link>
-    );
+	);
 };

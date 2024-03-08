@@ -106,17 +106,34 @@ const contactsFlex = css({
 		sm: "row",
 	},
 });
-const keywordStyle = css({});
+
+const keywordAreaStyle = css({
+	position: "relative",
+	width: "100dvw",
+	height: "55dvw",
+	top: "70px",
+	left: "0",
+});
+
+const keywordStyle = css({
+	position: "relative",
+	width: "58dvw",
+	height: "18dvw",
+	left: "12dvw",
+	top: "17dvw",
+});
 
 export default function Home(): JSX.Element {
 	const isSm = useSmQuery();
 	return (
-        <div>
+		<div>
 			<Header menuItems={menuItems} />
-			<div className={mainStyle}>
+			<div className={keywordAreaStyle}>
 				<div className={keywordStyle}>
-					<Image src="/decoration/keyword.svg" alt="keyword" fill sizes="4dvw" />
+					<Image src="/decoration/keyword.svg" alt="keyword" fill />
 				</div>
+			</div>
+			<div className={mainStyle}>
 				<div>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
 						About
@@ -126,12 +143,13 @@ export default function Home(): JSX.Element {
 							<div className={profileImageStyle}>
 								{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
 								<Image
-                                    src={yumic}
-                                    alt="yumilc"
-                                    style={{
-                                        maxWidth: "100%",
-                                        height: "auto"
-                                    }} />
+									src={yumic}
+									alt="yumilc"
+									style={{
+										maxWidth: "100%",
+										height: "auto",
+									}}
+								/>
 							</div>
 							<div className={aboutMargin}>
 								<div
@@ -180,12 +198,13 @@ export default function Home(): JSX.Element {
 							<div className={profileImageStyle}>
 								{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
 								<Image
-                                    src={yumic}
-                                    alt="yumilc"
-                                    style={{
-                                        maxWidth: "100%",
-                                        height: "auto"
-                                    }} />
+									src={yumic}
+									alt="yumilc"
+									style={{
+										maxWidth: "100%",
+										height: "auto",
+									}}
+								/>
 							</div>
 						</div>
 					)}
@@ -248,5 +267,5 @@ export default function Home(): JSX.Element {
 			</div>
 			<BackGround />
 		</div>
-    );
+	);
 }
