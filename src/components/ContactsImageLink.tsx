@@ -41,7 +41,15 @@ export const ContactsImageLink = ({
 				})}
 			>
 				<div className={contactsImageStyle}>
-					<Image src={image} alt={description} fill sizes="100vw" />
+					<Image
+                        src={image}
+                        alt={description}
+                        fill
+                        sizes="100vw"
+                        style={{
+                            maxWidth: "100%",
+                            height: "auto"
+                        }} />
 				</div>
 				<div
 					className={`${Montserrat400.className} ${aboutTextStyle} ${css({ margin: "10px 0" })}`}
