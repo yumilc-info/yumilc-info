@@ -1,5 +1,7 @@
 "use client";
 
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { css } from "../../styled-system/css";
 import Link from "next/link";
 import Image from "next/image";
@@ -141,7 +143,6 @@ export default function Home(): JSX.Element {
 					{isSm ? (
 						<div>
 							<div className={profileImageStyle}>
-								{/*@ts-ignore */}
 								<Image
 									src={yumic}
 									alt="yumilc"
@@ -196,7 +197,6 @@ export default function Home(): JSX.Element {
 							</div>
 
 							<div className={profileImageStyle}>
-								{/* @ts-ignore */}
 								<Image
 									src={yumic}
 									alt="yumilc"
