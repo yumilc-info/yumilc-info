@@ -141,7 +141,7 @@ export default function Home(): JSX.Element {
 					{isSm ? (
 						<div>
 							<div className={profileImageStyle}>
-								{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+								{/*@ts-ignore */}
 								<Image
 									src={yumic}
 									alt="yumilc"
@@ -196,7 +196,7 @@ export default function Home(): JSX.Element {
 							</div>
 
 							<div className={profileImageStyle}>
-								{/* eslint-disable-next-line @typescript-eslint/no-unsafe-assignment */}
+								{/* @ts-ignore */}
 								<Image
 									src={yumic}
 									alt="yumilc"
