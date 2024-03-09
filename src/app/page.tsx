@@ -31,7 +31,7 @@ import {
 import yumic from "public/yumilc.jpg";
 
 const mainStyle = css({
-	top: "70px",
+	top: "0",
 	position: "relative",
 	margin: "0 6dvw",
 });
@@ -112,7 +112,10 @@ const contactsFlex = css({
 const keywordAreaStyle = css({
 	position: "relative",
 	width: "100dvw",
-	height: "55dvw",
+	height: {
+		sm: "60dvw",
+		base: "65dvw",
+	},
 	top: "70px",
 	left: "0",
 });
@@ -122,7 +125,11 @@ const keywordStyle = css({
 	width: "58dvw",
 	height: "18dvw",
 	left: "12dvw",
-	top: "17dvw",
+	top: "15dvw",
+});
+
+const marginBottom = css({
+	marginBottom: "40px",
 });
 
 export default function Home(): JSX.Element {
@@ -136,7 +143,7 @@ export default function Home(): JSX.Element {
 				</div>
 			</div>
 			<div className={mainStyle}>
-				<div>
+				<div className={marginBottom}>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
 						About
 					</h1>
@@ -209,7 +216,7 @@ export default function Home(): JSX.Element {
 						</div>
 					)}
 				</div>
-				<div>
+				<div className={marginBottom}>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
 						Works
 					</h1>
