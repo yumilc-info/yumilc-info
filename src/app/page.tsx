@@ -11,6 +11,7 @@ import { Header } from "@/components/Header";
 import { WorksText } from "@/components/WorksText";
 import { ContactsImageLink } from "@/components/ContactsImageLink";
 import { BackGround } from "@/components/BackGround";
+import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
 import { useSmQuery } from "@/const/breakpoint";
@@ -170,12 +171,16 @@ export default function Home(): JSX.Element {
 									<div
 										className={`${Montserrat400.className} ${aboutLinkStyle}`}
 									>
-										<Link href="/about">Yumilc's Profile</Link>
+										<HoverGrowWrapper>
+											<Link href="/about">Yumilc's Profile</Link>
+										</HoverGrowWrapper>
 									</div>
 									<div
 										className={`${Montserrat400.className} ${aboutLinkStyle}`}
 									>
-										<Link href="/news">News</Link>
+										<HoverGrowWrapper>
+											<Link href="/news">News</Link>
+										</HoverGrowWrapper>
 									</div>
 								</div>
 							</div>
@@ -193,12 +198,16 @@ export default function Home(): JSX.Element {
 									<div
 										className={`${Montserrat400.className} ${aboutLinkStyle}`}
 									>
-										<Link href="/about">Yumilc's Profile</Link>
+										<HoverGrowWrapper>
+											<Link href="/about">Yumilc's Profile</Link>
+										</HoverGrowWrapper>
 									</div>
 									<div
 										className={`${Montserrat400.className} ${aboutLinkStyle}`}
 									>
-										<Link href="/news">News</Link>
+										<HoverGrowWrapper>
+											<Link href="/news">News</Link>
+										</HoverGrowWrapper>
 									</div>
 								</div>
 							</div>
@@ -249,25 +258,31 @@ export default function Home(): JSX.Element {
 					</h1>
 					<div className={contactsFlex}>
 						<div className={css({ flex: 1 })}>
-							<ContactsImageLink
-								image={contactsMail.image}
-								description={contactsMail.description}
-								link={contactsMail.link}
-							/>
+							<HoverGrowWrapper>
+								<ContactsImageLink
+									image={contactsMail.image}
+									description={contactsMail.description}
+									link={contactsMail.link}
+								/>
+							</HoverGrowWrapper>
 						</div>
 						<div className={css({ flex: 1 })}>
-							<ContactsImageLink
-								image={contactsX.image}
-								description={contactsX.description}
-								link={contactsX.link}
-							/>
+							<HoverGrowWrapper>
+								<ContactsImageLink
+									image={contactsX.image}
+									description={contactsX.description}
+									link={contactsX.link}
+								/>
+							</HoverGrowWrapper>
 						</div>
 						<div className={css({ flex: 1 })}>
-							<ContactsImageLink
-								image={contactsInstagram.image}
-								description={contactsInstagram.description}
-								link={contactsInstagram.link}
-							/>
+							<HoverGrowWrapper>
+								<ContactsImageLink
+									image={contactsInstagram.image}
+									description={contactsInstagram.description}
+									link={contactsInstagram.link}
+								/>
+							</HoverGrowWrapper>
 						</div>
 					</div>
 				</div>
