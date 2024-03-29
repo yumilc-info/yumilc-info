@@ -1,6 +1,9 @@
 import { css } from "../../styled-system/css";
 import Link from "next/link";
 
+// components
+import { HoverGrowWrapper } from "./HoverGrowWrapper";
+
 // consts
 import {
 	Montserrat400,
@@ -32,7 +35,8 @@ const worksLinkStyle = css({
 	},
 	color: "#4C4C4C",
 	textDecorationLine: "underline",
-	textAlign: "right",
+	display: "flex",
+	justifyContent: "flex-end",
 });
 
 const aboutTextStyle = css({
@@ -62,9 +66,11 @@ export const WorksText = ({
 				{description}
 			</div>
 			<div className={`${Montserrat400.className} ${worksLinkStyle}`}>
-				<Link href={link} target="_blank">
-					More
-				</Link>
+				<HoverGrowWrapper>
+					<Link href={link} target="_blank">
+						More
+					</Link>
+				</HoverGrowWrapper>
 			</div>
 		</div>
 	);
