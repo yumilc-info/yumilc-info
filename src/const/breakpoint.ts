@@ -10,3 +10,5 @@ export const useMdQuery = (): boolean =>
 	useMediaQuery({ minWidth: 640, maxWidth: 767 });
 
 export const useSmQuery = (): boolean => useMediaQuery({ maxWidth: 639 });
+
+export const useSmToMdQuery = (): boolean => useMediaQuery({ maxWidth: 767 });
