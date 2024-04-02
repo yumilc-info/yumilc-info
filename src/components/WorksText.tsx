@@ -31,7 +31,6 @@ const worksTextMargin = css({
 const worksLinkStyle = css({
 	fontSize: {
 		base: "20px",
-		lg: "2dvw",
 	},
 	color: "#4C4C4C",
 	textDecorationLine: "underline",
@@ -44,8 +43,8 @@ const aboutTextStyle = css({
 	letterSpacing: "0.1em",
 	lineHeight: "2em",
 	fontSize: {
-		base: "16px",
-		lg: "1.6dvw",
+		base: "14px",
+		md: "16px",
 	},
 });
 

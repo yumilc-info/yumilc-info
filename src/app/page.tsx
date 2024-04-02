@@ -34,13 +34,19 @@ import yumic from "public/yumilc.jpg";
 const mainStyle = css({
 	top: "0",
 	position: "relative",
-	margin: "0 6dvw",
+	md: {
+		width: "767px",
+	},
+	margin: "0 auto",
+	padding: {
+		base: "0 6dvw",
+		md: "0 20px",
+	},
 });
 
 const headingStyle = css({
 	fontSize: {
 		base: "40px",
-		lg: "4dvw",
 	},
 	color: "#4C4C4C",
 });
@@ -48,7 +54,6 @@ const headingStyle = css({
 const aboutLinkStyle = css({
 	fontSize: {
 		base: "20px",
-		lg: "2dvw",
 	},
 	color: "#4C4C4C",
 	textDecorationLine: "underline",
@@ -65,12 +70,14 @@ const aboutLinkFlex = css({
 });
 
 const profileImageStyle = css({
+	flex: 1,
 	width: {
-		sm: "25dvw",
+		smToMd: "50dvw",
 		base: "auto",
 	},
 	margin: {
-		sm: 0,
+		md: 0,
+		smToMd: "20px auto",
 		base: "20px 70px",
 	},
 });
@@ -82,23 +89,20 @@ const aboutTextStyle = css({
 	fontSize: {
 		base: "14px",
 		md: "16px",
-		lg: "1.6dvw",
 	},
 });
 
 const aboutMargin = css({
 	paddingLeft: {
 		base: "30px",
-		lg: "3dvw",
 	},
 	paddingRight: "30px",
-	flex: 1,
+	flex: 2,
 });
 
 const worksMargin = css({
 	padding: {
 		base: "0 30px",
-		lg: "0 3dvw",
 	},
 });
 
