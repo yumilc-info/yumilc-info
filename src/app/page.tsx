@@ -10,7 +10,7 @@ import Image from "next/image";
 import { Header } from "@/components/Header";
 import { WorksText } from "@/components/WorksText";
 import { ContactsImageLink } from "@/components/ContactsImageLink";
-import { BackGround } from "@/components/BackGround";
+import { TopPageBackGround } from "@/components/TopPageBackGround";
 import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
@@ -80,7 +80,8 @@ const aboutTextStyle = css({
 	letterSpacing: "0.1em",
 	lineHeight: "2em",
 	fontSize: {
-		base: "16px",
+		base: "14px",
+		md: "16px",
 		lg: "1.6dvw",
 	},
 });
@@ -287,7 +288,7 @@ export default function Home(): JSX.Element {
 					</div>
 				</div>
 			</div>
-			<BackGround />
+			<TopPageBackGround />
 		</div>
 	);
 }
