@@ -20,8 +20,8 @@ const aboutTextStyle = css({
 	letterSpacing: "0.1em",
 	lineHeight: "2em",
 	fontSize: {
-		base: "16px",
-		lg: "1.6dvw",
+		base: "14px",
+		md: "16px",
 	},
 });
 
