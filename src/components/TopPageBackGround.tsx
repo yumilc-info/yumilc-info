@@ -11,7 +11,7 @@ const BackGroundStyle = css({
 	overflowX: "hidden",
 });
 
-export const BackGround = (): JSX.Element => {
+export const TopPageBackGround = (): JSX.Element => {
 	return (
 		<div className={BackGroundStyle}>
 			<div
