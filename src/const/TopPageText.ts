@@ -19,7 +19,7 @@ export const worksTsubuya = {
 export const worksTsukubaPlaceLab = {
 	heading: "Tsukuba Place Lab スタッフ",
 	text: `筑波大学すぐそばのコミュニティスペースで人と人とを繋ぐスタッフをやっています。科学イベントも開催中。「粒や」もLabから生まれました。`,
-	link: "http://tsukubaplacelab.com/",
+	link: "https://civicpower.jp/tsukubaplacelab/",
 };
 
 export const worksInclusiveProject = {
