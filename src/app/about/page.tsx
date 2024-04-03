@@ -167,10 +167,21 @@ export default function Home(): JSX.Element {
 							>
 								{careerText.events.map((events, index) => (
 									<tr key={index}>
-										<td className={css({ paddingRight: "10px" })}>
+										<td
+											className={css({
+												paddingRight: "10px",
+												verticalAlign: "baseline",
+											})}
+										>
 											{events.year}
 										</td>
-										<td>{events.text}</td>
+										<td
+											className={css({
+												verticalAlign: "baseline",
+											})}
+										>
+											{events.text}
+										</td>
 									</tr>
 								))}
 							</tbody>
