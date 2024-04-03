@@ -123,7 +123,7 @@ export default function Home(): JSX.Element {
 									}}
 								/>
 							</div>
-							<div className={aboutMargin}>
+							<div>
 								<div
 									className={`${ZenMaruGothic400.className} ${textStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
