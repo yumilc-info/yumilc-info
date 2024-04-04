@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 		siteName,
 		type: "website",
 		locale: "ja_JP",
+		images: "/yumilc_illust.jpg",
 	},
 	twitter: {
 		card: "summary_large_image",
