@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 import { notFound } from "next/navigation";
 import parse from "html-react-parser";
 import { getDetail } from "@/libs/microcms";
