@@ -7,7 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 // components
-import { Header } from "@/components/Header";
 import { WorksText } from "@/components/WorksText";
 import { ContactsImageLink } from "@/components/ContactsImageLink";
 import { TopPageBackGround } from "@/components/TopPageBackGround";
@@ -15,7 +14,6 @@ import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
 import { useSmQuery } from "@/const/breakpoint";
-import { menuItems } from "@/const/headerMenuItem";
 import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "@/const/font";
 import {
 	aboutText,
@@ -46,14 +44,16 @@ const mainStyle = css({
 
 const headingStyle = css({
 	fontSize: {
-		base: "40px",
+		base: "36px",
+		md: "40px",
 	},
 	color: "#4C4C4C",
 });
 
 const aboutLinkStyle = css({
 	fontSize: {
-		base: "20px",
+		base: "16px",
+		md: "20px",
 	},
 	color: "#4C4C4C",
 	textDecorationLine: "underline",
@@ -142,7 +142,6 @@ export default function Home(): JSX.Element {
 	const isSm = useSmQuery();
 	return (
 		<div>
-			<Header menuItems={menuItems} />
 			<div className={keywordAreaStyle}>
 				<div className={keywordStyle}>
 					<Image src="/decoration/keyword.svg" alt="keyword" fill />

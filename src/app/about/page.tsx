@@ -38,7 +38,8 @@ const mainStyle = css({
 
 const headingStyle = css({
 	fontSize: {
-		base: "36px",
+		base: "32px",
+		md: "36px",
 	},
 	color: "#4C4C4C",
 	paddingTop: "20px",
