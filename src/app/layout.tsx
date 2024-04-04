@@ -3,6 +3,12 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { css } from "../../styled-system/css";
 
+// components
+import { Header } from "@/components/Header";
+
+// consts
+import { menuItems } from "@/const/headerMenuItem";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -50,6 +56,7 @@ export default function RootLayout({
 					className={paperTextureStyle}
 					style={{ minHeight: "100vh", position: "relative", zIndex: 0 }}
 				>
+					<Header menuItems={menuItems} />
 					{children}
 				</div>
 			</body>

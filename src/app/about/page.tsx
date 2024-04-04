@@ -38,7 +38,8 @@ const mainStyle = css({
 
 const headingStyle = css({
 	fontSize: {
-		base: "36px",
+		base: "32px",
+		md: "36px",
 	},
 	color: "#4C4C4C",
 	paddingTop: "20px",
@@ -123,7 +124,7 @@ export default function Home(): JSX.Element {
 									}}
 								/>
 							</div>
-							<div className={aboutMargin}>
+							<div>
 								<div
 									className={`${ZenMaruGothic400.className} ${textStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
@@ -171,6 +172,7 @@ export default function Home(): JSX.Element {
 											className={css({
 												paddingRight: "10px",
 												verticalAlign: "baseline",
+												whiteSpace: "nowrap",
 											})}
 										>
 											{events.year}
