@@ -1,7 +1,6 @@
 export const runtime = "edge";
 
 import { notFound } from "next/navigation";
-import parse from "html-react-parser";
 import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
@@ -54,7 +53,7 @@ export default async function StaticDetailPage({
 				<div>
 					<h1>{post.title}</h1>
 					<h2>{formattedDate}</h2>
-					<div>{parse(post.content)}</div>
+					<div>{post.content}</div>
 				</div>
 			</div>
 		</div>
