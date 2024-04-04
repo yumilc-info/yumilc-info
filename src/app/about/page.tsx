@@ -172,6 +172,7 @@ export default function Home(): JSX.Element {
 											className={css({
 												paddingRight: "10px",
 												verticalAlign: "baseline",
+												whiteSpace: "nowrap",
 											})}
 										>
 											{events.year}
