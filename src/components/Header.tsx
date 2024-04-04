@@ -151,6 +151,9 @@ export const Header = ({ menuItems }: HeaderProps): JSX.Element => {
 					<div
 						className={`${menuItemStyle} ${Montserrat400.className}`}
 						key={item.href}
+						onClick={() => {
+							setIsActive(false);
+						}}
 					>
 						<Link href={item.href}>{item.label}</Link>
 					</div>
