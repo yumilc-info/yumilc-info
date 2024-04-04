@@ -66,6 +66,9 @@ const articleStyle = css({
 	},
 	"& p": {
 		marginLeft: "10px",
+		"& code": {
+			borderRadius: "5px",
+		},
 	},
 	"& h1": {
 		fontSize: "22px",
@@ -107,16 +110,18 @@ const articleStyle = css({
 		paddingLeft: "10px",
 		margin: "10px",
 	},
-	"& code": {
-		margin: "10px",
-		padding: "25px !important",
-		fontSize: {
-			base: "12px",
-			md: "14px",
+	"& pre": {
+		"& code": {
+			margin: "10px",
+			padding: "25px !important",
+			fontSize: {
+				base: "12px",
+				md: "14px",
+			},
+			letterSpacing: "0",
+			lineHeight: "normal",
+			borderRadius: "10px",
 		},
-		letterSpacing: "0",
-		lineHeight: "normal",
-		borderRadius: "10px",
 	},
 	"& table": {
 		borderCollapse: "collapse",
@@ -160,7 +165,7 @@ export default async function StaticDetailPage({
 	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
 
 	const $ = load(post.content);
-	$("pre code").each((_, elm) => {
+	$("code").each((_, elm) => {
 		const className = $(elm).attr("class");
 		const language = className?.replace("language-", "");
 
