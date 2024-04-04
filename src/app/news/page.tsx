@@ -4,10 +4,8 @@ import { css } from "../../../styled-system/css";
 import sanitizeHtml from "sanitize-html";
 
 // components
-import { Header } from "@/components/Header";
 
 // consts
-import { menuItems } from "@/const/headerMenuItem";
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
 import { formatDate } from "@/libs/formatDate";
 
@@ -98,7 +96,6 @@ export default async function StaticPage() {
 
 	return (
 		<div>
-			<Header menuItems={menuItems} />
 			<div className={mainStyle}>
 				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
 				<div className={articleMargin}>

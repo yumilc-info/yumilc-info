@@ -6,11 +6,9 @@ import { css } from "../../../styled-system/css";
 import Image from "next/image";
 
 // components
-import { Header } from "@/components/Header";
 
 // consts
 import { useSmToMdQuery } from "@/const/breakpoint";
-import { menuItems } from "@/const/headerMenuItem";
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
 import {
 	profileText,
@@ -106,7 +104,6 @@ export default function Home(): JSX.Element {
 	const isMd = useSmToMdQuery();
 	return (
 		<div>
-			<Header menuItems={menuItems} />
 			<div className={mainStyle}>
 				<div className={marginBottom}>
 					<h1 className={`${Montserrat400.className} ${headingStyle}`}>
