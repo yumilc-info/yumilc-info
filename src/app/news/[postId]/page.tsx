@@ -1,18 +1,37 @@
 import { notFound } from "next/navigation";
 import parse from "html-react-parser";
-import { getDetail, getList } from "../../../libs/microcms";
+import { getDetail } from "@/libs/microcms";
+import { css } from "../../../../styled-system/css";
+import { formatDate } from "@/libs/formatDate";
 
-export async function generateStaticParams() {
-	const { contents } = await getList();
+// components
 
-	const paths = contents.map((post) => {
-		return {
-			postId: post.id,
-		};
-	});
+// consts
+import { Montserrat400 } from "@/const/font";
 
-	return [...paths];
-}
+const mainStyle = css({
+	top: "70px",
+	position: "relative",
+
+	md: {
+		width: "767px",
+	},
+	margin: "0 auto",
+	padding: {
+		base: "0 6dvw",
+		md: "0 20px",
+	},
+});
+
+const headingStyle = css({
+	fontSize: {
+		base: "32px",
+		md: "36px",
+	},
+	color: "#4C4C4C",
+	paddingTop: "20px",
+	paddingBottom: "10px",
+});
 
 export default async function StaticDetailPage({
 	params: { postId },
@@ -20,9 +39,7 @@ export default async function StaticDetailPage({
 	params: { postId: string };
 }) {
 	const post = await getDetail(postId);
-
-	// ページの生成された時間を取得
-	const time = new Date().toLocaleString();
+	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
 
 	if (!post) {
 		notFound();
@@ -30,9 +47,14 @@ export default async function StaticDetailPage({
 
 	return (
 		<div>
-			<h1>{post.title}</h1>
-			<h2>{time}</h2>
-			<div>{parse(post.content)}</div>
+			<div className={mainStyle}>
+				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
+				<div>
+					<h1>{post.title}</h1>
+					<h2>{formattedDate}</h2>
+					<div>{parse(post.content)}</div>
+				</div>
+			</div>
 		</div>
 	);
 }
