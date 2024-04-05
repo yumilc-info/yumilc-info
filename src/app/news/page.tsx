@@ -119,7 +119,9 @@ export default async function StaticPage() {
 										alignItems: "center",
 									})}
 								>
-									<div className={`${Montserrat400.className} ${titleStyle}`}>
+									<div
+										className={`${ZenMaruGothic400.className} ${titleStyle}`}
+									>
 										{post.title}
 									</div>
 									<div className={`${ZenMaruGothic400.className} ${dateStyle}`}>
