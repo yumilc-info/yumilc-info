@@ -25,7 +25,7 @@ export const worksTsukubaPlaceLab = {
 export const worksInclusiveProject = {
 	heading: "つくばインクルーシブプロジェクト",
 	text: `誰もが科学を楽しめる世界に。
-	聴覚障害のある方、身体障害のある方と協力し、実験教室やサイエンスカフェの実施方法について検討しています。`,
+聴覚障害のある方、身体障害のある方と協力し、実験教室やサイエンスカフェの実施方法について検討しています。`,
 	link: "https://newstsukuba.jp/43010/30/01/",
 };
 

@@ -30,12 +30,12 @@ const headingStyle = css({
 	},
 	color: "#4C4C4C",
 	paddingTop: "20px",
-	paddingBottom: "10px",
 });
 
 const articleMargin = css({
 	paddingLeft: {
-		base: "30px",
+		base: "0",
+		md: "30px",
 	},
 });
 
