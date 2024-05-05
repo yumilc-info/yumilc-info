@@ -29,20 +29,20 @@ export const worksInclusiveProject = {
 	link: "https://newstsukuba.jp/43010/30/01/",
 };
 
-export const contactsMail = {
-	image: "/contacts/mail.svg",
+export const snsMail = {
+	image: "/sns/mail.svg",
 	description: "yumilc.science@gmail.com",
 	link: "mailto:yumilc.scence@gmail.com",
 };
 
-export const contactsX = {
-	image: "/contacts/x.svg",
+export const snsX = {
+	image: "/sns/x.svg",
 	description: "@yumILC_",
 	link: "https://twitter.com/yumILC_",
 };
 
-export const contactsInstagram = {
-	image: "/contacts/instagram.svg",
+export const snsInstagram = {
+	image: "/sns/instagram.svg",
 	description: "yumilc_",
 	link: "https://www.instagram.com/yumilc_/",
 };

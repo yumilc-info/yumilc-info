@@ -5,12 +5,12 @@ import { css } from "../../styled-system/css";
 // consts
 import { Montserrat400 } from "../const/font";
 
-interface ContactsImageLinkProps {
+interface SnsImageLinkProps {
 	image: string;
 	description: string;
 	link: string;
 }
-const contactsImageStyle = css({
+const snsImageStyle = css({
 	position: "relative",
 	width: "100%",
 	height: "100px",
@@ -25,11 +25,11 @@ const aboutTextStyle = css({
 	},
 });
 
-export const ContactsImageLink = ({
+export const SnsImageLink = ({
 	image,
 	description,
 	link,
-}: ContactsImageLinkProps): JSX.Element => {
+}: SnsImageLinkProps): JSX.Element => {
 	return (
 		<Link href={link} target="_blank">
 			<div
@@ -40,7 +40,7 @@ export const ContactsImageLink = ({
 					marginBottom: "30px",
 				})}
 			>
-				<div className={contactsImageStyle}>
+				<div className={snsImageStyle}>
 					<Image src={image} alt={description} fill sizes="100vw" />
 				</div>
 				<div
