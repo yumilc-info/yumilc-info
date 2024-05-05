@@ -25,7 +25,7 @@ export const worksTsukubaPlaceLab = {
 
 export const worksTsukubaConnect = {
 	heading: "TSUKUBA CONNÉCT プログラムリード",
-	text: `大学院生だった2020年からTSUKUBA CONNÉCTへアンバサダーとして参加・登壇し、株式会社しびっくぱわー社員としての配信担当を経て、研究所職員としてプロボノとして参加しています。`,
+	text: `大学院生だった2020年からTSUKUBA CONNÉCTへアンバサダーとして参加・登壇し、株式会社しびっくぱわー社員としての配信担当を経て、現在はサイエンスコミュニケーションのスキルを活かしプロボノとして参加しています。`,
 	link: "https://venturecafetokyo.org/programs/tsukuba-connect/",
 };
 
