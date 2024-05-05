@@ -55,13 +55,19 @@ const dateStyle = css({
 		base: "16px",
 		md: "20px",
 	},
-	textAlign: "right",
 });
 
 const snsImageStyle = css({
 	position: "relative",
-	width: "100px",
-	height: "100px",
+	width: {
+		base: "20px",
+		md: "24px",
+	},
+	height: {
+		base: "20px",
+		md: "24px",
+	},
+	marginLeft: "10px",
 });
 
 const articleStyle = css({
@@ -214,27 +220,35 @@ export default async function StaticDetailPage({
 					<h1 className={`${ZenMaruGothic400.className} ${titleStyle}`}>
 						{post.title}
 					</h1>
-					<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
-						{formattedDate}
-					</h2>
-					<div className={css({ display: "flex" })}>
-						<div>
-							<Link href={tweetUrl} target="_blank">
-								<div className={snsImageStyle}>
-									<Image src="/contacts/x.svg" alt="Xにシェアする" fill />
-								</div>
-							</Link>
-						</div>
-						<div>
-							<Link href={facebookUrl} target="_blank">
-								<div className={snsImageStyle}>
-									<Image
-										src="/contacts/facebook.svg"
-										alt="Facebookにシェアする"
-										fill
-									/>
-								</div>
-							</Link>
+					<div
+						className={css({
+							display: "flex",
+							justifyContent: "space-between",
+							marginBottom: "20px",
+						})}
+					>
+						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
+							{formattedDate}
+						</h2>
+						<div className={css({ display: "flex" })}>
+							<div>
+								<Link href={tweetUrl} target="_blank">
+									<div className={snsImageStyle}>
+										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
+									</div>
+								</Link>
+							</div>
+							<div>
+								<Link href={facebookUrl} target="_blank">
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+										/>
+									</div>
+								</Link>
+							</div>
 						</div>
 					</div>
 					<div
