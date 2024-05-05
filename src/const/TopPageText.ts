@@ -22,6 +22,12 @@ export const worksTsukubaPlaceLab = {
 	link: "https://civicpower.jp/tsukubaplacelab/",
 };
 
+export const worksTsukubaConnect = {
+	heading: "TSUKUBA CONNÉCT プログラムリード",
+	text: `大学院生だった2020年からTSUKUBA CONNÉCTへアンバサダーとして参加・登壇し、株式会社しびっくぱわー社員としての配信担当を経て、研究所職員としてプロボノとして参加しています。`,
+	link: "https://venturecafetokyo.org/programs/tsukuba-connect/",
+};
+
 export const worksInclusiveProject = {
 	heading: "つくばインクルーシブプロジェクト",
 	text: `誰もが科学を楽しめる世界に。
