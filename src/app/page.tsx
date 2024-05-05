@@ -8,7 +8,7 @@ import Image from "next/image";
 
 // components
 import { WorksText } from "@/components/WorksText";
-import { ContactsImageLink } from "@/components/ContactsImageLink";
+import { SnsImageLink } from "@/components/ContactsImageLink";
 import { TopPageBackGround } from "@/components/TopPageBackGround";
 import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
@@ -21,9 +21,9 @@ import {
 	worksTsubuya,
 	worksTsukubaPlaceLab,
 	worksInclusiveProject,
-	contactsMail,
-	contactsX,
-	contactsInstagram,
+	snsX,
+	snsInstagram,
+	snsYoutube,
 } from "@/const/TopPageText";
 
 // images
@@ -109,10 +109,7 @@ const worksMargin = css({
 const snsFlex = css({
 	display: "flex",
 	justifyContent: "space-between",
-	flexDirection: {
-		base: "column",
-		sm: "row",
-	},
+	flexDirection: "row",
 });
 
 const keywordAreaStyle = css({
@@ -261,7 +258,7 @@ export default function Home(): JSX.Element {
 					<div className={snsFlex}>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
-								<ContactsImageLink
+								<SnsImageLink
 									image={snsX.image}
 									description={snsX.description}
 									link={snsX.link}
@@ -270,7 +267,7 @@ export default function Home(): JSX.Element {
 						</div>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
-								<ContactsImageLink
+								<SnsImageLink
 									image={snsInstagram.image}
 									description={snsInstagram.description}
 									link={snsInstagram.link}
@@ -279,7 +276,7 @@ export default function Home(): JSX.Element {
 						</div>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
-								<ContactsImageLink
+								<SnsImageLink
 									image={snsYoutube.image}
 									description={snsYoutube.description}
 									link={snsYoutube.link}
