@@ -3,8 +3,10 @@ import Link from "next/link";
 import { css } from "../../styled-system/css";
 
 // consts
+/*
 import { Montserrat400 } from "../const/font";
 import { useSmQuery } from "../const/breakpoint";
+*/
 
 interface SnsImageLinkProps {
 	image: string;
@@ -13,9 +15,10 @@ interface SnsImageLinkProps {
 }
 const snsImageStyle = css({
 	position: "relative",
-	width: "100%",
+	width: ["15dvw", "100px"],
 	height: ["15dvw", "100px"],
 });
+/*
 const aboutTextStyle = css({
 	color: "#4C4C4C",
 	letterSpacing: "0.1em",
@@ -25,13 +28,14 @@ const aboutTextStyle = css({
 		md: "16px",
 	},
 });
+*/
 
 export const SnsImageLink = ({
 	image,
 	description,
 	link,
 }: SnsImageLinkProps): JSX.Element => {
-	const isSm = useSmQuery();
+	/* const isSm = useSmQuery(); */
 	return (
 		<Link href={link} target="_blank">
 			<div
@@ -45,13 +49,13 @@ export const SnsImageLink = ({
 				<div className={snsImageStyle}>
 					<Image src={image} alt={description} fill sizes="100vw" />
 				</div>
-				{!isSm && (
+				{/*!isSm && (
 					<div
 						className={`${Montserrat400.className} ${aboutTextStyle} ${css({ margin: "10px 0" })}`}
 					>
 						{description}
 					</div>
-				)}
+				)*/}
 			</div>
 		</Link>
 	);
