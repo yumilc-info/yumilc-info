@@ -8,7 +8,7 @@ import Image from "next/image";
 
 // components
 import { WorksText } from "@/components/WorksText";
-import { ContactsImageLink } from "@/components/ContactsImageLink";
+import { SnsImageLink } from "@/components/ContactsImageLink";
 import { TopPageBackGround } from "@/components/TopPageBackGround";
 import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
@@ -22,9 +22,9 @@ import {
 	worksTsukubaPlaceLab,
 	worksTsukubaConnect,
 	worksInclusiveProject,
-	contactsMail,
-	contactsX,
-	contactsInstagram,
+	snsX,
+	snsInstagram,
+	snsYoutube,
 } from "@/const/TopPageText";
 
 // images
@@ -107,13 +107,11 @@ const worksMargin = css({
 	},
 });
 
-const contactsFlex = css({
+const snsFlex = css({
 	display: "flex",
 	justifyContent: "space-between",
-	flexDirection: {
-		base: "column",
-		sm: "row",
-	},
+	flexDirection: "row",
+	margin: "20px 0",
 });
 
 const keywordAreaStyle = css({
@@ -263,34 +261,32 @@ export default function Home(): JSX.Element {
 					</div>
 				</div>
 				<div>
-					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
-						Contacts
-					</h1>
-					<div className={contactsFlex}>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>SNS</h1>
+					<div className={snsFlex}>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
-								<ContactsImageLink
-									image={contactsMail.image}
-									description={contactsMail.description}
-									link={contactsMail.link}
+								<SnsImageLink
+									image={snsX.image}
+									description={snsX.description}
+									link={snsX.link}
 								/>
 							</HoverGrowWrapper>
 						</div>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
-								<ContactsImageLink
-									image={contactsX.image}
-									description={contactsX.description}
-									link={contactsX.link}
+								<SnsImageLink
+									image={snsInstagram.image}
+									description={snsInstagram.description}
+									link={snsInstagram.link}
 								/>
 							</HoverGrowWrapper>
 						</div>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
-								<ContactsImageLink
-									image={contactsInstagram.image}
-									description={contactsInstagram.description}
-									link={contactsInstagram.link}
+								<SnsImageLink
+									image={snsYoutube.image}
+									description={snsYoutube.description}
+									link={snsYoutube.link}
 								/>
 							</HoverGrowWrapper>
 						</div>
