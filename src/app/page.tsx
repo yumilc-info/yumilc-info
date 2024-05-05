@@ -20,6 +20,7 @@ import {
 	worksScienceCommunicator,
 	worksTsubuya,
 	worksTsukubaPlaceLab,
+	worksTsukubaConnect,
 	worksInclusiveProject,
 	contactsMail,
 	contactsX,
@@ -248,6 +249,11 @@ export default function Home(): JSX.Element {
 							heading={worksTsukubaPlaceLab.heading}
 							description={worksTsukubaPlaceLab.text}
 							link={worksTsukubaPlaceLab.link}
+						/>
+						<WorksText
+							heading={worksTsukubaConnect.heading}
+							description={worksTsukubaConnect.text}
+							link={worksTsukubaConnect.link}
 						/>
 						<WorksText
 							heading={worksInclusiveProject.heading}

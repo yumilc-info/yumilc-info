@@ -5,7 +5,8 @@ export const aboutText = `ゆーみるしーです。理学博士（素粒子物
 export const worksScienceCommunicator = {
 	heading: "サイエンスコミュニケーター",
 	text: `研究所の広報のかたわら、個人でサイエンスコミュニケーターとして活動しています。
-研究に関わる広報活動をこれまでに100回以上実施。研究の紹介のほか、実験教室や紙芝居で伝える科学のお話など多岐にわたる活動をしてきました。`,
+研究に関わる広報活動をこれまでに100回以上実施。研究の紹介のほか、実験教室や紙芝居で伝える科学のお話など多岐にわたる活動をしてきました。
+だいたい月1で実験教室「やってみる研究室」実施中！`,
 	link: "https://scibaco.net/profile/1918",
 };
 
@@ -20,6 +21,12 @@ export const worksTsukubaPlaceLab = {
 	heading: "Tsukuba Place Lab スタッフ",
 	text: `筑波大学すぐそばのコミュニティスペースで人と人とを繋ぐスタッフをやっています。科学イベントも開催中。「粒や」もLabから生まれました。`,
 	link: "https://civicpower.jp/tsukubaplacelab/",
+};
+
+export const worksTsukubaConnect = {
+	heading: "TSUKUBA CONNÉCT プログラムリード",
+	text: `大学院生だった2020年からTSUKUBA CONNÉCTへアンバサダーとして参加・登壇し、株式会社しびっくぱわー社員としての配信担当を経て、現在はサイエンスコミュニケーションのスキルを活かしプロボノとして参加しています。`,
+	link: "https://venturecafetokyo.org/programs/tsukuba-connect/",
 };
 
 export const worksInclusiveProject = {
