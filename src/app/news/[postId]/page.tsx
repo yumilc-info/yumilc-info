@@ -1,6 +1,8 @@
 export const runtime = "edge";
 
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
@@ -54,6 +56,12 @@ const dateStyle = css({
 		md: "20px",
 	},
 	textAlign: "right",
+});
+
+const snsImageStyle = css({
+	position: "relative",
+	width: "100px",
+	height: "100px",
 });
 
 const articleStyle = css({
@@ -188,6 +196,16 @@ export default async function StaticDetailPage({
 		notFound();
 	}
 
+	const currentUrl = encodeURIComponent(`https://yumilc.info/news/${postId}`);
+	const twitterUserName = encodeURIComponent("yumILC_");
+	const shareText = encodeURIComponent(
+		`${post.title} - ゆーみるしー
+@${twitterUserName}
+`,
+	);
+	const tweetUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
+	const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+
 	return (
 		<div>
 			<div className={mainStyle}>
@@ -199,6 +217,26 @@ export default async function StaticDetailPage({
 					<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 						{formattedDate}
 					</h2>
+					<div className={css({ display: "flex" })}>
+						<div>
+							<Link href={tweetUrl} target="_blank">
+								<div className={snsImageStyle}>
+									<Image src="/contacts/x.svg" alt="Xにシェアする" fill />
+								</div>
+							</Link>
+						</div>
+						<div>
+							<Link href={facebookUrl} target="_blank">
+								<div className={snsImageStyle}>
+									<Image
+										src="/contacts/facebook.svg"
+										alt="Facebookにシェアする"
+										fill
+									/>
+								</div>
+							</Link>
+						</div>
+					</div>
 					<div
 						className={`${ZenMaruGothic400.className} ${articleStyle}`}
 						dangerouslySetInnerHTML={{ __html: post.content }}
