@@ -29,12 +29,6 @@ export const worksInclusiveProject = {
 	link: "https://newstsukuba.jp/43010/30/01/",
 };
 
-export const snsMail = {
-	image: "/sns/mail.svg",
-	description: "yumilc.science@gmail.com",
-	link: "mailto:yumilc.scence@gmail.com",
-};
-
 export const snsX = {
 	image: "/sns/x.svg",
 	description: "@yumILC_",
@@ -45,4 +39,10 @@ export const snsInstagram = {
 	image: "/sns/instagram.svg",
 	description: "yumilc_",
 	link: "https://www.instagram.com/yumilc_/",
+};
+
+export const snsYoutube = {
+	image: "/sns/mail.svg",
+	description: "yumilc.science@gmail.com",
+	link: "mailto:yumilc.scence@gmail.com",
 };
