@@ -42,7 +42,7 @@ export const snsInstagram = {
 };
 
 export const snsYoutube = {
-	image: "/sns/mail.svg",
-	description: "yumilc.science@gmail.com",
-	link: "mailto:yumilc.scence@gmail.com",
+	image: "/sns/youtube.svg",
+	description: "@yumILC_",
+	link: "https://www.youtube.com/@yumILC_",
 };
