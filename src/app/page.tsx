@@ -110,6 +110,7 @@ const snsFlex = css({
 	display: "flex",
 	justifyContent: "space-between",
 	flexDirection: "row",
+	margin: "20px 0",
 });
 
 const keywordAreaStyle = css({

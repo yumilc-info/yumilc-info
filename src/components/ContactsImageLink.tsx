@@ -14,7 +14,7 @@ interface SnsImageLinkProps {
 const snsImageStyle = css({
 	position: "relative",
 	width: "100%",
-	height: ["20dvw", "100px"],
+	height: ["15dvw", "100px"],
 });
 const aboutTextStyle = css({
 	color: "#4C4C4C",
