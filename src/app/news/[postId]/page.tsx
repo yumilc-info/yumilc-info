@@ -230,7 +230,7 @@ export default async function StaticDetailPage({
 						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 							{formattedDate}
 						</h2>
-						<div className={css({ display: "flex" })}>
+						<div className={css({ display: "flex", width: "68px" })}>
 							<div>
 								<Link href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
