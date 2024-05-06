@@ -230,15 +230,15 @@ export default async function StaticDetailPage({
 						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 							{formattedDate}
 						</h2>
-						<div className={css({ display: "flex", width: "68px" })}>
-							<div>
+						<div className={css({ display: "flex" })}>
+							<div className={css({ width: "30px" })}>
 								<Link href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
 								</Link>
 							</div>
-							<div>
+							<div className={css({ width: "30px" })}>
 								<Link href={facebookUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image
