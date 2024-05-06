@@ -232,14 +232,14 @@ export default async function StaticDetailPage({
 							{formattedDate}
 						</h2>
 						<div className={css({ display: "flex" })}>
-							<HoverGrowWrapper>
+							<div>
 								<Link href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
 								</Link>
-							</HoverGrowWrapper>
-							<HoverGrowWrapper>
+							</div>
+							<div>
 								<Link href={facebookUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image
@@ -249,7 +249,7 @@ export default async function StaticDetailPage({
 										/>
 									</div>
 								</Link>
-							</HoverGrowWrapper>
+							</div>
 						</div>
 					</div>
 					<div
