@@ -11,7 +11,6 @@ import hljs from "highlight.js";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
-import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
