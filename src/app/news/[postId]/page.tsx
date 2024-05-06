@@ -231,14 +231,14 @@ export default async function StaticDetailPage({
 							{formattedDate}
 						</h2>
 						<div className={css({ display: "flex" })}>
-							<div className={css({ width: "30px" })}>
+							<div>
 								<Link href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
 								</Link>
 							</div>
-							<div className={css({ width: "30px" })}>
+							<div>
 								<Link href={facebookUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image
