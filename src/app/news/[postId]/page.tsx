@@ -11,6 +11,7 @@ import hljs from "highlight.js";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
+import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
@@ -231,14 +232,14 @@ export default async function StaticDetailPage({
 							{formattedDate}
 						</h2>
 						<div className={css({ display: "flex" })}>
-							<div>
+							<HoverGrowWrapper>
 								<Link href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
 								</Link>
-							</div>
-							<div>
+							</HoverGrowWrapper>
+							<HoverGrowWrapper>
 								<Link href={facebookUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image
@@ -248,7 +249,7 @@ export default async function StaticDetailPage({
 										/>
 									</div>
 								</Link>
-							</div>
+							</HoverGrowWrapper>
 						</div>
 					</div>
 					<div

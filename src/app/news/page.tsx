@@ -2,12 +2,13 @@ import Link from "next/link";
 import { getList } from "@/libs/microcms";
 import { css } from "../../../styled-system/css";
 import sanitizeHtml from "sanitize-html";
+import { formatDate } from "@/libs/formatDate";
 
 // components
+import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
-import { formatDate } from "@/libs/formatDate";
 
 const mainStyle = css({
 	top: "70px",
@@ -134,7 +135,9 @@ export default async function StaticPage() {
 									</div>
 								</div>
 								<div className={`${Montserrat400.className} ${readLinkStyle}`}>
-									<Link href={`/news/${post.id}`}>Read More</Link>
+									<HoverGrowWrapper>
+										<Link href={`/news/${post.id}`}>Read More</Link>
+									</HoverGrowWrapper>
 								</div>
 							</div>
 						);
