@@ -234,25 +234,25 @@ export default function StaticDetailPage() {
 						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 							{formattedDate}
 						</h2>
-						<div className={css({ display: "flex" })}>
-							<div>
-								<Link href={tweetUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
-									</div>
-								</Link>
-							</div>
-							<div>
-								<Link href={facebookUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image
-											src="/sns/facebook.svg"
-											alt="Facebookにシェアする"
-											fill
-										/>
-									</div>
-								</Link>
-							</div>
+					</div>
+					<div className={css({ display: "flex" })}>
+						<div>
+							<Link href={tweetUrl} target="_blank">
+								<div className={snsImageStyle}>
+									<Image src="/sns/x.svg" alt="Xにシェアする" fill />
+								</div>
+							</Link>
+						</div>
+						<div>
+							<Link href={facebookUrl} target="_blank">
+								<div className={snsImageStyle}>
+									<Image
+										src="/sns/facebook.svg"
+										alt="Facebookにシェアする"
+										fill
+									/>
+								</div>
+							</Link>
 						</div>
 					</div>
 					<div
