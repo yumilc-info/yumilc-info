@@ -1,7 +1,6 @@
 export const runtime = "edge";
 
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
@@ -233,11 +232,11 @@ export default async function StaticDetailPage({
 						<div className={css({ display: "flex" })}>
 							<div>
 								<Image src="/sns/x.svg" alt="Xにシェアする" fill />
-								<Link href={tweetUrl} target="_blank">
+								<a href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
-								</Link>
+								</a>
 							</div>
 							<div>
 								<Image
@@ -245,7 +244,7 @@ export default async function StaticDetailPage({
 									alt="Facebookにシェアする"
 									fill
 								/>
-								<Link href={facebookUrl} target="_blank">
+								<a href={facebookUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image
 											src="/sns/facebook.svg"
@@ -253,7 +252,7 @@ export default async function StaticDetailPage({
 											fill
 										/>
 									</div>
-								</Link>
+								</a>
 							</div>
 						</div>
 					</div>
