@@ -1,5 +1,4 @@
 "use client";
-export const runtime = "edge";
 
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
