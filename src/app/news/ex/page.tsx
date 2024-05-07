@@ -1,8 +1,8 @@
 export const runtime = "edge";
 
 // import { notFound } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
+// import Link from "next/link";
+// import Image from "next/image";
 // import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
@@ -14,6 +14,8 @@ import "highlight.js/styles/tokyo-night-dark.css";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
+import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
+import { SnsImageLink } from "@/components/ContactsImageLink";
 
 const mainStyle = css({
 	top: "70px",
@@ -57,6 +59,7 @@ const dateStyle = css({
 	},
 });
 
+/* 
 const snsImageStyle = css({
 	position: "relative",
 	width: {
@@ -69,6 +72,7 @@ const snsImageStyle = css({
 	},
 	marginLeft: "10px",
 });
+*/
 
 const articleStyle = css({
 	color: "#4C4C4C",
@@ -170,6 +174,13 @@ const articleStyle = css({
 	},
 });
 
+const snsFlex = css({
+	display: "flex",
+	justifyContent: "space-between",
+	flexDirection: "row",
+	margin: "20px 0",
+});
+
 export default function StaticDetailPage() {
 	/*
 	const post = await getDetail(postId);
@@ -235,24 +246,24 @@ export default function StaticDetailPage() {
 							{formattedDate}
 						</h2>
 					</div>
-					<div className={css({ display: "flex" })}>
+					<div className={snsFlex}>
 						<div className={css({ flex: 1 })}>
-							<Link href={tweetUrl} target="_blank">
-								<div className={snsImageStyle}>
-									<Image src="/sns/x.svg" alt="Xにシェアする" fill />
-								</div>
-							</Link>
+							<HoverGrowWrapper>
+								<SnsImageLink
+									image="/sns/x.svg"
+									description="Twitterでシェアする"
+									link={tweetUrl}
+								/>
+							</HoverGrowWrapper>
 						</div>
 						<div className={css({ flex: 1 })}>
-							<Link href={facebookUrl} target="_blank">
-								<div className={snsImageStyle}>
-									<Image
-										src="/sns/facebook.svg"
-										alt="Facebookにシェアする"
-										fill
-									/>
-								</div>
-							</Link>
+							<HoverGrowWrapper>
+								<SnsImageLink
+									image="/sns/facebook.svg"
+									description="Facebookにシェアする"
+									link={facebookUrl}
+								/>
+							</HoverGrowWrapper>
 						</div>
 					</div>
 					<div
