@@ -1,26 +1,38 @@
 "use client";
 
-// import { notFound } from "next/navigation";
-// import Link from "next/link";
-// import Image from "next/image";
-// import { getDetail } from "@/libs/microcms";
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
 import { css } from "../../../../styled-system/css";
-import { formatDate } from "@/libs/formatDate";
-// import { load } from "cheerio";
-// import hljs from "highlight.js";
-import "highlight.js/styles/tokyo-night-dark.css";
+import Link from "next/link";
+import Image from "next/image";
 
 // components
+import { WorksText } from "@/components/WorksText";
+import { SnsImageLink } from "@/components/ContactsImageLink";
+import { TopPageBackGround } from "@/components/TopPageBackGround";
+import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
-import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
-import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
-import { SnsImageLink } from "@/components/ContactsImageLink";
+import { useSmQuery } from "@/const/breakpoint";
+import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "@/const/font";
+import {
+	aboutText,
+	worksScienceCommunicator,
+	worksTsubuya,
+	worksTsukubaPlaceLab,
+	worksTsukubaConnect,
+	worksInclusiveProject,
+	snsX,
+	snsInstagram,
+	snsYoutube,
+} from "@/const/TopPageText";
+
+// images
+import yumic from "public/yumilc.jpg";
 
 const mainStyle = css({
-	top: "70px",
+	top: "0",
 	position: "relative",
-
 	md: {
 		width: "767px",
 	},
@@ -33,48 +45,45 @@ const mainStyle = css({
 
 const headingStyle = css({
 	fontSize: {
-		base: "32px",
-		md: "36px",
+		base: "36px",
+		md: "40px",
 	},
 	color: "#4C4C4C",
-	paddingTop: "20px",
-	paddingBottom: "10px",
 });
 
-const titleStyle = css({
-	fontSize: {
-		base: "24px",
-		md: "32px",
-	},
-	color: "#4C4C4C",
-	paddingTop: "20px",
-	paddingBottom: "10px",
-});
-
-const dateStyle = css({
-	color: "#4C4C4C",
+const aboutLinkStyle = css({
 	fontSize: {
 		base: "16px",
 		md: "20px",
 	},
+	color: "#4C4C4C",
+	textDecorationLine: "underline",
 });
 
-/* 
-const snsImageStyle = css({
-	position: "relative",
+const aboutFlex = css({
+	display: "flex",
+	justifyContent: "space-between",
+});
+const aboutLinkFlex = css({
+	display: "flex",
+	justifyContent: "space-around",
+	margin: "20px 0",
+});
+
+const profileImageStyle = css({
+	flex: 1,
 	width: {
-		base: "20px",
-		md: "24px",
+		smToMd: "50dvw",
+		base: "auto",
 	},
-	height: {
-		base: "20px",
-		md: "24px",
+	margin: {
+		md: 0,
+		smToMd: "20px auto",
+		base: "20px 70px",
 	},
-	marginLeft: "10px",
 });
-*/
 
-const articleStyle = css({
+const aboutTextStyle = css({
 	color: "#4C4C4C",
 	letterSpacing: "0.1em",
 	lineHeight: "2em",
@@ -82,95 +91,19 @@ const articleStyle = css({
 		base: "14px",
 		md: "16px",
 	},
-	"& p": {
-		marginLeft: "10px",
-		"& code": {
-			borderRadius: "5px",
-		},
+});
+
+const aboutMargin = css({
+	paddingLeft: {
+		base: "30px",
 	},
-	"& h1": {
-		fontSize: "22px",
-		fontWeight: "bold",
-		marginTop: "20px",
-		marginBottom: "10px",
-		borderBottom: "1px solid #ddd",
-	},
-	"& h2": {
-		fontSize: "20px",
-		fontWeight: "bold",
-		marginTop: "20px",
-		marginBottom: "10px",
-		borderBottom: "1px solid #ddd",
-	},
-	"& h3": {
-		fontSize: "18px",
-		fontWeight: "bold",
-		marginTop: "20px",
-		marginBottom: "10px",
-		borderBottom: "1px solid #ddd",
-	},
-	"& h4": {
-		fontSize: "17px",
-		fontWeight: "bold",
-		marginTop: "20px",
-		marginBottom: "10px",
-		borderBottom: "1px solid #ddd",
-	},
-	"& h5": {
-		fontSize: "16px",
-		fontWeight: "bold",
-		marginTop: "20px",
-		marginBottom: "10px",
-		borderBottom: "1px solid #ddd",
-	},
-	"& blockquote": {
-		borderLeft: "5px solid #ddd",
-		paddingLeft: "10px",
-		margin: "10px",
-	},
-	"& pre": {
-		"& code": {
-			margin: "10px",
-			padding: "25px !important",
-			fontSize: {
-				base: "12px",
-				md: "14px",
-			},
-			letterSpacing: "0",
-			lineHeight: "normal",
-			borderRadius: "10px",
-		},
-	},
-	"& table": {
-		borderCollapse: "collapse",
-		margin: "10px",
-	},
-	"& th": {
-		border: "1px solid #ddd",
-		padding: "10px",
-		"& p": {
-			marginLeft: "0",
-		},
-		backgroundColor: "#f2f2f2",
-	},
-	"& td": {
-		border: "1px solid #ddd",
-		padding: "10px",
-		"& p": {
-			marginLeft: "0",
-		},
-	},
-	"& ul": {
-		marginLeft: "20px",
-		marginTop: "10px",
-		marginBottom: "10px",
-		listStyleType: "circle",
-	},
-	"& ol": {
-		marginLeft: "20px",
-		marginTop: "10px",
-		marginBottom: "10px",
-		listStyleType: "decimal",
+	paddingRight: "30px",
+	flex: 2,
+});
+
+const worksMargin = css({
+	padding: {
+		base: "0 30px",
 	},
 });
 
@@ -181,97 +114,186 @@ const snsFlex = css({
 	margin: "20px 0",
 });
 
-export default function StaticDetailPage() {
-	/*
-	const post = await getDetail(postId);
+const keywordAreaStyle = css({
+	position: "relative",
+	width: "100dvw",
+	height: {
+		sm: "60dvw",
+		base: "65dvw",
+	},
+	top: "70px",
+	left: "0",
+});
 
-	const $ = load(post.content);
-	$("code").each((_, elm) => {
-		const className = $(elm).attr("class");
-		const language = className?.replace("language-", "");
+const keywordStyle = css({
+	position: "relative",
+	width: "58dvw",
+	height: "18dvw",
+	left: "12dvw",
+	top: "15dvw",
+});
 
-		let result;
-		if (language) {
-			try {
-				result = hljs.highlight($(elm).text(), { language });
-			} catch (error) {
-				result = hljs.highlightAuto($(elm).text());
-			}
-		} else {
-			result = hljs.highlightAuto($(elm).text());
-		}
-		$(elm).html(result.value);
-		$(elm).addClass("hljs");
-	});
-	post.content = $.html();
+const marginBottom = css({
+	marginBottom: "40px",
+});
 
-	if (!post) {
-		notFound();
-	}
-	*/
-
-	const post = {
-		title: "title",
-		publishedAt: "2021-01-01",
-		content: "<p>content</p>",
-	};
-	const postId = "1";
-	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
-	const currentUrl = encodeURIComponent(`https://yumilc.info/news/${postId}`);
-	const twitterUserName = encodeURIComponent("yumILC_");
-	const shareText = encodeURIComponent(
-		`${post.title} - ゆーみるしー
-@${twitterUserName}
-`,
-	);
-	const tweetUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
-	const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
-
+export default function Home(): JSX.Element {
+	const isSm = useSmQuery();
 	return (
 		<div>
+			<div className={keywordAreaStyle}>
+				<div className={keywordStyle}>
+					<Image src="/decoration/keyword.svg" alt="keyword" fill />
+				</div>
+			</div>
 			<div className={mainStyle}>
-				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
-				<div>
-					<h1 className={`${ZenMaruGothic400.className} ${titleStyle}`}>
-						{post.title}
+				<div className={marginBottom}>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
+						About
 					</h1>
-					<div
-						className={css({
-							display: "flex",
-							justifyContent: "space-between",
-							marginBottom: "20px",
-						})}
-					>
-						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
-							{formattedDate}
-						</h2>
+					{isSm ? (
+						<div>
+							<div className={profileImageStyle}>
+								<Image
+									src={yumic}
+									alt="yumilc"
+									style={{
+										maxWidth: "100%",
+										height: "auto",
+									}}
+								/>
+							</div>
+							<div className={aboutMargin}>
+								<div
+									className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+									style={{ whiteSpace: "pre-wrap" }}
+								>
+									{aboutText}
+								</div>
+								<div className={aboutLinkFlex}>
+									<div
+										className={`${Montserrat400.className} ${aboutLinkStyle}`}
+									>
+										<HoverGrowWrapper>
+											<Link href="/about">Yumilc's Profile</Link>
+										</HoverGrowWrapper>
+									</div>
+									<div
+										className={`${Montserrat400.className} ${aboutLinkStyle}`}
+									>
+										<HoverGrowWrapper>
+											<Link href="/news">News</Link>
+										</HoverGrowWrapper>
+									</div>
+								</div>
+							</div>
+						</div>
+					) : (
+						<div className={aboutFlex}>
+							<div className={aboutMargin}>
+								<div
+									className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+									style={{ whiteSpace: "pre-wrap" }}
+								>
+									{aboutText}
+								</div>
+								<div className={aboutLinkFlex}>
+									<div
+										className={`${Montserrat400.className} ${aboutLinkStyle}`}
+									>
+										<HoverGrowWrapper>
+											<Link href="/about">Yumilc's Profile</Link>
+										</HoverGrowWrapper>
+									</div>
+									<div
+										className={`${Montserrat400.className} ${aboutLinkStyle}`}
+									>
+										<HoverGrowWrapper>
+											<Link href="/news">News</Link>
+										</HoverGrowWrapper>
+									</div>
+								</div>
+							</div>
+
+							<div className={profileImageStyle}>
+								<Image
+									src={yumic}
+									alt="yumilc"
+									style={{
+										maxWidth: "100%",
+										height: "auto",
+									}}
+								/>
+							</div>
+						</div>
+					)}
+				</div>
+				<div className={marginBottom}>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
+						Works
+					</h1>
+					<div className={worksMargin}>
+						<WorksText
+							heading={worksScienceCommunicator.heading}
+							description={worksScienceCommunicator.text}
+							link={worksScienceCommunicator.link}
+						/>
+						<WorksText
+							heading={worksTsubuya.heading}
+							description={worksTsubuya.text}
+							link={worksTsubuya.link}
+						/>
+						<WorksText
+							heading={worksTsukubaPlaceLab.heading}
+							description={worksTsukubaPlaceLab.text}
+							link={worksTsukubaPlaceLab.link}
+						/>
+						<WorksText
+							heading={worksTsukubaConnect.heading}
+							description={worksTsukubaConnect.text}
+							link={worksTsukubaConnect.link}
+						/>
+						<WorksText
+							heading={worksInclusiveProject.heading}
+							description={worksInclusiveProject.text}
+							link={worksInclusiveProject.link}
+						/>
 					</div>
+				</div>
+				<div>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>SNS</h1>
 					<div className={snsFlex}>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
 								<SnsImageLink
-									image="/sns/x.svg"
-									description="Twitterでシェアする"
-									link={tweetUrl}
+									image={snsX.image}
+									description={snsX.description}
+									link={snsX.link}
 								/>
 							</HoverGrowWrapper>
 						</div>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
 								<SnsImageLink
-									image="/sns/facebook.svg"
-									description="Facebookにシェアする"
-									link={facebookUrl}
+									image={snsInstagram.image}
+									description={snsInstagram.description}
+									link={snsInstagram.link}
+								/>
+							</HoverGrowWrapper>
+						</div>
+						<div className={css({ flex: 1 })}>
+							<HoverGrowWrapper>
+								<SnsImageLink
+									image={snsYoutube.image}
+									description={snsYoutube.description}
+									link={snsYoutube.link}
 								/>
 							</HoverGrowWrapper>
 						</div>
 					</div>
-					<div
-						className={`${ZenMaruGothic400.className} ${articleStyle}`}
-						dangerouslySetInnerHTML={{ __html: post.content }}
-					/>
 				</div>
 			</div>
+			<TopPageBackGround />
 		</div>
 	);
 }
