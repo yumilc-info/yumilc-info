@@ -11,6 +11,7 @@ import hljs from "highlight.js";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
+import { SnsImageLink } from "@/components/ContactsImageLink";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
@@ -232,44 +233,40 @@ export default async function StaticDetailPage({
 						</h2>
 						<div className={css({ display: "flex" })}>
 							<div>
+								<SnsImageLink
+									image="/sns/twitter.svg"
+									description="Twitterにシェアする"
+									link={tweetUrl}
+								/>
+							</div>
+							<div>
+								<SnsImageLink
+									image="/sns/facebook.svg"
+									description="Facebookにシェアする"
+									link={facebookUrl}
+								/>
+							</div>
+							<div>
 								<Link href={tweetUrl} target="_blank">
-									<div
-										className={css({
-											display: "flex",
-											flexDirection: "column",
-											alignItems: "center",
-											marginBottom: "30px",
-										})}
-									>
-										<div className={snsImageStyle}>
-											<Image
-												src="/sns/x.svg"
-												alt="Xにシェアする"
-												fill
-												sizes="100vw"
-											/>
-										</div>
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/x.svg"
+											alt="Xにシェアする"
+											fill
+											sizes="100vw"
+										/>
 									</div>
 								</Link>
 							</div>
 							<div>
 								<Link href={facebookUrl} target="_blank">
-									<div
-										className={css({
-											display: "flex",
-											flexDirection: "column",
-											alignItems: "center",
-											marginBottom: "30px",
-										})}
-									>
-										<div className={snsImageStyle}>
-											<Image
-												src="/sns/facebook.svg"
-												alt="Facebookにシェアする"
-												fill
-												sizes="100vw"
-											/>
-										</div>
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+											sizes="100vw"
+										/>
 									</div>
 								</Link>
 							</div>
