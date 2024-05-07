@@ -233,7 +233,14 @@ export default async function StaticDetailPage({
 						<div className={css({ display: "flex" })}>
 							<div>
 								<Link href={tweetUrl} target="_blank">
-									<div>
+									<div
+										className={css({
+											display: "flex",
+											flexDirection: "column",
+											alignItems: "center",
+											marginBottom: "30px",
+										})}
+									>
 										<div className={snsImageStyle}>
 											<Image
 												src="/sns/x.svg"
@@ -247,7 +254,14 @@ export default async function StaticDetailPage({
 							</div>
 							<div>
 								<Link href={facebookUrl} target="_blank">
-									<div>
+									<div
+										className={css({
+											display: "flex",
+											flexDirection: "column",
+											alignItems: "center",
+											marginBottom: "30px",
+										})}
+									>
 										<div className={snsImageStyle}>
 											<Image
 												src="/sns/facebook.svg"
