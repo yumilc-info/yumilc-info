@@ -233,25 +233,29 @@ export default async function StaticDetailPage({
 						<div className={css({ display: "flex" })}>
 							<div>
 								<Link href={tweetUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image
-											src="/sns/x.svg"
-											alt="Xにシェアする"
-											fill
-											sizes="100vw"
-										/>
+									<div>
+										<div className={snsImageStyle}>
+											<Image
+												src="/sns/x.svg"
+												alt="Xにシェアする"
+												fill
+												sizes="100vw"
+											/>
+										</div>
 									</div>
 								</Link>
 							</div>
 							<div>
 								<Link href={facebookUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image
-											src="/sns/facebook.svg"
-											alt="Facebookにシェアする"
-											fill
-											sizes="100vw"
-										/>
+									<div>
+										<div className={snsImageStyle}>
+											<Image
+												src="/sns/facebook.svg"
+												alt="Facebookにシェアする"
+												fill
+												sizes="100vw"
+											/>
+										</div>
 									</div>
 								</Link>
 							</div>
