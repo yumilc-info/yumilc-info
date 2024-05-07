@@ -232,6 +232,7 @@ export default async function StaticDetailPage({
 						</h2>
 						<div className={css({ display: "flex" })}>
 							<div>
+								<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 								<Link href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
@@ -239,6 +240,11 @@ export default async function StaticDetailPage({
 								</Link>
 							</div>
 							<div>
+								<Image
+									src="/sns/facebook.svg"
+									alt="Facebookにシェアする"
+									fill
+								/>
 								<Link href={facebookUrl} target="_blank">
 									<div className={snsImageStyle}>
 										<Image
