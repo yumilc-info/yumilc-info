@@ -1,17 +1,16 @@
 export const runtime = "edge";
 
-import { notFound } from "next/navigation";
+// import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { getDetail } from "@/libs/microcms";
+// import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
-import { load } from "cheerio";
-import hljs from "highlight.js";
+// import { load } from "cheerio";
+// import hljs from "highlight.js";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
-import { SnsImageLink } from "@/components/ContactsImageLink";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
@@ -171,13 +170,13 @@ const articleStyle = css({
 	},
 });
 
-export default async function StaticDetailPage({
+export default function StaticDetailPage({
 	params: { postId },
 }: {
 	params: { postId: string };
 }) {
+	/* 
 	const post = await getDetail(postId);
-	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
 
 	const $ = load(post.content);
 	$("code").each((_, elm) => {
@@ -202,7 +201,14 @@ export default async function StaticDetailPage({
 	if (!post) {
 		notFound();
 	}
+	*/
 
+	const post = {
+		title: "title",
+		publishedAt: "2021-01-01",
+		content: "<p>content</p>",
+	};
+	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
 	const currentUrl = encodeURIComponent(`https://yumilc.info/news/${postId}`);
 	const twitterUserName = encodeURIComponent("yumILC_");
 	const shareText = encodeURIComponent(
@@ -233,28 +239,9 @@ export default async function StaticDetailPage({
 						</h2>
 						<div className={css({ display: "flex" })}>
 							<div>
-								<SnsImageLink
-									image="/sns/twitter.svg"
-									description="Twitterにシェアする"
-									link={tweetUrl}
-								/>
-							</div>
-							<div>
-								<SnsImageLink
-									image="/sns/facebook.svg"
-									description="Facebookにシェアする"
-									link={facebookUrl}
-								/>
-							</div>
-							<div>
 								<Link href={tweetUrl} target="_blank">
 									<div className={snsImageStyle}>
-										<Image
-											src="/sns/x.svg"
-											alt="Xにシェアする"
-											fill
-											sizes="100vw"
-										/>
+										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
 								</Link>
 							</div>
@@ -265,7 +252,6 @@ export default async function StaticDetailPage({
 											src="/sns/facebook.svg"
 											alt="Facebookにシェアする"
 											fill
-											sizes="100vw"
 										/>
 									</div>
 								</Link>
