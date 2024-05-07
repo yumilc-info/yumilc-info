@@ -11,8 +11,6 @@ import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 // consts
 import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "@/const/font";
 import { snsX, snsInstagram, snsYoutube } from "@/const/TopPageText";
-import Link from "next/link";
-import Image from "next/image";
 import { formatDate } from "@/libs/formatDate";
 
 // images
@@ -59,18 +57,6 @@ const dateStyle = css({
 		base: "16px",
 		md: "20px",
 	},
-});
-const snsImageStyle = css({
-	position: "relative",
-	width: {
-		base: "20px",
-		md: "24px",
-	},
-	height: {
-		base: "20px",
-		md: "24px",
-	},
-	marginLeft: "10px",
 });
 
 const articleStyle = css({
@@ -174,22 +160,14 @@ const articleStyle = css({
 });
 
 export default function Home(): JSX.Element {
-	const postId = "1";
 	const post = {
 		title: "title",
 		publishedAt: "2021-01-01",
 		content: "<p>content</p>",
 	};
 	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
-	const currentUrl = encodeURIComponent(`https://yumilc.info/news/${postId}`);
-	const twitterUserName = encodeURIComponent("yumILC_");
-	const shareText = encodeURIComponent(
-		`${post.title} - ゆーみるしー
-	@${twitterUserName}
-`,
-	);
-	const tweetUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
-	const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+	// const tweetUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
+	// const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
 
 	return (
 		<div>
@@ -241,24 +219,33 @@ export default function Home(): JSX.Element {
 						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 							{formattedDate}
 						</h2>
-						<div className={css({ display: "flex" })}>
-							<div>
-								<Link href={tweetUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
-									</div>
-								</Link>
+						<div className={snsFlex}>
+							<div className={css({ flex: 1 })}>
+								<HoverGrowWrapper>
+									<SnsImageLink
+										image="/sns/x.svg"
+										description={snsX.description}
+										link={snsX.link}
+									/>
+								</HoverGrowWrapper>
 							</div>
-							<div>
-								<Link href={facebookUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image
-											src="/sns/facebook.svg"
-											alt="Facebookにシェアする"
-											fill
-										/>
-									</div>
-								</Link>
+							<div className={css({ flex: 1 })}>
+								<HoverGrowWrapper>
+									<SnsImageLink
+										image="/sns/facebook.svg"
+										description={snsInstagram.description}
+										link={snsInstagram.link}
+									/>
+								</HoverGrowWrapper>
+							</div>
+							<div className={css({ flex: 1 })}>
+								<HoverGrowWrapper>
+									<SnsImageLink
+										image={snsYoutube.image}
+										description={snsYoutube.description}
+										link={snsYoutube.link}
+									/>
+								</HoverGrowWrapper>
 							</div>
 						</div>
 					</div>
