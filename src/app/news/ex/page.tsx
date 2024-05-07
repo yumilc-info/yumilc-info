@@ -6,7 +6,6 @@ import { css } from "../../../../styled-system/css";
 
 // components
 import { SnsImageLink } from "@/components/ContactsImageLink";
-import { TopPageBackGround } from "@/components/TopPageBackGround";
 import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
@@ -53,7 +52,7 @@ export default function Home(): JSX.Element {
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
 								<SnsImageLink
-									image={snsX.image}
+									image="/sns/x.svg"
 									description={snsX.description}
 									link={snsX.link}
 								/>
@@ -62,7 +61,7 @@ export default function Home(): JSX.Element {
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
 								<SnsImageLink
-									image={snsInstagram.image}
+									image="/sns/facebook.svg"
 									description={snsInstagram.description}
 									link={snsInstagram.link}
 								/>
@@ -80,7 +79,6 @@ export default function Home(): JSX.Element {
 					</div>
 				</div>
 			</div>
-			<TopPageBackGround />
 		</div>
 	);
 }
