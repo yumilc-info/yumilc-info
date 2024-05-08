@@ -1,8 +1,6 @@
 export const runtime = "edge";
 
 import { notFound } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
 import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
@@ -11,6 +9,8 @@ import hljs from "highlight.js";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
+import { SnsShareLink } from "@/components/SnsShareLink";
+import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
@@ -55,19 +55,6 @@ const dateStyle = css({
 		base: "16px",
 		md: "20px",
 	},
-});
-
-const snsImageStyle = css({
-	position: "relative",
-	width: {
-		base: "20px",
-		md: "24px",
-	},
-	height: {
-		base: "20px",
-		md: "24px",
-	},
-	marginLeft: "10px",
 });
 
 const articleStyle = css({
@@ -230,26 +217,23 @@ export default async function StaticDetailPage({
 						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 							{formattedDate}
 						</h2>
-						<div className={css({ display: "flex" })}>
-							<div>
-								<Link href={tweetUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
-									</div>
-								</Link>
-							</div>
-							<div>
-								<Link href={facebookUrl} target="_blank">
-									<div className={snsImageStyle}>
-										<Image
-											src="/sns/facebook.svg"
-											alt="Facebookにシェアする"
-											fill
-										/>
-									</div>
-								</Link>
-							</div>
+						<div className={css({ flex: 1 })}>
+							<HoverGrowWrapper>
+								<SnsShareLink
+									link={tweetUrl}
+									src="/sns/x.svg"
+									alt="Xでシェアする"
+								/>
+							</HoverGrowWrapper>
 						</div>
+						<div className={css({ flex: 1 })}>
+							<HoverGrowWrapper>
+								<SnsShareLink
+									link={facebookUrl}
+									src="/sns/facebook.svg"
+									alt="Facebookでシェアする"
+								/>
+							</HoverGrowWrapper>
 					</div>
 					<div
 						className={`${ZenMaruGothic400.className} ${articleStyle}`}
