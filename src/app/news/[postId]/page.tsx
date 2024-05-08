@@ -207,12 +207,14 @@ export default async function StaticDetailPage({
 		`${post.title} - ゆーみるしー @${twitterUserName}
 `,
 	);
+	/*
 	const tweetUrl = encodeURI(
 		`https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`,
 	);
 	const facebookUrl = encodeURI(
 		`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
 	);
+	*/
 
 	return (
 		<div>
@@ -234,14 +236,20 @@ export default async function StaticDetailPage({
 						</h2>
 						<div className={css({ display: "flex" })}>
 							<div>
-								<a href={tweetUrl} target="_blank">
+								<a
+									href={`https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`}
+									target="_blank"
+								>
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
 								</a>
 							</div>
 							<div>
-								<a href={facebookUrl} target="_blank">
+								<a
+									href={`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`}
+									target="_blank"
+								>
 									<div className={snsImageStyle}>
 										<Image
 											src="/sns/facebook.svg"
