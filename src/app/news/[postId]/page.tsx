@@ -206,59 +206,57 @@ export default async function StaticDetailPage({
 
 	return (
 		<div>
-			<div className={mainStyle}>
-				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
-				<div>
-					<h1 className={`${ZenMaruGothic400.className} ${titleStyle}`}>
-						{post.title}
-					</h1>
-					<div
-						className={css({
-							display: "flex",
-							justifyContent: "space-between",
-							marginBottom: "20px",
-						})}
-					>
-						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
-							{formattedDate}
-						</h2>
-						<div className={css({ display: "flex" })}>
-							<div>
-								<a
-									href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									some text
-								</a>
-								<div className={snsImageStyle}>
-									<Image src="/sns/x.svg" alt="Xにシェアする" fill />
+			<a
+				href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				<div className={mainStyle}>
+					<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
+					<div>
+						<h1 className={`${ZenMaruGothic400.className} ${titleStyle}`}>
+							{post.title}
+						</h1>
+						<div
+							className={css({
+								display: "flex",
+								justifyContent: "space-between",
+								marginBottom: "20px",
+							})}
+						>
+							<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
+								{formattedDate}
+							</h2>
+							<div className={css({ display: "flex" })}>
+								<div>
+									<div className={snsImageStyle}>
+										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
+									</div>
 								</div>
-							</div>
-							<div>
-								<a
-									href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									some text2
-								</a>
-								<div className={snsImageStyle}>
-									<Image
-										src="/sns/facebook.svg"
-										alt="Facebookにシェアする"
-										fill
-									/>
+								<div>
+									<a
+										href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										<div className={snsImageStyle}>
+											<Image
+												src="/sns/facebook.svg"
+												alt="Facebookにシェアする"
+												fill
+											/>
+										</div>
+									</a>
 								</div>
 							</div>
 						</div>
+						<div
+							className={`${ZenMaruGothic400.className} ${articleStyle}`}
+							dangerouslySetInnerHTML={{ __html: post.content }}
+						/>
 					</div>
-					<div
-						className={`${ZenMaruGothic400.className} ${articleStyle}`}
-						dangerouslySetInnerHTML={{ __html: post.content }}
-					/>
 				</div>
-			</div>
+			</a>
 		</div>
 	);
 }
