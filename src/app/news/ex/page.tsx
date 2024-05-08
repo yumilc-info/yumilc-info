@@ -13,6 +13,7 @@ import "highlight.js/styles/tokyo-night-dark.css";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
+import { snsInstagram } from "@/const/TopPageText";
 
 const mainStyle = css({
 	top: "70px",
@@ -248,6 +249,17 @@ export default async function StaticDetailPage() {
 									href="https://www.facebook.com/sharer/sharer.php?u"
 									target="_blank"
 								>
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+										/>
+									</div>
+								</a>
+							</div>
+							<div>
+								<a href={snsInstagram.link} target="_blank">
 									<div className={snsImageStyle}>
 										<Image
 											src="/sns/facebook.svg"
