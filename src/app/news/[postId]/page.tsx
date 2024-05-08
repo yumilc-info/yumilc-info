@@ -1,6 +1,8 @@
 export const runtime = "edge";
 
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
 import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
@@ -9,8 +11,6 @@ import hljs from "highlight.js";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
-import { SnsShareLink } from "@/components/SnsShareLink";
-import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
@@ -157,6 +157,19 @@ const articleStyle = css({
 	},
 });
 
+const snsImageStyle = css({
+	position: "relative",
+	width: {
+		base: "20px",
+		md: "24px",
+	},
+	height: {
+		base: "20px",
+		md: "24px",
+	},
+	marginLeft: "10px",
+});
+
 export default async function StaticDetailPage({
 	params: { postId },
 }: {
@@ -196,8 +209,12 @@ export default async function StaticDetailPage({
 @${twitterUserName}
 `,
 	);
-	const tweetUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
-	const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+	const tweetUrl = encodeURIComponent(
+		`https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`,
+	);
+	const facebookUrl = encodeURIComponent(
+		`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
+	);
 
 	return (
 		<div>
@@ -217,23 +234,25 @@ export default async function StaticDetailPage({
 						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 							{formattedDate}
 						</h2>
-						<div>
-							<HoverGrowWrapper>
-								<SnsShareLink
-									link={tweetUrl}
-									src="/sns/x.svg"
-									alt="Xでシェアする"
-								/>
-							</HoverGrowWrapper>
-						</div>
-						<div>
-							<HoverGrowWrapper>
-								<SnsShareLink
-									link={facebookUrl}
-									src="/sns/facebook.svg"
-									alt="Facebookでシェアする"
-								/>
-							</HoverGrowWrapper>
+						<div className={css({ display: "flex" })}>
+							<div>
+								<Link href={tweetUrl} target="_blank">
+									<div className={snsImageStyle}>
+										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
+									</div>
+								</Link>
+							</div>
+							<div>
+								<Link href={facebookUrl} target="_blank">
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+										/>
+									</div>
+								</Link>
+							</div>
 						</div>
 					</div>
 					<div
