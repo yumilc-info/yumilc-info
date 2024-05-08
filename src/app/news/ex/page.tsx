@@ -12,6 +12,7 @@ import { snsX, snsInstagram, snsYoutube } from "@/const/TopPageText";
 import Link from "next/link";
 import Image from "next/image";
 import { formatDate } from "@/libs/formatDate";
+import { SnsShareLink } from "@/components/SnsShareLink";
 
 // images
 
@@ -251,33 +252,19 @@ export default function Home(): JSX.Element {
 							</div>
 							<div className={css({ flex: 1 })}>
 								<HoverGrowWrapper>
-									<Link href={tweetUrl} target="_blank">
-										<div
-											className={css({
-												display: "flex",
-												flexDirection: "column",
-												alignItems: "center",
-												marginBottom: "30px",
-											})}
-										>
-											<div className={snsImageStyle}>
-												<Image
-													src="/sns/x.svg"
-													alt="Xにシェアする"
-													fill
-													sizes="100vw"
-												/>
-											</div>
-										</div>
-									</Link>
+									<SnsShareLink
+										link={facebookUrl}
+										src="/sns/facebook.svg"
+										alt="Facebookでシェアする"
+									/>
 								</HoverGrowWrapper>
 							</div>
 							<div className={css({ flex: 1 })}>
 								<HoverGrowWrapper>
 									<SnsImageLink
 										image="/sns/facebook.svg"
-										description={snsInstagram.description}
-										link={snsInstagram.link}
+										description="Facebookでシェアする"
+										link={facebookUrl}
 									/>
 								</HoverGrowWrapper>
 							</div>
