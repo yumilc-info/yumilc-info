@@ -280,6 +280,17 @@ export default async function StaticDetailPage() {
 									</div>
 								</a>
 							</div>
+							<div>
+								<a href="https://www.facebook.com/" target="_blank">
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+										/>
+									</div>
+								</a>
+							</div>
 						</div>
 					</div>
 					<div
