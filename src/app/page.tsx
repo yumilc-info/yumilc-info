@@ -294,6 +294,18 @@ export default function Home(): JSX.Element {
 				</div>
 			</div>
 			<TopPageBackGround />
+			<div>
+				<a href="https://iorin-io.com/intent/tweet?text=テキスト&url=URL">
+					iorin-io
+				</a>
+				<a href="twitter.com/intent/tweet?text=テキスト&url=URL">Twitter</a>
+				<a href="https://twitter.com/intent/tweet?text=テキスト&url=URL">
+					Twitter2
+				</a>
+				<a href="https://twitter.com/intent/tweet?text=テキスト">Twitter4</a>
+				<a href="https://twitter.com/intent/tweet?URL=URL">Twitter5</a>
+				<a href="https://twittering.com/intent/tweet?URL=URL">Twitter?</a>
+			</div>
 		</div>
 	);
 }
