@@ -13,6 +13,7 @@ import "highlight.js/styles/tokyo-night-dark.css";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
+import Link from "next/link";
 
 const mainStyle = css({
 	top: "70px",
@@ -206,7 +207,7 @@ export default async function StaticDetailPage({
 
 	return (
 		<div>
-			<a
+			<Link
 				href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
 				target="_blank"
 				rel="noopener noreferrer"
@@ -256,7 +257,7 @@ export default async function StaticDetailPage({
 						/>
 					</div>
 				</div>
-			</a>
+			</Link>
 		</div>
 	);
 }
