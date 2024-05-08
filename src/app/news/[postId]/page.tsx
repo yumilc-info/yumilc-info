@@ -217,7 +217,7 @@ export default async function StaticDetailPage({
 						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
 							{formattedDate}
 						</h2>
-						<div className={css({ flex: 1 })}>
+						<div>
 							<HoverGrowWrapper>
 								<SnsShareLink
 									link={tweetUrl}
@@ -226,7 +226,7 @@ export default async function StaticDetailPage({
 								/>
 							</HoverGrowWrapper>
 						</div>
-						<div className={css({ flex: 1 })}>
+						<div>
 							<HoverGrowWrapper>
 								<SnsShareLink
 									link={facebookUrl}
