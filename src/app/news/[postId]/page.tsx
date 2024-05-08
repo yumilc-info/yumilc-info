@@ -202,9 +202,8 @@ export default async function StaticDetailPage({
 	}
 
 	const currentUrl = encodeURIComponent(`https://yumilc.info/news/${postId}`);
-	const twitterUserName = encodeURIComponent("yumILC_");
 	const shareText = encodeURIComponent(
-		`${post.title} - ゆーみるしー @${twitterUserName}
+		`${post.title} - ゆーみるしー @yumILC_
 `,
 	);
 	/*
