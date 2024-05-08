@@ -188,7 +188,9 @@ export default function Home(): JSX.Element {
 `,
 	);
 	const tweetUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
-	const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+	const facebookUrl = encodeURIComponent(
+		`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
+	);
 
 	return (
 		<div>
