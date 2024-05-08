@@ -249,7 +249,7 @@ export default async function StaticDetailPage({
 							<div>
 								<a
 									href={encodeURI(
-										`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
+										`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
 									)}
 									target="_blank"
 								>
