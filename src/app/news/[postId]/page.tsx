@@ -201,8 +201,11 @@ export default async function StaticDetailPage({
 		notFound();
 	}
 
-	//const shareText = `${post.title} - ゆーみるしー
+	/*
+	const shareText = `${post.title} - ゆーみるしー
 @yumILC_`;
+
+*/
 
 	return (
 		<div>
