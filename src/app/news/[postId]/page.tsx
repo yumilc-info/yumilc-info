@@ -236,10 +236,9 @@ export default async function StaticDetailPage({
 						<div className={css({ display: "flex" })}>
 							<div>
 								<a
-									href={encodeURIComponent(
-										`https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`,
-									)}
+									href={`https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`}
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
@@ -250,6 +249,7 @@ export default async function StaticDetailPage({
 								<a
 									href="https://www.facebook.com/sharer/sharer.php?u"
 									target="_blank"
+									rel="noopener noreferrer"
 								>
 									<div className={snsImageStyle}>
 										<Image
