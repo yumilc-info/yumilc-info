@@ -258,6 +258,16 @@ export default async function StaticDetailPage({
 					<div>
 						<a href="https://iorin-io.com/a?a">iorin-io</a>
 						<a href="twitter.com/intent/tweet?text=テキスト&url=URL">Twitter</a>
+						<a href="https://twitter.com/intent/tweet?text=テキスト&url=URL">
+							Twitter2
+						</a>
+						<a
+							href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Twitter3
+						</a>
 					</div>
 				</div>
 			</div>
