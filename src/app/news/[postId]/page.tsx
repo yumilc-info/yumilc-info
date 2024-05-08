@@ -201,7 +201,7 @@ export default async function StaticDetailPage({
 		notFound();
 	}
 
-	const shareText = `${post.title} - ゆーみるしー
+	//const shareText = `${post.title} - ゆーみるしー
 @yumILC_`;
 
 	return (
@@ -225,7 +225,7 @@ export default async function StaticDetailPage({
 						<div className={css({ display: "flex" })}>
 							<div>
 								<a
-									href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+									href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}"
 									target="_blank"
 									rel="noopener noreferrer"
 								>
@@ -236,7 +236,7 @@ export default async function StaticDetailPage({
 							</div>
 							<div>
 								<a
-									href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+									href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}"
 									target="_blank"
 									rel="noopener noreferrer"
 								>
@@ -248,36 +248,6 @@ export default async function StaticDetailPage({
 										/>
 									</div>
 								</a>
-							</div>
-							<div>
-								<button
-									onClick={() =>
-										window.open(
-											`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`,
-										)
-									}
-								>
-									<div className={snsImageStyle}>
-										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
-									</div>
-								</button>
-							</div>
-							<div>
-								<button
-									onClick={() =>
-										window.open(
-											`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`,
-										)
-									}
-								>
-									<div className={snsImageStyle}>
-										<Image
-											src="/sns/facebook.svg"
-											alt="Facebookにシェアする"
-											fill
-										/>
-									</div>
-								</button>
 							</div>
 						</div>
 					</div>
