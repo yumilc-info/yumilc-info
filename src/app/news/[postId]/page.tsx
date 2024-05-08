@@ -270,6 +270,10 @@ export default async function StaticDetailPage({
 						>
 							Twitter3
 						</a>
+						<a href="https://twitter.com/intent/tweet?text=テキスト">
+							Twitter4
+						</a>
+						<a href="https://twitter.com/intent/tweet?URL=URL">Twitter5</a>
 					</div>
 				</div>
 			</div>
