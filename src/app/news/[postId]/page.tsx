@@ -256,7 +256,7 @@ export default async function StaticDetailPage({
 						dangerouslySetInnerHTML={{ __html: post.content }}
 					/>
 					<div>
-						<a href="https://iorin-io.com/tweet?text=テキスト&url=URL">
+						<a href="https://iorin-io.com/intent/tweet?text=テキスト&url=URL">
 							iorin-io
 						</a>
 						<a href="twitter.com/intent/tweet?text=テキスト&url=URL">Twitter</a>
