@@ -246,7 +246,7 @@ export default async function StaticDetailPage() {
 							</div>
 							<div>
 								<a
-									href="https://www.facebook.com/sharer/sharer.php?u"
+									href="https://www.facebook.com/sharer/sharer.php"
 									target="_blank"
 								>
 									<div className={snsImageStyle}>
