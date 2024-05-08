@@ -251,7 +251,7 @@ export default function Home(): JSX.Element {
 									/>
 								</HoverGrowWrapper>
 							</div>
-							<div>
+							<div className={css({ flex: 1 })}>
 								<HoverGrowWrapper>
 									<Link href={tweetUrl} target="_blank">
 										<div
