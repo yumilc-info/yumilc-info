@@ -306,7 +306,7 @@ export default async function StaticDetailPage() {
 								</a>
 							</div>
 							<div>
-								<a href="https://twitter.com/intent/tweet" target="_blank">
+								<a href="https://twitter.com/intent/tweet?" target="_blank">
 									<div className={snsImageStyle}>
 										<Image
 											src="/sns/facebook.svg"
