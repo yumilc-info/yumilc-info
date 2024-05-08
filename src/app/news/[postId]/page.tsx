@@ -208,10 +208,10 @@ export default async function StaticDetailPage({
 @${twitterUserName}
 `,
 	);
-	const tweetUrl = encodeURIComponent(
+	const tweetUrl = encodeURI(
 		`https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`,
 	);
-	const facebookUrl = encodeURIComponent(
+	const facebookUrl = encodeURI(
 		`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`,
 	);
 
