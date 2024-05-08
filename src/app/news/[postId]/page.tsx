@@ -234,6 +234,7 @@ export default async function StaticDetailPage({
 									alt="Facebookでシェアする"
 								/>
 							</HoverGrowWrapper>
+						</div>
 					</div>
 					<div
 						className={`${ZenMaruGothic400.className} ${articleStyle}`}
