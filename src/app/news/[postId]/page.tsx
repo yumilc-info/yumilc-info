@@ -264,7 +264,7 @@ export default async function StaticDetailPage({
 							Twitter2
 						</a>
 						<a
-							href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+							href={`https://twitter.com/share?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
 							target="_blank"
 							rel="noopener noreferrer"
 						>
