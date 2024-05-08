@@ -248,9 +248,7 @@ export default async function StaticDetailPage({
 							</div>
 							<div>
 								<a
-									href={encodeURI(
-										`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
-									)}
+									href="https://www.facebook.com/sharer/sharer.php?u"
 									target="_blank"
 								>
 									<div className={snsImageStyle}>
