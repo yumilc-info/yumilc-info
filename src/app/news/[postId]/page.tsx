@@ -228,26 +228,24 @@ export default async function StaticDetailPage({
 									href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
 									target="_blank"
 									rel="noopener noreferrer"
-								>
-									<div className={snsImageStyle}>
-										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
-									</div>
-								</a>
+								></a>
+								<div className={snsImageStyle}>
+									<Image src="/sns/x.svg" alt="Xにシェアする" fill />
+								</div>
 							</div>
 							<div>
 								<a
 									href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
 									target="_blank"
 									rel="noopener noreferrer"
-								>
-									<div className={snsImageStyle}>
-										<Image
-											src="/sns/facebook.svg"
-											alt="Facebookにシェアする"
-											fill
-										/>
-									</div>
-								</a>
+								></a>
+								<div className={snsImageStyle}>
+									<Image
+										src="/sns/facebook.svg"
+										alt="Facebookにシェアする"
+										fill
+									/>
+								</div>
 							</div>
 						</div>
 					</div>
