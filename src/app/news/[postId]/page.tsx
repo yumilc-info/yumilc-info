@@ -1,13 +1,13 @@
 export const runtime = "edge";
 
-// import { notFound } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-// import { getDetail } from "@/libs/microcms";
+import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
-// import { load } from "cheerio";
-// import hljs from "highlight.js";
+import { load } from "cheerio";
+import hljs from "highlight.js";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
@@ -170,13 +170,13 @@ const articleStyle = css({
 	},
 });
 
-export default function StaticDetailPage({
+export default async function StaticDetailPage({
 	params: { postId },
 }: {
 	params: { postId: string };
 }) {
-	/* 
 	const post = await getDetail(postId);
+	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
 
 	const $ = load(post.content);
 	$("code").each((_, elm) => {
@@ -201,14 +201,7 @@ export default function StaticDetailPage({
 	if (!post) {
 		notFound();
 	}
-	*/
 
-	const post = {
-		title: "title",
-		publishedAt: "2021-01-01",
-		content: "<p>content</p>",
-	};
-	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
 	const currentUrl = encodeURIComponent(`https://yumilc.info/news/${postId}`);
 	const twitterUserName = encodeURIComponent("yumILC_");
 	const shareText = encodeURIComponent(
