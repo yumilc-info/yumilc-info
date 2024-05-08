@@ -251,6 +251,29 @@ export default function Home(): JSX.Element {
 									/>
 								</HoverGrowWrapper>
 							</div>
+							<div>
+								<HoverGrowWrapper>
+									<Link href={tweetUrl} target="_blank">
+										<div
+											className={css({
+												display: "flex",
+												flexDirection: "column",
+												alignItems: "center",
+												marginBottom: "30px",
+											})}
+										>
+											<div className={snsImageStyle}>
+												<Image
+													src="/sns/x.svg"
+													alt="Xにシェアする"
+													fill
+													sizes="100vw"
+												/>
+											</div>
+										</div>
+									</Link>
+								</HoverGrowWrapper>
+							</div>
 							<div className={css({ flex: 1 })}>
 								<HoverGrowWrapper>
 									<SnsImageLink
