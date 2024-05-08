@@ -201,11 +201,8 @@ export default async function StaticDetailPage({
 		notFound();
 	}
 
-	/*
 	const shareText = `${post.title} - ゆーみるしー
 @yumILC_`;
-
-*/
 
 	return (
 		<div>
@@ -228,7 +225,7 @@ export default async function StaticDetailPage({
 						<div className={css({ display: "flex" })}>
 							<div>
 								<a
-									href="https://twitter.com/intent/tweettext=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}"
+									href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
 									target="_blank"
 									rel="noopener noreferrer"
 								>
@@ -239,7 +236,7 @@ export default async function StaticDetailPage({
 							</div>
 							<div>
 								<a
-									href="https://www.facebook.com/sharer/sharer.phpu=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}"
+									href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
 									target="_blank"
 									rel="noopener noreferrer"
 								>
