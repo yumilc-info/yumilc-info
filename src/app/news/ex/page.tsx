@@ -263,8 +263,8 @@ export default function Home(): JSX.Element {
 								<HoverGrowWrapper>
 									<SnsImageLink
 										image="/sns/facebook.svg"
-										description="Facebookでシェアする"
-										link={facebookUrl}
+										description={snsInstagram.description}
+										link={snsInstagram.link}
 									/>
 								</HoverGrowWrapper>
 							</div>
