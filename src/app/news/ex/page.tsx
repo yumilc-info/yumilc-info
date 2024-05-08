@@ -270,7 +270,7 @@ export default async function StaticDetailPage() {
 								</a>
 							</div>
 							<div>
-								<a href="https://www.instagram.com/yumilc_/" target="_blank">
+								<a href="https://www.facebook.com/" target="_blank">
 									<div className={snsImageStyle}>
 										<Image
 											src="/sns/facebook.svg"
@@ -281,7 +281,32 @@ export default async function StaticDetailPage() {
 								</a>
 							</div>
 							<div>
-								<a href="https://www.facebook.com/" target="_blank">
+								<a href="https://www.facebook.com/sharer/" target="_blank">
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+										/>
+									</div>
+								</a>
+							</div>
+							<div>
+								<a
+									href="https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}"
+									target="_blank"
+								>
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+										/>
+									</div>
+								</a>
+							</div>
+							<div>
+								<a href="https://twitter.com/intent/tweet" target="_blank">
 									<div className={snsImageStyle}>
 										<Image
 											src="/sns/facebook.svg"
