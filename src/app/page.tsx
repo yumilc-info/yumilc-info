@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import { css } from "../../styled-system/css";
