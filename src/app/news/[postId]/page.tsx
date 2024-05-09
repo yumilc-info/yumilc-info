@@ -236,11 +236,7 @@ export default async function StaticDetailPage({
 							</div>
 							<div>
 								<a
-									href={`https://www.facebook.com/dialog/share?
-									app_id=145634995501895
-									&display=popup
-									&href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2F
-									&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer`}
+									href={`https://www.facebook.com/dialog/share?href=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
 									target="_blank"
 									rel="noopener noreferrer"
 								>
