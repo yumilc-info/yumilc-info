@@ -1,6 +1,7 @@
 export const runtime = "edge";
 
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
 import { formatDate } from "@/libs/formatDate";
@@ -53,7 +54,6 @@ const dateStyle = css({
 		base: "16px",
 		md: "20px",
 	},
-	textAlign: "right",
 });
 
 const articleStyle = css({
@@ -156,6 +156,19 @@ const articleStyle = css({
 	},
 });
 
+const snsImageStyle = css({
+	position: "relative",
+	width: {
+		base: "20px",
+		md: "24px",
+	},
+	height: {
+		base: "20px",
+		md: "24px",
+	},
+	marginLeft: "10px",
+});
+
 export default async function StaticDetailPage({
 	params: { postId },
 }: {
@@ -188,6 +201,9 @@ export default async function StaticDetailPage({
 		notFound();
 	}
 
+	const shareText = `${post.title} - ゆーみるしー
+@yumILC_`;
+
 	return (
 		<div>
 			<div className={mainStyle}>
@@ -196,9 +212,45 @@ export default async function StaticDetailPage({
 					<h1 className={`${ZenMaruGothic400.className} ${titleStyle}`}>
 						{post.title}
 					</h1>
-					<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
-						{formattedDate}
-					</h2>
+					<div
+						className={css({
+							display: "flex",
+							justifyContent: "space-between",
+							marginBottom: "20px",
+						})}
+					>
+						<h2 className={`${ZenMaruGothic400.className} ${dateStyle}`}>
+							{formattedDate}
+						</h2>
+						<div className={css({ display: "flex" })}>
+							<div>
+								<a
+									href={`https://twitter.com/share?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<div className={snsImageStyle}>
+										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
+									</div>
+								</a>
+							</div>
+							<div>
+								<a
+									href={`https://www.facebook.com/dialog/share?href=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									<div className={snsImageStyle}>
+										<Image
+											src="/sns/facebook.svg"
+											alt="Facebookにシェアする"
+											fill
+										/>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
 					<div
 						className={`${ZenMaruGothic400.className} ${articleStyle}`}
 						dangerouslySetInnerHTML={{ __html: post.content }}
