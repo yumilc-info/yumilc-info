@@ -1,7 +1,6 @@
 export const runtime = "edge";
 
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 import { getDetail } from "@/libs/microcms";
 import { css } from "../../../../styled-system/css";
@@ -55,19 +54,6 @@ const dateStyle = css({
 		base: "16px",
 		md: "20px",
 	},
-});
-
-const snsImageStyle = css({
-	position: "relative",
-	width: {
-		base: "20px",
-		md: "24px",
-	},
-	height: {
-		base: "20px",
-		md: "24px",
-	},
-	marginLeft: "10px",
 });
 
 const articleStyle = css({
@@ -170,6 +156,19 @@ const articleStyle = css({
 	},
 });
 
+const snsImageStyle = css({
+	position: "relative",
+	width: {
+		base: "20px",
+		md: "24px",
+	},
+	height: {
+		base: "20px",
+		md: "24px",
+	},
+	marginLeft: "10px",
+});
+
 export default async function StaticDetailPage({
 	params: { postId },
 }: {
@@ -202,15 +201,8 @@ export default async function StaticDetailPage({
 		notFound();
 	}
 
-	const currentUrl = encodeURIComponent(`https://yumilc.info/news/${postId}`);
-	const twitterUserName = encodeURIComponent("yumILC_");
-	const shareText = encodeURIComponent(
-		`${post.title} - ゆーみるしー
-@${twitterUserName}
-`,
-	);
-	const tweetUrl = `https://twitter.com/intent/tweet?text=${shareText}&url=${currentUrl}`;
-	const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`;
+	const shareText = `${post.title} - ゆーみるしー
+@yumILC_`;
 
 	return (
 		<div>
@@ -232,14 +224,22 @@ export default async function StaticDetailPage({
 						</h2>
 						<div className={css({ display: "flex" })}>
 							<div>
-								<Link href={tweetUrl} target="_blank">
+								<a
+									href={`https://twitter.com/share?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<div className={snsImageStyle}>
 										<Image src="/sns/x.svg" alt="Xにシェアする" fill />
 									</div>
-								</Link>
+								</a>
 							</div>
 							<div>
-								<Link href={facebookUrl} target="_blank">
+								<a
+									href={`https://www.facebook.com/dialog/share?href=${encodeURIComponent(`https://yumilc.info/news/${postId}`)}`}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<div className={snsImageStyle}>
 										<Image
 											src="/sns/facebook.svg"
@@ -247,7 +247,7 @@ export default async function StaticDetailPage({
 											fill
 										/>
 									</div>
-								</Link>
+								</a>
 							</div>
 						</div>
 					</div>
