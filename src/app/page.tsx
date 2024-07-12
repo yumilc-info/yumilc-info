@@ -254,6 +254,11 @@ export default function Home(): JSX.Element {
 							link={worksTsukubaConnect.link}
 						/>
 						<WorksText
+							heading={worksChikyulabel.heading}
+							description={worksChikyulabel.text}
+							link={worksChikyulabel.link}
+						/>
+						<WorksText
 							heading={worksInclusiveProject.heading}
 							description={worksInclusiveProject.text}
 							link={worksInclusiveProject.link}
@@ -287,6 +292,20 @@ export default function Home(): JSX.Element {
 									image={snsYoutube.image}
 									description={snsYoutube.description}
 									link={snsYoutube.link}
+								/>
+							</HoverGrowWrapper>
+						</div>
+					</div>
+				</div>
+				<div>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>Contact</h1>
+					<div className={snsFlex}>
+						<div className={css({ flex: 1 })}>
+							<HoverGrowWrapper>
+								<SnsImageLink
+									image={contact.image}
+									description={contact.description}
+									link={contact.link}
 								/>
 							</HoverGrowWrapper>
 						</div>
