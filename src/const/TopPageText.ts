@@ -1,6 +1,5 @@
 export const aboutText = `ゆーみるしーです。理学博士（素粒子物理）。
-素粒子アクセサリー販売、実験教室、動画編集、自分の研究に関する講演や、実験教室を行っています。
-講演や実験教室、アクセサリーショップ出張販売等の依頼はお問合せからお願いいたします。`;
+素粒子アクセサリー販売、実験教室、動画編集、自分の研究に関する講演や、実験教室を行っています。多趣味。`;
 
 export const worksScienceCommunicator = {
 	heading: "サイエンスコミュニケーター",
@@ -59,4 +58,10 @@ export const snsYoutube = {
 	image: "/sns/youtube.svg",
 	description: "@yumILC_",
 	link: "https://www.youtube.com/@yumILC_",
+};
+
+export const contact = {
+	image: "/sns/contact.svg",
+	description: "Contact",
+	link: "https://tsubuya.info/contact-me/",
 };
