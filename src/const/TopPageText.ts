@@ -13,7 +13,7 @@ export const worksScienceCommunicator = {
 export const worksTsubuya = {
 	heading: "粒や",
 	text: `キーワードは、「好奇心」。
-粒やは、現役大学院生ゆーみるしーが運営する、物理アクセサリー販売、実験教室講師、動画編集を行っているブランドです。`,
+粒やは、理学博士ゆーみるしーが運営する、物理アクセサリー販売、実験教室講師、動画編集を行っているブランドです。`,
 	link: "https://tsubuya.info/",
 };
 
@@ -27,6 +27,13 @@ export const worksTsukubaConnect = {
 	heading: "TSUKUBA CONNÉCT プログラムリード",
 	text: `大学院生だった2020年からTSUKUBA CONNÉCTへアンバサダーとして参加・登壇し、株式会社しびっくぱわー社員としての配信担当を経て、現在はサイエンスコミュニケーションのスキルを活かしプロボノとして参加しています。`,
 	link: "https://venturecafetokyo.org/programs/tsukuba-connect/",
+};
+
+export const worksChikyulabel = {
+	heading: "地球レーベル スタッフ",
+	text: `地球をまるごと学び、地球を愛する人を増
+やしていこう！というコンセプトで活動する自然科学教育普及団体です。月刊『地球らいぶ茨城』で素粒子のコラムを書いています。`,
+	link: "https://chikyulabel126014918.wordpress.com/",
 };
 
 export const worksInclusiveProject = {
