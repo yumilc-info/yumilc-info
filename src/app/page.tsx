@@ -21,10 +21,12 @@ import {
 	worksTsubuya,
 	worksTsukubaPlaceLab,
 	worksTsukubaConnect,
+	worksChikyulabel,
 	worksInclusiveProject,
 	snsX,
 	snsInstagram,
 	snsYoutube,
+	contact,
 } from "@/const/TopPageText";
 
 // images
@@ -298,7 +300,9 @@ export default function Home(): JSX.Element {
 					</div>
 				</div>
 				<div>
-					<h1 className={`${Montserrat900.className} ${headingStyle}`}>Contact</h1>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
+						Contact
+					</h1>
 					<div className={snsFlex}>
 						<div className={css({ flex: 1 })}>
 							<HoverGrowWrapper>
