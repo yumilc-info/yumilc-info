@@ -30,8 +30,7 @@ export const worksTsukubaConnect = {
 
 export const worksChikyulabel = {
 	heading: "地球レーベル スタッフ",
-	text: `地球をまるごと学び、地球を愛する人を増
-やしていこう！というコンセプトで活動する自然科学教育普及団体です。月刊『地球らいぶ茨城』で素粒子のコラムを書いています。`,
+	text: `地球をまるごと学び、地球を愛する人を増やしていこう！というコンセプトで活動する自然科学教育普及団体です。月刊『地球らいぶ茨城』で素粒子のコラムを書いています。`,
 	link: "https://chikyulabel126014918.wordpress.com/",
 };
 
