@@ -3,7 +3,7 @@ import Link from "next/link";
 
 // components
 import { HoverGrowWrapper } from "./HoverGrowWrapper";
-import { aboutTextStyle } from "@/app/page";
+import { textStyle } from "@/const/TopPageText";
 
 // consts
 import {
@@ -47,11 +47,11 @@ export const WorksText = ({
 }: WorksTextProps): JSX.Element => {
 	return (
 		<div className={worksMargin}>
-			<h1 className={`${ZenMaruGothic500.className} ${aboutTextStyle}`}>
+			<h1 className={`${ZenMaruGothic500.className} ${textStyle}`}>
 				{heading}
 			</h1>
 			<div
-				className={`${ZenMaruGothic400.className} ${aboutTextStyle} ${worksTextMargin}`}
+				className={`${ZenMaruGothic400.className} ${textStyle} ${worksTextMargin}`}
 				style={{ whiteSpace: "pre-wrap" }}
 			>
 				{description}

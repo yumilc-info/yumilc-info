@@ -27,6 +27,7 @@ import {
 	snsInstagram,
 	snsYoutube,
 	contact,
+	textStyle,
 } from "@/const/TopPageText";
 
 // images
@@ -82,16 +83,6 @@ const profileImageStyle = css({
 		md: 0,
 		smToMd: "20px auto",
 		base: "20px 70px",
-	},
-});
-
-export const aboutTextStyle = css({
-	color: "#4C4C4C",
-	letterSpacing: "0.1em",
-	lineHeight: "2em",
-	fontSize: {
-		base: "14px",
-		md: "16px",
 	},
 });
 
@@ -195,7 +186,7 @@ export default function Home(): JSX.Element {
 							</div>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+									className={`${ZenMaruGothic400.className} ${textStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
 									{aboutText}
@@ -222,7 +213,7 @@ export default function Home(): JSX.Element {
 						<div className={aboutFlex}>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+									className={`${ZenMaruGothic400.className} ${textStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
 									{aboutText}
@@ -333,7 +324,7 @@ export default function Home(): JSX.Element {
 					</h1>
 					<div className={contactLinkStyle}>
 						<div
-							className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+							className={`${ZenMaruGothic400.className} ${textStyle}`}
 							style={{ whiteSpace: "pre-wrap" }}
 						>
 							{contact.text}

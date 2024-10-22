@@ -1,3 +1,15 @@
+import { css } from "../../styled-system/css";
+
+export const textStyle = css({
+	color: "#4C4C4C",
+	letterSpacing: "0.1em",
+	lineHeight: "2em",
+	fontSize: {
+		base: "14px",
+		md: "16px",
+	},
+});
+
 export const aboutText = `ゆーみるしーです。理学博士（素粒子物理）。
 素粒子アクセサリー販売、実験教室、動画編集、自分の研究に関する講演や、実験教室を行っています。多趣味。`;
 
