@@ -3,6 +3,7 @@ import Link from "next/link";
 
 // components
 import { HoverGrowWrapper } from "./HoverGrowWrapper";
+import { aboutTextStyle } from "@/app/page";
 
 // consts
 import {
@@ -37,16 +38,6 @@ const worksLinkStyle = css({
 	textDecorationLine: "underline",
 	display: "flex",
 	justifyContent: "flex-end",
-});
-
-const aboutTextStyle = css({
-	color: "#4C4C4C",
-	letterSpacing: "0.1em",
-	lineHeight: "2em",
-	fontSize: {
-		base: "14px",
-		md: "16px",
-	},
 });
 
 export const WorksText = ({

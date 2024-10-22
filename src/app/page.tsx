@@ -85,7 +85,7 @@ const profileImageStyle = css({
 	},
 });
 
-const aboutTextStyle = css({
+export const aboutTextStyle = css({
 	color: "#4C4C4C",
 	letterSpacing: "0.1em",
 	lineHeight: "2em",
@@ -137,6 +137,34 @@ const keywordStyle = css({
 
 const marginBottom = css({
 	marginBottom: "40px",
+});
+
+const contactLinkStyle = css({
+	fontSize: {
+		base: "16px",
+		md: "20px",
+	},
+	color: "#4C4C4C",
+	textAlign: "center",
+	padding: "20px",
+	margin: "0 auto",
+	maxWidth: "600px",
+	lineHeight: "1.8",
+});
+
+const contactButtonStyle = css({
+	display: "inline-block",
+	padding: "12px 24px",
+	backgroundColor: "#4C4C4C",
+	color: "white",
+	borderRadius: "8px",
+	textDecoration: "none",
+	transition: "all 0.3s ease",
+	marginTop: "20px",
+	"&:hover": {
+		backgroundColor: "#666666",
+		transform: "translateY(-2px)",
+	},
 });
 
 export default function Home(): JSX.Element {
@@ -303,16 +331,21 @@ export default function Home(): JSX.Element {
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
 						Contact
 					</h1>
-					<div className={snsFlex}>
-						<div className={css({ flex: 1 })}>
-							<HoverGrowWrapper>
-								<SnsImageLink
-									image={contact.image}
-									description={contact.description}
-									link={contact.link}
-								/>
-							</HoverGrowWrapper>
+					<div className={contactLinkStyle}>
+						<div
+							className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+							style={{ whiteSpace: "pre-wrap" }}
+						>
+							{contact.text}
 						</div>
+						<HoverGrowWrapper>
+							<Link
+								href={contact.link}
+								className={`${Montserrat400.className} ${contactButtonStyle}`}
+							>
+								Contact Page
+							</Link>
+						</HoverGrowWrapper>
 					</div>
 				</div>
 			</div>

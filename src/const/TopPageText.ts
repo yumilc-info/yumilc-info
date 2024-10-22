@@ -60,7 +60,7 @@ export const snsYoutube = {
 };
 
 export const contact = {
-	image: "/sns/contact.svg",
-	description: "Contact",
+	text: `お問い合わせやご依頼は、以下のContactページから！
+	お仕事のご依頼・ご質問など、お気軽にお問い合わせください！`,
 	link: "https://tsubuya.info/contact-me/",
 };
