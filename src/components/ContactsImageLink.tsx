@@ -18,17 +18,6 @@ const snsImageStyle = css({
 	width: ["15dvw", "100px"],
 	height: ["15dvw", "100px"],
 });
-/*
-const aboutTextStyle = css({
-	color: "#4C4C4C",
-	letterSpacing: "0.1em",
-	lineHeight: "2em",
-	fontSize: {
-		base: "14px",
-		md: "16px",
-	},
-});
-*/
 
 export const SnsImageLink = ({
 	image,

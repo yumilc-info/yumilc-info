@@ -21,10 +21,13 @@ import {
 	worksTsubuya,
 	worksTsukubaPlaceLab,
 	worksTsukubaConnect,
+	worksChikyulabel,
 	worksInclusiveProject,
 	snsX,
 	snsInstagram,
 	snsYoutube,
+	contact,
+	textStyle,
 } from "@/const/TopPageText";
 
 // images
@@ -83,16 +86,6 @@ const profileImageStyle = css({
 	},
 });
 
-const aboutTextStyle = css({
-	color: "#4C4C4C",
-	letterSpacing: "0.1em",
-	lineHeight: "2em",
-	fontSize: {
-		base: "14px",
-		md: "16px",
-	},
-});
-
 const aboutMargin = css({
 	paddingLeft: {
 		base: "30px",
@@ -137,6 +130,34 @@ const marginBottom = css({
 	marginBottom: "40px",
 });
 
+const contactLinkStyle = css({
+	fontSize: {
+		base: "16px",
+		md: "20px",
+	},
+	color: "#4C4C4C",
+	textAlign: "center",
+	padding: "20px",
+	margin: "0 auto",
+	maxWidth: "600px",
+	lineHeight: "1.8",
+});
+
+const contactButtonStyle = css({
+	display: "inline-block",
+	padding: "12px 24px",
+	backgroundColor: "#4C4C4C",
+	color: "white",
+	borderRadius: "8px",
+	textDecoration: "none",
+	transition: "all 0.3s ease",
+	marginTop: "20px",
+	"&:hover": {
+		backgroundColor: "#666666",
+		transform: "translateY(-2px)",
+	},
+});
+
 export default function Home(): JSX.Element {
 	const isSm = useSmQuery();
 	return (
@@ -165,7 +186,7 @@ export default function Home(): JSX.Element {
 							</div>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+									className={`${ZenMaruGothic400.className} ${textStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
 									{aboutText}
@@ -192,7 +213,7 @@ export default function Home(): JSX.Element {
 						<div className={aboutFlex}>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${aboutTextStyle}`}
+									className={`${ZenMaruGothic400.className} ${textStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
 									{aboutText}
@@ -254,6 +275,11 @@ export default function Home(): JSX.Element {
 							link={worksTsukubaConnect.link}
 						/>
 						<WorksText
+							heading={worksChikyulabel.heading}
+							description={worksChikyulabel.text}
+							link={worksChikyulabel.link}
+						/>
+						<WorksText
 							heading={worksInclusiveProject.heading}
 							description={worksInclusiveProject.text}
 							link={worksInclusiveProject.link}
@@ -290,6 +316,27 @@ export default function Home(): JSX.Element {
 								/>
 							</HoverGrowWrapper>
 						</div>
+					</div>
+				</div>
+				<div>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
+						Contact
+					</h1>
+					<div className={contactLinkStyle}>
+						<div
+							className={`${ZenMaruGothic400.className} ${textStyle}`}
+							style={{ whiteSpace: "pre-wrap" }}
+						>
+							{contact.text}
+						</div>
+						<HoverGrowWrapper>
+							<Link
+								href={contact.link}
+								className={`${Montserrat400.className} ${contactButtonStyle}`}
+							>
+								Contact Page
+							</Link>
+						</HoverGrowWrapper>
 					</div>
 				</div>
 			</div>
