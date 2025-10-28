@@ -1,18 +1,14 @@
-export const runtime = "edge";
-
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import { getDetail } from "@/libs/microcms";
+import { getNewsBySlug, getNewsSlugs } from "../../../libs/news";
 import { css } from "../../../../styled-system/css";
-import { formatDate } from "@/libs/formatDate";
-import { load } from "cheerio";
-import hljs from "highlight.js";
+import { formatDate } from "../../../libs/formatDate";
 import "highlight.js/styles/tokyo-night-dark.css";
 
 // components
 
 // consts
-import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
+import { Montserrat400, ZenMaruGothic400 } from "../../../const/font";
 
 const mainStyle = css({
 	top: "70px",
@@ -174,32 +170,12 @@ export default async function StaticDetailPage({
 }: {
 	params: { postId: string };
 }) {
-	const post = await getDetail(postId);
-	const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
-
-	const $ = load(post.content);
-	$("code").each((_, elm) => {
-		const className = $(elm).attr("class");
-		const language = className?.replace("language-", "");
-
-		let result;
-		if (language) {
-			try {
-				result = hljs.highlight($(elm).text(), { language });
-			} catch (error) {
-				result = hljs.highlightAuto($(elm).text());
-			}
-		} else {
-			result = hljs.highlightAuto($(elm).text());
-		}
-		$(elm).html(result.value);
-		$(elm).addClass("hljs");
-	});
-	post.content = $.html();
-
+	const post = await getNewsBySlug(postId);
 	if (!post) {
 		notFound();
 	}
+
+	const formattedDate = formatDate(post.publishedAt);
 
 	const shareText = `${post.title} - ゆーみるしー
 @yumILC_`;
@@ -253,10 +229,17 @@ export default async function StaticDetailPage({
 					</div>
 					<div
 						className={`${ZenMaruGothic400.className} ${articleStyle}`}
-						dangerouslySetInnerHTML={{ __html: post.content }}
+						dangerouslySetInnerHTML={{ __html: post.contentHtml }}
 					/>
 				</div>
 			</div>
 		</div>
 	);
 }
+
+export const dynamicParams = false;
+
+export const generateStaticParams = async () => {
+	const slugs = await getNewsSlugs();
+	return slugs.map((slug) => ({ postId: slug }));
+};

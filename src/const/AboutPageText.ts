@@ -33,6 +33,8 @@ export const careerText = {
 			text: "いろいろな挑戦をする予定！",
 		},
 	],
+} satisfies {
+	events: Array<{ year: string; text: string }>;
 };
 
 export const skillsText = {
@@ -44,6 +46,8 @@ export const skillsText = {
 		{ text: "画像編集、デザイン（Adobe Illustrator、Photoshop、Canva）" },
 		{ text: "音声編集（Adobe Audition）" },
 	],
+} satisfies {
+	skills: Array<{ text: string }>;
 };
 
 export const hobbiesText = {
@@ -65,4 +69,6 @@ export const hobbiesText = {
 		{ text: "DTM" },
 		{ text: "ゲーム配信（これからやる）" },
 	],
+} satisfies {
+	hobbies: Array<{ text: string; link?: string }>;
 };

@@ -5,7 +5,7 @@ import { css } from "../../styled-system/css";
 import { useState } from "react";
 
 // consts
-import { Montserrat400 } from "@/const/font";
+import { Montserrat400 } from "../const/font";
 
 const fixed = css({
 	position: "fixed",
@@ -121,7 +121,7 @@ interface HeaderProps {
 	menuItems: MenuItem[];
 }
 
-export const Header = ({ menuItems }: HeaderProps)=> {
+export const Header = ({ menuItems }: HeaderProps) => {
 	const [isActive, setIsActive] = useState(false);
 
 	return (

@@ -8,14 +8,14 @@ import Image from "next/image";
 // components
 
 // consts
-import { useSmToMdQuery } from "@/const/breakpoint";
-import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
+import { useSmToMdQuery } from "../../const/breakpoint";
+import { Montserrat400, ZenMaruGothic400 } from "../../const/font";
 import {
 	profileText,
 	careerText,
 	skillsText,
 	hobbiesText,
-} from "@/const/AboutPageText";
+} from "../../const/AboutPageText";
 
 import yumilc from "../../public/yumilc.jpg";
 

@@ -4,10 +4,10 @@ import "./globals.css";
 import { css } from "../../styled-system/css";
 
 // components
-import { Header } from "@/components/Header";
+import { Header } from "../components/Header";
 
 // consts
-import { menuItems } from "@/const/headerMenuItem";
+import { menuItems } from "../const/headerMenuItem";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,7 +52,7 @@ export default function RootLayout({
 	children,
 }: {
 	children: React.ReactNode;
-}){
+}) {
 	return (
 		<html lang="en">
 			<body className={inter.className}>

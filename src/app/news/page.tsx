@@ -1,16 +1,13 @@
-export const runtime = "edge";
-
 import Link from "next/link";
-import { getList } from "@/libs/microcms";
+import { getNewsSummaries } from "../../libs/news";
 import { css } from "../../../styled-system/css";
-import sanitizeHtml from "sanitize-html";
-import { formatDate } from "@/libs/formatDate";
+import { formatDate } from "../../libs/formatDate";
 
 // components
-import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
+import { HoverGrowWrapper } from "../../components/HoverGrowWrapper";
 
 // consts
-import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
+import { Montserrat400, ZenMaruGothic400 } from "../../const/font";
 
 const mainStyle = css({
 	top: "70px",
@@ -91,7 +88,7 @@ const readLinkStyle = css({
 });
 
 export default async function StaticPage() {
-	const { contents } = await getList();
+	const contents = await getNewsSummaries();
 
 	if (!contents || contents.length === 0) {
 		return <h1>No contents</h1>;
@@ -103,18 +100,14 @@ export default async function StaticPage() {
 				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
 				<div className={articleMargin}>
 					{contents.map((post) => {
-						const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
-						const rawText = sanitizeHtml(post.content, {
-							allowedTags: [],
-							allowedAttributes: {},
-						});
+						const formattedDate = formatDate(post.publishedAt);
 						const previewText =
-							rawText.length > 150
-								? `${rawText.substring(0, 150)}...`
-								: rawText;
+							post.summary.length > 150
+								? `${post.summary.substring(0, 150)}...`
+								: post.summary;
 
 						return (
-							<div key={post.id} className={css({ marginBottom: "20px" })}>
+							<div key={post.slug} className={css({ marginBottom: "20px" })}>
 								<div
 									className={css({
 										display: "flex",
@@ -138,7 +131,7 @@ export default async function StaticPage() {
 								</div>
 								<div className={`${Montserrat400.className} ${readLinkStyle}`}>
 									<HoverGrowWrapper>
-										<Link href={`/news/${post.id}`}>Read More</Link>
+										<Link href={`/news/${post.slug}`}>Read More</Link>
 									</HoverGrowWrapper>
 								</div>
 							</div>

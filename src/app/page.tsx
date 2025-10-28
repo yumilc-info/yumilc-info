@@ -7,14 +7,14 @@ import Link from "next/link";
 import Image from "next/image";
 
 // components
-import { WorksText } from "@/components/WorksText";
-import { SnsImageLink } from "@/components/ContactsImageLink";
-import { TopPageBackGround } from "@/components/TopPageBackGround";
-import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
+import { WorksText } from "../components/WorksText";
+import { SnsImageLink } from "../components/ContactsImageLink";
+import { TopPageBackGround } from "../components/TopPageBackGround";
+import { HoverGrowWrapper } from "../components/HoverGrowWrapper";
 
 // consts
-import { useSmQuery } from "@/const/breakpoint";
-import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "@/const/font";
+import { useSmQuery } from "../const/breakpoint";
+import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "../const/font";
 import {
 	aboutText,
 	worksScienceCommunicator,
@@ -28,7 +28,7 @@ import {
 	snsYoutube,
 	contact,
 	textStyle,
-} from "@/const/TopPageText";
+} from "../const/TopPageText";
 
 import yumilc from "../../public/yumilc.jpg";
 
@@ -157,7 +157,7 @@ const contactButtonStyle = css({
 	},
 });
 
-export default function Home(){
+export default function Home() {
 	const isSm = useSmQuery();
 	return (
 		<div>

@@ -23,7 +23,7 @@ export const SnsImageLink = ({
 	image,
 	description,
 	link,
-}: SnsImageLinkProps)=> {
+}: SnsImageLinkProps) => {
 	/* const isSm = useSmQuery(); */
 	return (
 		<Link href={link} target="_blank">
