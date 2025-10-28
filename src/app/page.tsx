@@ -16,10 +16,7 @@ import { HoverGrowWrapper } from "../components/HoverGrowWrapper";
 import { useSmQuery } from "../const/breakpoint";
 import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "../const/font";
 import { formatDate } from "../libs/formatDate";
-import {
-	type RawNewsEntry,
-	normalizeNewsEntries,
-} from "../libs/newsFormat";
+import { type RawNewsEntry, normalizeNewsEntries } from "../libs/newsFormat";
 import {
 	aboutText,
 	worksScienceCommunicator,
@@ -35,9 +32,11 @@ import {
 	textStyle,
 } from "../const/TopPageText";
 
+import eventsData from "../../content/events/events.json";
 import newsData from "../../content/news/news.json";
 import yumilc from "../../public/yumilc.jpg";
 
+const eventEntries = normalizeNewsEntries(eventsData as RawNewsEntry[]);
 const newsEntries = normalizeNewsEntries(newsData as RawNewsEntry[]);
 
 const mainStyle = css({
@@ -233,6 +232,7 @@ const contactButtonStyle = css({
 
 export default function Home() {
 	const isSm = useSmQuery();
+	const hasEvents = eventEntries.length > 0;
 	const hasNews = newsEntries.length > 0;
 
 	return (
@@ -244,12 +244,43 @@ export default function Home() {
 			</div>
 			<div className={mainStyle}>
 				<div className={newsSectionStyle}>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
+						Event
+					</h1>
+					<div className={newsListStyle}>
+						{hasEvents ? (
+							eventEntries.map((entry, index) => (
+								<div
+									key={`event-${entry.publishedAt}-${index}`}
+									className={newsItemStyle}
+								>
+									<div
+										className={`${Montserrat400.className} ${newsDateStyle}`}
+									>
+										{formatDate(entry.publishedAt)}
+									</div>
+									<div
+										className={`${ZenMaruGothic400.className} ${newsBodyStyle}`}
+										dangerouslySetInnerHTML={{ __html: entry.bodyHtml }}
+									/>
+								</div>
+							))
+						) : (
+							<div
+								className={`${ZenMaruGothic400.className} ${newsEmptyStyle}`}
+							>
+								現在公開中のイベントはありません。
+							</div>
+						)}
+					</div>
+				</div>
+				<div className={newsSectionStyle}>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>News</h1>
 					<div className={newsListStyle}>
 						{hasNews ? (
 							newsEntries.map((entry, index) => (
 								<div
-									key={`${entry.publishedAt}-${index}`}
+									key={`news-${entry.publishedAt}-${index}`}
 									className={newsItemStyle}
 								>
 									<div
@@ -340,14 +371,14 @@ export default function Home() {
 								</div>
 							</div>
 
-								<div className={profileImageStyle}>
-									<Image
-										src={yumilc}
-										alt="yumilc"
-										style={{
-											maxWidth: "100%",
-											height: "auto",
-										}}
+							<div className={profileImageStyle}>
+								<Image
+									src={yumilc}
+									alt="yumilc"
+									style={{
+										maxWidth: "100%",
+										height: "auto",
+									}}
 								/>
 							</div>
 						</div>
