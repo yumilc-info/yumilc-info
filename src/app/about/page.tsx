@@ -17,6 +17,8 @@ import {
 	hobbiesText,
 } from "@/const/AboutPageText";
 
+import yumilc from "../../public/yumilc.jpg";
+
 const mainStyle = css({
 	top: "70px",
 	position: "relative",
@@ -110,7 +112,7 @@ export default function Home() {
 						<div>
 							<div className={profileImageStyle}>
 								<Image
-									src="/yumilc.jpg"
+									src={yumilc}
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
@@ -131,7 +133,7 @@ export default function Home() {
 						<div className={aboutFlex}>
 							<div className={profileImageStyle}>
 								<Image
-									src="/yumilc.jpg"
+									src={yumilc}
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
