@@ -1,10 +1,6 @@
-import Link from "next/link";
-import { getNewsSummaries } from "../../libs/news";
+import { getNewsEntries } from "../../libs/news";
 import { css } from "../../../styled-system/css";
 import { formatDate } from "../../libs/formatDate";
-
-// components
-import { HoverGrowWrapper } from "../../components/HoverGrowWrapper";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "../../const/font";
@@ -39,16 +35,6 @@ const articleMargin = css({
 	},
 });
 
-const titleStyle = css({
-	fontSize: {
-		base: "20px",
-		md: "24px",
-	},
-	color: "#4C4C4C",
-	paddingTop: "20px",
-	paddingBottom: "10px",
-});
-
 const textStyle = css({
 	color: "#4C4C4C",
 	letterSpacing: "0.1em",
@@ -74,24 +60,26 @@ const textMargin = css({
 		base: "10px",
 		md: "30px",
 	},
-});
-
-const readLinkStyle = css({
-	fontSize: {
-		base: "16px",
-		md: "20px",
-	},
-	color: "#4C4C4C",
-	textDecorationLine: "underline",
-	display: "flex",
-	justifyContent: "flex-end",
+	paddingBottom: "20px",
 });
 
 export default async function StaticPage() {
-	const contents = await getNewsSummaries();
+	const entries = await getNewsEntries();
 
-	if (!contents || contents.length === 0) {
-		return <h1>No contents</h1>;
+	if (!entries.length) {
+		return (
+			<div className={mainStyle}>
+				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
+				<p
+					className={`${ZenMaruGothic400.className} ${css({
+						color: "#4C4C4C",
+						marginTop: "20px",
+					})}`}
+				>
+					現在お知らせはありません。
+				</p>
+			</div>
+		);
 	}
 
 	return (
@@ -99,40 +87,22 @@ export default async function StaticPage() {
 			<div className={mainStyle}>
 				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
 				<div className={articleMargin}>
-					{contents.map((post) => {
-						const formattedDate = formatDate(post.publishedAt);
-						const previewText =
-							post.summary.length > 150
-								? `${post.summary.substring(0, 150)}...`
-								: post.summary;
+					{entries.map((entry, index) => {
+						const formattedDate = formatDate(entry.publishedAt);
 
 						return (
-							<div key={post.slug} className={css({ marginBottom: "20px" })}>
-								<div
-									className={css({
-										display: "flex",
-										justifyContent: "space-between",
-										alignItems: "center",
-									})}
-								>
-									<div
-										className={`${ZenMaruGothic400.className} ${titleStyle}`}
-									>
-										{post.title}
-									</div>
-									<div className={`${ZenMaruGothic400.className} ${dateStyle}`}>
-										{formattedDate}
-									</div>
+							<div
+								key={`${entry.publishedAt}-${index}`}
+								className={css({ marginBottom: "20px" })}
+							>
+								<div className={`${ZenMaruGothic400.className} ${dateStyle}`}>
+									{formattedDate}
 								</div>
 								<div className={textMargin}>
-									<div className={`${ZenMaruGothic400.className} ${textStyle}`}>
-										{previewText}
-									</div>
-								</div>
-								<div className={`${Montserrat400.className} ${readLinkStyle}`}>
-									<HoverGrowWrapper>
-										<Link href={`/news/${post.slug}`}>Read More</Link>
-									</HoverGrowWrapper>
+									<div
+										className={`${ZenMaruGothic400.className} ${textStyle}`}
+										dangerouslySetInnerHTML={{ __html: entry.bodyHtml }}
+									/>
 								</div>
 							</div>
 						);
