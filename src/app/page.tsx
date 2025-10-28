@@ -36,7 +36,24 @@ import eventsData from "../../content/events/events.json";
 import newsData from "../../content/news/news.json";
 import yumilc from "../../public/yumilc.jpg";
 
-const eventEntries = normalizeNewsEntries(eventsData as RawNewsEntry[]);
+const normalizeUpcomingEvents = (entries: RawNewsEntry[]) => {
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+
+	return normalizeNewsEntries(entries).filter((entry) => {
+		const eventDate = new Date(entry.publishedAt);
+		eventDate.setHours(0, 0, 0, 0);
+		return eventDate.getTime() >= today.getTime();
+	});
+};
+
+const sortEventsChronologically = (entries: RawNewsEntry[]) =>
+	normalizeUpcomingEvents(entries).sort(
+		(a, b) =>
+			new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime(),
+	);
+
+const eventEntries = sortEventsChronologically(eventsData as RawNewsEntry[]);
 const newsEntries = normalizeNewsEntries(newsData as RawNewsEntry[]);
 
 const mainStyle = css({
