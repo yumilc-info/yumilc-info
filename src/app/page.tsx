@@ -321,9 +321,9 @@ export default function Home() {
 					</div>
 				</div>
 				<div className={marginBottom}>
-					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
+					{/* <h1 className={`${Montserrat900.className} ${headingStyle}`}>
 						About
-					</h1>
+					</h1> */}
 					{isSm ? (
 						<div>
 							<div className={profileImageStyle}>
