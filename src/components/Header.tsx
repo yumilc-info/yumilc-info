@@ -121,7 +121,7 @@ interface HeaderProps {
 	menuItems: MenuItem[];
 }
 
-export const Header = ({ menuItems }: HeaderProps): JSX.Element => {
+export const Header = ({ menuItems }: HeaderProps)=> {
 	const [isActive, setIsActive] = useState(false);
 
 	return (

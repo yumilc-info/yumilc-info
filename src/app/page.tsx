@@ -30,9 +30,6 @@ import {
 	textStyle,
 } from "@/const/TopPageText";
 
-// images
-import yumic from "public/yumilc.jpg";
-
 const mainStyle = css({
 	top: "0",
 	position: "relative",
@@ -158,7 +155,7 @@ const contactButtonStyle = css({
 	},
 });
 
-export default function Home(): JSX.Element {
+export default function Home(){
 	const isSm = useSmQuery();
 	return (
 		<div>
@@ -176,7 +173,7 @@ export default function Home(): JSX.Element {
 						<div>
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src="/yumilc.jpg"
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
@@ -238,7 +235,7 @@ export default function Home(): JSX.Element {
 
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src="/yumilc.jpg"
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",

@@ -44,7 +44,7 @@ export const WorksText = ({
 	heading,
 	description,
 	link,
-}: WorksTextProps): JSX.Element => {
+}: WorksTextProps)=> {
 	return (
 		<div className={worksMargin}>
 			<h1 className={`${ZenMaruGothic500.className} ${textStyle}`}>

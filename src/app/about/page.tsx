@@ -17,9 +17,6 @@ import {
 	hobbiesText,
 } from "@/const/AboutPageText";
 
-// images
-import yumic from "public/yumilc.jpg";
-
 const mainStyle = css({
 	top: "70px",
 	position: "relative",
@@ -100,7 +97,7 @@ const marginBottom = css({
 	marginBottom: "40px",
 });
 
-export default function Home(): JSX.Element {
+export default function Home() {
 	const isMd = useSmToMdQuery();
 	return (
 		<div>
@@ -113,7 +110,7 @@ export default function Home(): JSX.Element {
 						<div>
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src="/yumilc.jpg"
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
@@ -134,7 +131,7 @@ export default function Home(): JSX.Element {
 						<div className={aboutFlex}>
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src="/yumilc.jpg"
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
