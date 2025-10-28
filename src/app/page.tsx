@@ -15,26 +15,51 @@ import { HoverGrowWrapper } from "../components/HoverGrowWrapper";
 // consts
 import { useSmQuery } from "../const/breakpoint";
 import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "../const/font";
+import { bodyTextStyle } from "../const/textStyles";
 import { formatDate } from "../libs/formatDate";
 import { type RawNewsEntry, normalizeNewsEntries } from "../libs/newsFormat";
-import {
-	aboutText,
-	worksScienceCommunicator,
-	worksTsubuya,
-	worksTsukubaPlaceLab,
-	worksTsukubaConnect,
-	worksChikyulabel,
-	worksInclusiveProject,
-	snsX,
-	snsInstagram,
-	snsYoutube,
-	contact,
-	textStyle,
-} from "../const/TopPageText";
 
 import eventsData from "../../content/events/events.json";
+import topContentRaw from "../../content/pages/top.json";
 import newsData from "../../content/news/news.json";
 import yumilc from "../../public/yumilc.jpg";
+
+type TopLink = {
+	label: string;
+	href: string;
+};
+
+type TopWork = {
+	heading: string;
+	description: string;
+	link: string;
+};
+
+type TopSns = {
+	image: string;
+	description: string;
+	link: string;
+};
+
+type TopContact = {
+	text: string;
+	link: string;
+	buttonLabel: string;
+};
+
+type TopContent = {
+	about: {
+		text: string;
+		links: TopLink[];
+	};
+	works: TopWork[];
+	sns: TopSns[];
+	contact: TopContact;
+};
+
+const topContent = topContentRaw as TopContent;
+const EVENTS_EMPTY_MESSAGE = "現在予定されているイベントはありません。";
+const NEWS_EMPTY_MESSAGE = "現在お知らせはありません。";
 
 const normalizeUpcomingEvents = (entries: RawNewsEntry[]) => {
 	const today = new Date();
@@ -128,6 +153,10 @@ const snsFlex = css({
 	justifyContent: "space-between",
 	flexDirection: "row",
 	margin: "20px 0",
+});
+
+const snsItemStyle = css({
+	flex: 1,
 });
 
 const keywordAreaStyle = css({
@@ -251,6 +280,7 @@ export default function Home() {
 	const isSm = useSmQuery();
 	const hasEvents = eventEntries.length > 0;
 	const hasNews = newsEntries.length > 0;
+	const { about, works, sns, contact: contactInfo } = topContent;
 
 	return (
 		<div>
@@ -286,7 +316,7 @@ export default function Home() {
 							<div
 								className={`${ZenMaruGothic400.className} ${newsEmptyStyle}`}
 							>
-								現在公開中のイベントはありません。
+								{EVENTS_EMPTY_MESSAGE}
 							</div>
 						)}
 					</div>
@@ -315,7 +345,7 @@ export default function Home() {
 							<div
 								className={`${ZenMaruGothic400.className} ${newsEmptyStyle}`}
 							>
-								現在お知らせはありません。
+								{NEWS_EMPTY_MESSAGE}
 							</div>
 						)}
 					</div>
@@ -338,26 +368,22 @@ export default function Home() {
 							</div>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${textStyle}`}
+									className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
-									{aboutText}
+									{about.text}
 								</div>
 								<div className={aboutLinkFlex}>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/about">Yumilc's Profile</Link>
-										</HoverGrowWrapper>
-									</div>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/news">News</Link>
-										</HoverGrowWrapper>
-									</div>
+									{about.links.map((link) => (
+										<div
+											className={`${Montserrat400.className} ${aboutLinkStyle}`}
+											key={link.href}
+										>
+											<HoverGrowWrapper>
+												<Link href={link.href}>{link.label}</Link>
+											</HoverGrowWrapper>
+										</div>
+									))}
 								</div>
 							</div>
 						</div>
@@ -365,26 +391,22 @@ export default function Home() {
 						<div className={aboutFlex}>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${textStyle}`}
+									className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
-									{aboutText}
+									{about.text}
 								</div>
 								<div className={aboutLinkFlex}>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/about">Yumilc's Profile</Link>
-										</HoverGrowWrapper>
-									</div>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/news">News</Link>
-										</HoverGrowWrapper>
-									</div>
+									{about.links.map((link) => (
+										<div
+											className={`${Montserrat400.className} ${aboutLinkStyle}`}
+											key={link.href}
+										>
+											<HoverGrowWrapper>
+												<Link href={link.href}>{link.label}</Link>
+											</HoverGrowWrapper>
+										</div>
+									))}
 								</div>
 							</div>
 
@@ -406,68 +428,30 @@ export default function Home() {
 						Works
 					</h1>
 					<div className={worksMargin}>
-						<WorksText
-							heading={worksScienceCommunicator.heading}
-							description={worksScienceCommunicator.text}
-							link={worksScienceCommunicator.link}
-						/>
-						<WorksText
-							heading={worksTsubuya.heading}
-							description={worksTsubuya.text}
-							link={worksTsubuya.link}
-						/>
-						<WorksText
-							heading={worksTsukubaPlaceLab.heading}
-							description={worksTsukubaPlaceLab.text}
-							link={worksTsukubaPlaceLab.link}
-						/>
-						<WorksText
-							heading={worksTsukubaConnect.heading}
-							description={worksTsukubaConnect.text}
-							link={worksTsukubaConnect.link}
-						/>
-						<WorksText
-							heading={worksChikyulabel.heading}
-							description={worksChikyulabel.text}
-							link={worksChikyulabel.link}
-						/>
-						<WorksText
-							heading={worksInclusiveProject.heading}
-							description={worksInclusiveProject.text}
-							link={worksInclusiveProject.link}
-						/>
+						{works.map((work) => (
+							<WorksText
+								key={work.link}
+								heading={work.heading}
+								description={work.description}
+								link={work.link}
+							/>
+						))}
 					</div>
 				</div>
 				<div>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>SNS</h1>
 					<div className={snsFlex}>
-						<div className={css({ flex: 1 })}>
-							<HoverGrowWrapper>
-								<SnsImageLink
-									image={snsX.image}
-									description={snsX.description}
-									link={snsX.link}
-								/>
-							</HoverGrowWrapper>
-						</div>
-						<div className={css({ flex: 1 })}>
-							<HoverGrowWrapper>
-								<SnsImageLink
-									image={snsInstagram.image}
-									description={snsInstagram.description}
-									link={snsInstagram.link}
-								/>
-							</HoverGrowWrapper>
-						</div>
-						<div className={css({ flex: 1 })}>
-							<HoverGrowWrapper>
-								<SnsImageLink
-									image={snsYoutube.image}
-									description={snsYoutube.description}
-									link={snsYoutube.link}
-								/>
-							</HoverGrowWrapper>
-						</div>
+						{sns.map((item) => (
+							<div className={snsItemStyle} key={item.link}>
+								<HoverGrowWrapper>
+									<SnsImageLink
+										image={item.image}
+										description={item.description}
+										link={item.link}
+									/>
+								</HoverGrowWrapper>
+							</div>
+						))}
 					</div>
 				</div>
 				<div>
@@ -476,17 +460,17 @@ export default function Home() {
 					</h1>
 					<div className={contactLinkStyle}>
 						<div
-							className={`${ZenMaruGothic400.className} ${textStyle}`}
+							className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 							style={{ whiteSpace: "pre-wrap" }}
 						>
-							{contact.text}
+							{contactInfo.text}
 						</div>
 						<HoverGrowWrapper>
 							<Link
-								href={contact.link}
+								href={contactInfo.link}
 								className={`${Montserrat400.className} ${contactButtonStyle}`}
 							>
-								Contact Page
+								{contactInfo.buttonLabel}
 							</Link>
 						</HoverGrowWrapper>
 					</div>

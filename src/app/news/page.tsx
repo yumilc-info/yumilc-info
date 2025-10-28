@@ -4,6 +4,7 @@ import { formatDate } from "../../libs/formatDate";
 
 // consts
 import { Montserrat400, ZenMaruGothic400 } from "../../const/font";
+import { bodyTextStyle } from "../../const/textStyles";
 
 const mainStyle = css({
 	top: "70px",
@@ -35,16 +36,6 @@ const articleMargin = css({
 	},
 });
 
-const textStyle = css({
-	color: "#4C4C4C",
-	letterSpacing: "0.1em",
-	lineHeight: "2em",
-	fontSize: {
-		base: "14px",
-		md: "16px",
-	},
-});
-
 const dateStyle = css({
 	color: "#4C4C4C",
 	letterSpacing: "0.1em",
@@ -65,6 +56,7 @@ const textMargin = css({
 
 export default async function StaticPage() {
 	const entries = await getNewsEntries();
+	const emptyMessage = "現在お知らせはありません。";
 
 	if (!entries.length) {
 		return (
@@ -76,7 +68,7 @@ export default async function StaticPage() {
 						marginTop: "20px",
 					})}`}
 				>
-					現在お知らせはありません。
+					{emptyMessage}
 				</p>
 			</div>
 		);
@@ -100,7 +92,7 @@ export default async function StaticPage() {
 								</div>
 								<div className={textMargin}>
 									<div
-										className={`${ZenMaruGothic400.className} ${textStyle}`}
+										className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 										dangerouslySetInnerHTML={{ __html: entry.bodyHtml }}
 									/>
 								</div>
