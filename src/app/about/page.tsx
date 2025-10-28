@@ -17,7 +17,7 @@ import {
 	hobbiesText,
 } from "../../const/AboutPageText";
 
-import yumilc from "../../public/yumilc.jpg";
+import yumilc from "../../../public/yumilc.jpg";
 
 const mainStyle = css({
 	top: "70px",

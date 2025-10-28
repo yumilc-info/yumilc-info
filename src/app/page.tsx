@@ -15,6 +15,11 @@ import { HoverGrowWrapper } from "../components/HoverGrowWrapper";
 // consts
 import { useSmQuery } from "../const/breakpoint";
 import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "../const/font";
+import { formatDate } from "../libs/formatDate";
+import {
+	type RawNewsEntry,
+	normalizeNewsEntries,
+} from "../libs/newsFormat";
 import {
 	aboutText,
 	worksScienceCommunicator,
@@ -30,7 +35,10 @@ import {
 	textStyle,
 } from "../const/TopPageText";
 
+import newsData from "../../content/news/news.json";
 import yumilc from "../../public/yumilc.jpg";
+
+const newsEntries = normalizeNewsEntries(newsData as RawNewsEntry[]);
 
 const mainStyle = css({
 	top: "0",
@@ -129,6 +137,72 @@ const marginBottom = css({
 	marginBottom: "40px",
 });
 
+const newsSectionStyle = css({
+	marginBottom: "40px",
+});
+
+const newsListStyle = css({
+	marginTop: "20px",
+	border: "1px solid #CACACA",
+	borderRadius: "16px",
+	padding: "12px 20px",
+	backgroundColor: "rgba(255,255,255,0.9)",
+	maxHeight: "220px",
+	overflowY: "auto",
+});
+
+const newsItemStyle = css({
+	display: "flex",
+	alignItems: "flex-start",
+	gap: "16px",
+	padding: "12px 0",
+	borderBottom: "1px solid #E0E0E0",
+	flexWrap: {
+		base: "wrap",
+		md: "nowrap",
+	},
+	"&:last-of-type": {
+		borderBottom: "none",
+	},
+});
+
+const newsDateStyle = css({
+	color: "#4C4C4C",
+	fontWeight: 600,
+	letterSpacing: "0.06em",
+	minWidth: {
+		base: "auto",
+		md: "120px",
+	},
+	fontSize: {
+		base: "14px",
+		md: "16px",
+	},
+	flexShrink: 0,
+});
+
+const newsBodyStyle = css({
+	flex: 1,
+	color: "#4C4C4C",
+	lineHeight: "1.8",
+	fontSize: {
+		base: "14px",
+		md: "16px",
+	},
+	"& p": {
+		margin: 0,
+	},
+	"& a": {
+		textDecoration: "underline",
+		color: "#4C4C4C",
+	},
+});
+
+const newsEmptyStyle = css({
+	color: "#4C4C4C",
+	padding: "12px 0",
+});
+
 const contactLinkStyle = css({
 	fontSize: {
 		base: "16px",
@@ -159,6 +233,8 @@ const contactButtonStyle = css({
 
 export default function Home() {
 	const isSm = useSmQuery();
+	const hasNews = newsEntries.length > 0;
+
 	return (
 		<div>
 			<div className={keywordAreaStyle}>
@@ -167,6 +243,35 @@ export default function Home() {
 				</div>
 			</div>
 			<div className={mainStyle}>
+				<div className={newsSectionStyle}>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>News</h1>
+					<div className={newsListStyle}>
+						{hasNews ? (
+							newsEntries.map((entry, index) => (
+								<div
+									key={`${entry.publishedAt}-${index}`}
+									className={newsItemStyle}
+								>
+									<div
+										className={`${Montserrat400.className} ${newsDateStyle}`}
+									>
+										{formatDate(entry.publishedAt)}
+									</div>
+									<div
+										className={`${ZenMaruGothic400.className} ${newsBodyStyle}`}
+										dangerouslySetInnerHTML={{ __html: entry.bodyHtml }}
+									/>
+								</div>
+							))
+						) : (
+							<div
+								className={`${ZenMaruGothic400.className} ${newsEmptyStyle}`}
+							>
+								現在お知らせはありません。
+							</div>
+						)}
+					</div>
+				</div>
 				<div className={marginBottom}>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
 						About
@@ -235,14 +340,14 @@ export default function Home() {
 								</div>
 							</div>
 
-							<div className={profileImageStyle}>
-								<Image
-									src={yumilc}
-									alt="yumilc"
-									style={{
-										maxWidth: "100%",
-										height: "auto",
-									}}
+								<div className={profileImageStyle}>
+									<Image
+										src={yumilc}
+										alt="yumilc"
+										style={{
+											maxWidth: "100%",
+											height: "auto",
+										}}
 								/>
 							</div>
 						</div>
