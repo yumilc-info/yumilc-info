@@ -1,7 +1,5 @@
 "use client";
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import { css } from "../../styled-system/css";
 import Link from "next/link";
 import Image from "next/image";
@@ -224,6 +222,7 @@ const newsDateStyle = css({
 		md: "16px",
 	},
 	flexShrink: 0,
+	lineHeight: "1.8",
 });
 
 const newsBodyStyle = css({
@@ -246,6 +245,22 @@ const newsBodyStyle = css({
 const newsEmptyStyle = css({
 	color: "#4C4C4C",
 	padding: "12px 0",
+});
+
+const newsMoreWrapper = css({
+	display: "flex",
+	justifyContent: "flex-end",
+	marginTop: "8px",
+});
+
+const newsMoreLinkStyle = css({
+	color: "#4C4C4C",
+	textDecoration: "underline",
+	textUnderlineOffset: "4px",
+	fontSize: {
+		base: "14px",
+		md: "16px",
+	},
 });
 
 const contactLinkStyle = css({
