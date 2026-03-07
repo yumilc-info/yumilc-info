@@ -3,14 +3,14 @@ import Link from "next/link";
 
 // components
 import { HoverGrowWrapper } from "./HoverGrowWrapper";
-import { textStyle } from "@/const/TopPageText";
 
 // consts
 import {
 	Montserrat400,
 	ZenMaruGothic400,
 	ZenMaruGothic500,
-} from "@/const/font";
+} from "../const/font";
+import { bodyTextStyle } from "../const/textStyles";
 
 interface WorksTextProps {
 	heading: string;
@@ -40,18 +40,14 @@ const worksLinkStyle = css({
 	justifyContent: "flex-end",
 });
 
-export const WorksText = ({
-	heading,
-	description,
-	link,
-}: WorksTextProps): JSX.Element => {
+export const WorksText = ({ heading, description, link }: WorksTextProps) => {
 	return (
 		<div className={worksMargin}>
-			<h1 className={`${ZenMaruGothic500.className} ${textStyle}`}>
+			<h1 className={`${ZenMaruGothic500.className} ${bodyTextStyle}`}>
 				{heading}
 			</h1>
 			<div
-				className={`${ZenMaruGothic400.className} ${textStyle} ${worksTextMargin}`}
+				className={`${ZenMaruGothic400.className} ${bodyTextStyle} ${worksTextMargin}`}
 				style={{ whiteSpace: "pre-wrap" }}
 			>
 				{description}

@@ -1,16 +1,10 @@
-export const runtime = "edge";
-
-import Link from "next/link";
-import { getList } from "@/libs/microcms";
+import { getNewsEntries } from "../../libs/news";
 import { css } from "../../../styled-system/css";
-import sanitizeHtml from "sanitize-html";
-import { formatDate } from "@/libs/formatDate";
-
-// components
-import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
+import { formatDate } from "../../libs/formatDate";
 
 // consts
-import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
+import { Montserrat400, ZenMaruGothic400 } from "../../const/font";
+import { bodyTextStyle } from "../../const/textStyles";
 
 const mainStyle = css({
 	top: "70px",
@@ -42,26 +36,6 @@ const articleMargin = css({
 	},
 });
 
-const titleStyle = css({
-	fontSize: {
-		base: "20px",
-		md: "24px",
-	},
-	color: "#4C4C4C",
-	paddingTop: "20px",
-	paddingBottom: "10px",
-});
-
-const textStyle = css({
-	color: "#4C4C4C",
-	letterSpacing: "0.1em",
-	lineHeight: "2em",
-	fontSize: {
-		base: "14px",
-		md: "16px",
-	},
-});
-
 const dateStyle = css({
 	color: "#4C4C4C",
 	letterSpacing: "0.1em",
@@ -77,24 +51,27 @@ const textMargin = css({
 		base: "10px",
 		md: "30px",
 	},
-});
-
-const readLinkStyle = css({
-	fontSize: {
-		base: "16px",
-		md: "20px",
-	},
-	color: "#4C4C4C",
-	textDecorationLine: "underline",
-	display: "flex",
-	justifyContent: "flex-end",
+	paddingBottom: "20px",
 });
 
 export default async function StaticPage() {
-	const { contents } = await getList();
+	const entries = await getNewsEntries();
+	const emptyMessage = "現在お知らせはありません。";
 
-	if (!contents || contents.length === 0) {
-		return <h1>No contents</h1>;
+	if (!entries.length) {
+		return (
+			<div className={mainStyle}>
+				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
+				<p
+					className={`${ZenMaruGothic400.className} ${css({
+						color: "#4C4C4C",
+						marginTop: "20px",
+					})}`}
+				>
+					{emptyMessage}
+				</p>
+			</div>
+		);
 	}
 
 	return (
@@ -102,44 +79,22 @@ export default async function StaticPage() {
 			<div className={mainStyle}>
 				<h1 className={`${Montserrat400.className} ${headingStyle}`}>News</h1>
 				<div className={articleMargin}>
-					{contents.map((post) => {
-						const formattedDate = formatDate(post.publishedAt ?? "1900-01-01");
-						const rawText = sanitizeHtml(post.content, {
-							allowedTags: [],
-							allowedAttributes: {},
-						});
-						const previewText =
-							rawText.length > 150
-								? `${rawText.substring(0, 150)}...`
-								: rawText;
+					{entries.map((entry, index) => {
+						const formattedDate = formatDate(entry.publishedAt);
 
 						return (
-							<div key={post.id} className={css({ marginBottom: "20px" })}>
-								<div
-									className={css({
-										display: "flex",
-										justifyContent: "space-between",
-										alignItems: "center",
-									})}
-								>
-									<div
-										className={`${ZenMaruGothic400.className} ${titleStyle}`}
-									>
-										{post.title}
-									</div>
-									<div className={`${ZenMaruGothic400.className} ${dateStyle}`}>
-										{formattedDate}
-									</div>
+							<div
+								key={`${entry.publishedAt}-${index}`}
+								className={css({ marginBottom: "20px" })}
+							>
+								<div className={`${ZenMaruGothic400.className} ${dateStyle}`}>
+									{formattedDate}
 								</div>
 								<div className={textMargin}>
-									<div className={`${ZenMaruGothic400.className} ${textStyle}`}>
-										{previewText}
-									</div>
-								</div>
-								<div className={`${Montserrat400.className} ${readLinkStyle}`}>
-									<HoverGrowWrapper>
-										<Link href={`/news/${post.id}`}>Read More</Link>
-									</HoverGrowWrapper>
+									<div
+										className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
+										dangerouslySetInnerHTML={{ __html: entry.bodyHtml }}
+									/>
 								</div>
 							</div>
 						);

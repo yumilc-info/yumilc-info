@@ -1,37 +1,83 @@
 "use client";
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import { css } from "../../styled-system/css";
 import Link from "next/link";
 import Image from "next/image";
 
 // components
-import { WorksText } from "@/components/WorksText";
-import { SnsImageLink } from "@/components/ContactsImageLink";
-import { TopPageBackGround } from "@/components/TopPageBackGround";
-import { HoverGrowWrapper } from "@/components/HoverGrowWrapper";
+import { WorksText } from "../components/WorksText";
+import { SnsImageLink } from "../components/ContactsImageLink";
+import { TopPageBackGround } from "../components/TopPageBackGround";
+import { HoverGrowWrapper } from "../components/HoverGrowWrapper";
 
 // consts
-import { useSmQuery } from "@/const/breakpoint";
-import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "@/const/font";
-import {
-	aboutText,
-	worksScienceCommunicator,
-	worksTsubuya,
-	worksTsukubaPlaceLab,
-	worksTsukubaConnect,
-	worksChikyulabel,
-	worksInclusiveProject,
-	snsX,
-	snsInstagram,
-	snsYoutube,
-	contact,
-	textStyle,
-} from "@/const/TopPageText";
+import { useSmQuery } from "../const/breakpoint";
+import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "../const/font";
+import { bodyTextStyle } from "../const/textStyles";
+import { formatDate } from "../libs/formatDate";
+import { type RawNewsEntry, normalizeNewsEntries } from "../libs/newsFormat";
 
-// images
-import yumic from "public/yumilc.jpg";
+import eventsData from "../../content/events/events.json";
+import topContentRaw from "../../content/pages/top.json";
+import newsData from "../../content/news/news.json";
+import yumilc from "../../public/yumilc.jpg";
+
+type TopLink = {
+	label: string;
+	href: string;
+};
+
+type TopWork = {
+	heading: string;
+	description: string;
+	link: string;
+};
+
+type TopSns = {
+	image: string;
+	description: string;
+	link: string;
+};
+
+type TopContact = {
+	text: string;
+	link: string;
+	buttonLabel: string;
+};
+
+type TopContent = {
+	about: {
+		text: string;
+		links: TopLink[];
+	};
+	works: TopWork[];
+	sns: TopSns[];
+	contact: TopContact;
+};
+
+const topContent = topContentRaw as TopContent;
+const EVENTS_EMPTY_MESSAGE = "次のイベントをお楽しみに！";
+const NEWS_EMPTY_MESSAGE = "現在お知らせはありません。";
+
+const normalizeUpcomingEvents = (entries: RawNewsEntry[]) => {
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
+
+	return normalizeNewsEntries(entries).filter((entry) => {
+		const eventDate = new Date(entry.publishedAt);
+		eventDate.setHours(0, 0, 0, 0);
+		return eventDate.getTime() >= today.getTime();
+	});
+};
+
+const sortEventsChronologically = (entries: RawNewsEntry[]) =>
+	normalizeUpcomingEvents(entries).sort(
+		(a, b) =>
+			new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime(),
+	);
+
+const eventEntries = sortEventsChronologically(eventsData as RawNewsEntry[]);
+const newsEntries = normalizeNewsEntries(newsData as RawNewsEntry[]);
 
 const mainStyle = css({
 	top: "0",
@@ -107,6 +153,10 @@ const snsFlex = css({
 	margin: "20px 0",
 });
 
+const snsItemStyle = css({
+	flex: 1,
+});
+
 const keywordAreaStyle = css({
 	position: "relative",
 	width: "100dvw",
@@ -128,6 +178,73 @@ const keywordStyle = css({
 
 const marginBottom = css({
 	marginBottom: "40px",
+});
+
+const newsSectionStyle = css({
+	marginBottom: "40px",
+});
+
+const newsListStyle = css({
+	marginTop: "20px",
+	border: "1px solid #CACACA",
+	borderRadius: "16px",
+	padding: "12px 20px",
+	backgroundColor: "rgba(255,255,255,0.9)",
+	maxHeight: "220px",
+	overflowY: "auto",
+});
+
+const newsItemStyle = css({
+	display: "flex",
+	alignItems: "flex-start",
+	gap: "16px",
+	padding: "12px 0",
+	borderBottom: "1px solid #E0E0E0",
+	flexWrap: {
+		base: "wrap",
+		md: "nowrap",
+	},
+	"&:last-of-type": {
+		borderBottom: "none",
+	},
+});
+
+const newsDateStyle = css({
+	color: "#4C4C4C",
+	fontWeight: 600,
+	letterSpacing: "0.06em",
+	minWidth: {
+		base: "auto",
+		md: "120px",
+	},
+	fontSize: {
+		base: "14px",
+		md: "16px",
+	},
+	flexShrink: 0,
+	lineHeight: "1.8",
+});
+
+const newsBodyStyle = css({
+	flex: 1,
+	color: "#4C4C4C",
+	lineHeight: "1.8",
+	fontSize: {
+		base: "14px",
+		md: "16px",
+	},
+	"& p": {
+		margin: 0,
+	},
+	"& a": {
+		textDecoration: "underline",
+		color: "#4C4C4C",
+	},
+});
+
+const newsEmptyStyle = css({
+	color: "#4C4C4C",
+	padding: "12px 0",
 });
 
 const contactLinkStyle = css({
@@ -158,8 +275,12 @@ const contactButtonStyle = css({
 	},
 });
 
-export default function Home(): JSX.Element {
+export default function Home() {
 	const isSm = useSmQuery();
+	const hasEvents = eventEntries.length > 0;
+	const hasNews = newsEntries.length > 0;
+	const { about, works, sns, contact: contactInfo } = topContent;
+
 	return (
 		<div>
 			<div className={keywordAreaStyle}>
@@ -168,15 +289,75 @@ export default function Home(): JSX.Element {
 				</div>
 			</div>
 			<div className={mainStyle}>
-				<div className={marginBottom}>
+				<div className={newsSectionStyle}>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>
-						About
+						Event
 					</h1>
+					<div className={newsListStyle}>
+						{hasEvents ? (
+							eventEntries.map((entry, index) => (
+								<div
+									key={`event-${entry.publishedAt}-${index}`}
+									className={newsItemStyle}
+								>
+									<div
+										className={`${Montserrat400.className} ${newsDateStyle}`}
+									>
+										{formatDate(entry.publishedAt)}
+									</div>
+									<div
+										className={`${ZenMaruGothic400.className} ${newsBodyStyle}`}
+										dangerouslySetInnerHTML={{ __html: entry.bodyHtml }}
+									/>
+								</div>
+							))
+						) : (
+							<div
+								className={`${ZenMaruGothic400.className} ${newsEmptyStyle}`}
+							>
+								{EVENTS_EMPTY_MESSAGE}
+							</div>
+						)}
+					</div>
+				</div>
+				<div className={newsSectionStyle}>
+					<h1 className={`${Montserrat900.className} ${headingStyle}`}>News</h1>
+					<div className={newsListStyle}>
+						{hasNews ? (
+							newsEntries.map((entry, index) => (
+								<div
+									key={`news-${entry.publishedAt}-${index}`}
+									className={newsItemStyle}
+								>
+									<div
+										className={`${Montserrat400.className} ${newsDateStyle}`}
+									>
+										{formatDate(entry.publishedAt)}
+									</div>
+									<div
+										className={`${ZenMaruGothic400.className} ${newsBodyStyle}`}
+										dangerouslySetInnerHTML={{ __html: entry.bodyHtml }}
+									/>
+								</div>
+							))
+						) : (
+							<div
+								className={`${ZenMaruGothic400.className} ${newsEmptyStyle}`}
+							>
+								{NEWS_EMPTY_MESSAGE}
+							</div>
+						)}
+					</div>
+				</div>
+				<div className={marginBottom}>
+					{/* <h1 className={`${Montserrat900.className} ${headingStyle}`}>
+						About
+					</h1> */}
 					{isSm ? (
 						<div>
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src={yumilc}
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
@@ -186,26 +367,22 @@ export default function Home(): JSX.Element {
 							</div>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${textStyle}`}
+									className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
-									{aboutText}
+									{about.text}
 								</div>
 								<div className={aboutLinkFlex}>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/about">Yumilc's Profile</Link>
-										</HoverGrowWrapper>
-									</div>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/news">News</Link>
-										</HoverGrowWrapper>
-									</div>
+									{about.links.map((link) => (
+										<div
+											className={`${Montserrat400.className} ${aboutLinkStyle}`}
+											key={link.href}
+										>
+											<HoverGrowWrapper>
+												<Link href={link.href}>{link.label}</Link>
+											</HoverGrowWrapper>
+										</div>
+									))}
 								</div>
 							</div>
 						</div>
@@ -213,32 +390,28 @@ export default function Home(): JSX.Element {
 						<div className={aboutFlex}>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${textStyle}`}
+									className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
-									{aboutText}
+									{about.text}
 								</div>
 								<div className={aboutLinkFlex}>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/about">Yumilc's Profile</Link>
-										</HoverGrowWrapper>
-									</div>
-									<div
-										className={`${Montserrat400.className} ${aboutLinkStyle}`}
-									>
-										<HoverGrowWrapper>
-											<Link href="/news">News</Link>
-										</HoverGrowWrapper>
-									</div>
+									{about.links.map((link) => (
+										<div
+											className={`${Montserrat400.className} ${aboutLinkStyle}`}
+											key={link.href}
+										>
+											<HoverGrowWrapper>
+												<Link href={link.href}>{link.label}</Link>
+											</HoverGrowWrapper>
+										</div>
+									))}
 								</div>
 							</div>
 
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src={yumilc}
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
@@ -254,68 +427,30 @@ export default function Home(): JSX.Element {
 						Works
 					</h1>
 					<div className={worksMargin}>
-						<WorksText
-							heading={worksScienceCommunicator.heading}
-							description={worksScienceCommunicator.text}
-							link={worksScienceCommunicator.link}
-						/>
-						<WorksText
-							heading={worksTsubuya.heading}
-							description={worksTsubuya.text}
-							link={worksTsubuya.link}
-						/>
-						<WorksText
-							heading={worksTsukubaPlaceLab.heading}
-							description={worksTsukubaPlaceLab.text}
-							link={worksTsukubaPlaceLab.link}
-						/>
-						<WorksText
-							heading={worksTsukubaConnect.heading}
-							description={worksTsukubaConnect.text}
-							link={worksTsukubaConnect.link}
-						/>
-						<WorksText
-							heading={worksChikyulabel.heading}
-							description={worksChikyulabel.text}
-							link={worksChikyulabel.link}
-						/>
-						<WorksText
-							heading={worksInclusiveProject.heading}
-							description={worksInclusiveProject.text}
-							link={worksInclusiveProject.link}
-						/>
+						{works.map((work) => (
+							<WorksText
+								key={work.link}
+								heading={work.heading}
+								description={work.description}
+								link={work.link}
+							/>
+						))}
 					</div>
 				</div>
 				<div>
 					<h1 className={`${Montserrat900.className} ${headingStyle}`}>SNS</h1>
 					<div className={snsFlex}>
-						<div className={css({ flex: 1 })}>
-							<HoverGrowWrapper>
-								<SnsImageLink
-									image={snsX.image}
-									description={snsX.description}
-									link={snsX.link}
-								/>
-							</HoverGrowWrapper>
-						</div>
-						<div className={css({ flex: 1 })}>
-							<HoverGrowWrapper>
-								<SnsImageLink
-									image={snsInstagram.image}
-									description={snsInstagram.description}
-									link={snsInstagram.link}
-								/>
-							</HoverGrowWrapper>
-						</div>
-						<div className={css({ flex: 1 })}>
-							<HoverGrowWrapper>
-								<SnsImageLink
-									image={snsYoutube.image}
-									description={snsYoutube.description}
-									link={snsYoutube.link}
-								/>
-							</HoverGrowWrapper>
-						</div>
+						{sns.map((item) => (
+							<div className={snsItemStyle} key={item.link}>
+								<HoverGrowWrapper>
+									<SnsImageLink
+										image={item.image}
+										description={item.description}
+										link={item.link}
+									/>
+								</HoverGrowWrapper>
+							</div>
+						))}
 					</div>
 				</div>
 				<div>
@@ -324,17 +459,17 @@ export default function Home(): JSX.Element {
 					</h1>
 					<div className={contactLinkStyle}>
 						<div
-							className={`${ZenMaruGothic400.className} ${textStyle}`}
+							className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 							style={{ whiteSpace: "pre-wrap" }}
 						>
-							{contact.text}
+							{contactInfo.text}
 						</div>
 						<HoverGrowWrapper>
 							<Link
-								href={contact.link}
+								href={contactInfo.link}
 								className={`${Montserrat400.className} ${contactButtonStyle}`}
 							>
-								Contact Page
+								{contactInfo.buttonLabel}
 							</Link>
 						</HoverGrowWrapper>
 					</div>

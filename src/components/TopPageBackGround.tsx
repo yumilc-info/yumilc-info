@@ -11,7 +11,7 @@ const BackGroundStyle = css({
 	overflowX: "hidden",
 });
 
-export const TopPageBackGround = (): JSX.Element => {
+export const TopPageBackGround = () => {
 	return (
 		<div className={BackGroundStyle}>
 			<div
@@ -132,16 +132,16 @@ export const TopPageBackGround = (): JSX.Element => {
 					position: "absolute",
 					width: "calc(560px - 5dvw)",
 					height: "calc(560px - 5dvw)",
-					md: {
-						top: "98dvw",
-					},
+					bottom: "calc(1100px - 20dvw)",
+					left: "calc(-300px + 10dvw)",
 					sm: {
 						top: "100dvw",
+						bottom: "auto",
 					},
-					base: {
-						bottom: "calc(1100px - 20dvw)",
+					md: {
+						top: "98dvw",
+						bottom: "auto",
 					},
-					left: "calc(-300px + 10dvw)",
 				})}
 			>
 				<Image src="/decoration/yellow.svg" alt="yellow" fill sizes="100vw" />
@@ -151,16 +151,16 @@ export const TopPageBackGround = (): JSX.Element => {
 					position: "absolute",
 					width: "calc(560px - 5dvw)",
 					height: "calc(560px - 5dvw)",
-					md: {
-						top: "120dvw",
-					},
+					bottom: "600px",
+					right: "calc(-200px + 5dvw)",
 					sm: {
 						top: "130dvw",
+						bottom: "auto",
 					},
-					base: {
-						bottom: "600px",
+					md: {
+						top: "120dvw",
+						bottom: "auto",
 					},
-					right: "calc(-200px + 5dvw)",
 				})}
 			>
 				<Image src="/decoration/pink.svg" alt="pink" fill sizes="100vw" />

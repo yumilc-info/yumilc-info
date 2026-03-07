@@ -1,4 +1,4 @@
-import { ZenMaruGothic400 } from "@/const/font";
+import { ZenMaruGothic400 } from "../const/font";
 import { css } from "../../styled-system/css";
 
 export default function Loading() {
