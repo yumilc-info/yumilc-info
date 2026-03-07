@@ -56,7 +56,7 @@ type TopContent = {
 };
 
 const topContent = topContentRaw as TopContent;
-const EVENTS_EMPTY_MESSAGE = "現在予定されているイベントはありません。";
+const EVENTS_EMPTY_MESSAGE = "次のイベントをお楽しみに！";
 const NEWS_EMPTY_MESSAGE = "現在お知らせはありません。";
 
 const normalizeUpcomingEvents = (entries: RawNewsEntry[]) => {
@@ -247,21 +247,6 @@ const newsEmptyStyle = css({
 	padding: "12px 0",
 });
 
-const newsMoreWrapper = css({
-	display: "flex",
-	justifyContent: "flex-end",
-	marginTop: "8px",
-});
-
-const newsMoreLinkStyle = css({
-	color: "#4C4C4C",
-	textDecoration: "underline",
-	textUnderlineOffset: "4px",
-	fontSize: {
-		base: "14px",
-		md: "16px",
-	},
-});
 
 const contactLinkStyle = css({
 	fontSize: {
