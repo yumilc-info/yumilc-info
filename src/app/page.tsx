@@ -247,7 +247,6 @@ const newsEmptyStyle = css({
 	padding: "12px 0",
 });
 
-
 const contactLinkStyle = css({
 	fontSize: {
 		base: "16px",
