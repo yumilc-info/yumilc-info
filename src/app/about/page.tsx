@@ -1,24 +1,17 @@
 "use client";
 
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import { css } from "../../../styled-system/css";
 import Image from "next/image";
 
 // components
 
 // consts
-import { useSmToMdQuery } from "@/const/breakpoint";
-import { Montserrat400, ZenMaruGothic400 } from "@/const/font";
-import {
-	profileText,
-	careerText,
-	skillsText,
-	hobbiesText,
-} from "@/const/AboutPageText";
+import { useSmToMdQuery } from "../../const/breakpoint";
+import { Montserrat400, ZenMaruGothic400 } from "../../const/font";
+import { bodyTextStyle } from "../../const/textStyles";
+import aboutContentRaw from "../../../content/pages/about.json";
 
-// images
-import yumic from "public/yumilc.jpg";
+import yumilc from "../../../public/yumilc.jpg";
 
 const mainStyle = css({
 	top: "70px",
@@ -71,16 +64,6 @@ const profileImageStyle = css({
 	},
 });
 
-const textStyle = css({
-	color: "#4C4C4C",
-	letterSpacing: "0.1em",
-	lineHeight: "2em",
-	fontSize: {
-		base: "14px",
-		md: "16px",
-	},
-});
-
 const textMargin = css({
 	flex: 2,
 	paddingLeft: {
@@ -100,8 +83,28 @@ const marginBottom = css({
 	marginBottom: "40px",
 });
 
-export default function Home(): JSX.Element {
+type CareerEvent = {
+	year: string;
+	text: string;
+};
+
+type Hobby = {
+	text: string;
+	link?: string;
+};
+
+type AboutContent = {
+	profile: string;
+	career: CareerEvent[];
+	skills: string[];
+	hobbies: Hobby[];
+};
+
+const aboutContent = aboutContentRaw as AboutContent;
+
+export default function Home() {
 	const isMd = useSmToMdQuery();
+	const { profile, career, skills, hobbies } = aboutContent;
 	return (
 		<div>
 			<div className={mainStyle}>
@@ -113,7 +116,7 @@ export default function Home(): JSX.Element {
 						<div>
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src={yumilc}
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
@@ -123,10 +126,10 @@ export default function Home(): JSX.Element {
 							</div>
 							<div>
 								<div
-									className={`${ZenMaruGothic400.className} ${textStyle}`}
+									className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
-									{profileText}
+									{profile}
 								</div>
 							</div>
 						</div>
@@ -134,7 +137,7 @@ export default function Home(): JSX.Element {
 						<div className={aboutFlex}>
 							<div className={profileImageStyle}>
 								<Image
-									src={yumic}
+									src={yumilc}
 									alt="yumilc"
 									style={{
 										maxWidth: "100%",
@@ -144,10 +147,10 @@ export default function Home(): JSX.Element {
 							</div>
 							<div className={aboutMargin}>
 								<div
-									className={`${ZenMaruGothic400.className} ${textStyle}`}
+									className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 									style={{ whiteSpace: "pre-wrap" }}
 								>
-									{profileText}
+									{profile}
 								</div>
 							</div>
 						</div>
@@ -160,11 +163,11 @@ export default function Home(): JSX.Element {
 					<div className={textMargin}>
 						<table>
 							<tbody
-								className={`${ZenMaruGothic400.className} ${textStyle}`}
+								className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 								style={{ whiteSpace: "pre-wrap" }}
 							>
-								{careerText.events.map((events, index) => (
-									<tr key={index}>
+								{career.map((event) => (
+									<tr key={`${event.year}-${event.text}`}>
 										<td
 											className={css({
 												paddingRight: "10px",
@@ -172,14 +175,14 @@ export default function Home(): JSX.Element {
 												whiteSpace: "nowrap",
 											})}
 										>
-											{events.year}
+											{event.year}
 										</td>
 										<td
 											className={css({
 												verticalAlign: "baseline",
 											})}
 										>
-											{events.text}
+											{event.text}
 										</td>
 									</tr>
 								))}
@@ -193,12 +196,12 @@ export default function Home(): JSX.Element {
 					</h1>
 					<div className={textMargin}>
 						<div
-							className={`${ZenMaruGothic400.className} ${textStyle}`}
+							className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 							style={{ whiteSpace: "pre-wrap" }}
 						>
 							<ul className={css({ listStyle: "circle" })}>
-								{skillsText.skills.map((skill, index) => (
-									<li key={index}>{skill.text}</li>
+								{skills.map((skill) => (
+									<li key={skill}>{skill}</li>
 								))}
 							</ul>
 						</div>
@@ -210,18 +213,17 @@ export default function Home(): JSX.Element {
 					</h1>
 					<div className={textMargin}>
 						<div
-							className={`${ZenMaruGothic400.className} ${textStyle}`}
+							className={`${ZenMaruGothic400.className} ${bodyTextStyle}`}
 							style={{ whiteSpace: "pre-wrap" }}
 						>
 							<ul className={css({ listStyle: "circle" })}>
-								{hobbiesText.hobbies.map((hobby, index) => (
+								{hobbies.map((hobby) => (
 									<li
-										key={index}
+										key={hobby.text}
 										dangerouslySetInnerHTML={{ __html: hobby.text }}
 									></li>
 								))}
 							</ul>
-							etc...
 						</div>
 					</div>
 				</div>
