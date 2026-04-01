@@ -16,6 +16,7 @@ import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "../const/font";
 import { bodyTextStyle } from "../const/textStyles";
 import { formatDate } from "../libs/formatDate";
 import { type RawNewsEntry, normalizeNewsEntries } from "../libs/newsFormat";
+import { type RawEventEntry, type EventEntry, normalizeEventEntries } from "../libs/eventFormat";
 
 import eventsData from "../../content/events/events.json";
 import topContentRaw from "../../content/pages/top.json";
@@ -59,24 +60,18 @@ const topContent = topContentRaw as TopContent;
 const EVENTS_EMPTY_MESSAGE = "次のイベントをお楽しみに！";
 const NEWS_EMPTY_MESSAGE = "現在お知らせはありません。";
 
-const normalizeUpcomingEvents = (entries: RawNewsEntry[]) => {
+const getUpcomingEvents = (entries: RawEventEntry[]): EventEntry[] => {
 	const today = new Date();
 	today.setHours(0, 0, 0, 0);
 
-	return normalizeNewsEntries(entries).filter((entry) => {
-		const eventDate = new Date(entry.publishedAt);
-		eventDate.setHours(0, 0, 0, 0);
-		return eventDate.getTime() >= today.getTime();
+	return normalizeEventEntries(entries).filter((entry) => {
+		const date = new Date(entry.eventDate);
+		date.setHours(0, 0, 0, 0);
+		return date.getTime() >= today.getTime();
 	});
 };
 
-const sortEventsChronologically = (entries: RawNewsEntry[]) =>
-	normalizeUpcomingEvents(entries).sort(
-		(a, b) =>
-			new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime(),
-	);
-
-const eventEntries = sortEventsChronologically(eventsData as RawNewsEntry[]);
+const eventEntries = getUpcomingEvents(eventsData as RawEventEntry[]);
 const newsEntries = normalizeNewsEntries(newsData as RawNewsEntry[]);
 
 const mainStyle = css({
@@ -297,13 +292,13 @@ export default function Home() {
 						{hasEvents ? (
 							eventEntries.map((entry, index) => (
 								<div
-									key={`event-${entry.publishedAt}-${index}`}
+									key={`event-${entry.eventDate}-${index}`}
 									className={newsItemStyle}
 								>
 									<div
 										className={`${Montserrat400.className} ${newsDateStyle}`}
 									>
-										{formatDate(entry.publishedAt)}
+										{formatDate(entry.eventDate)}
 									</div>
 									<div
 										className={`${ZenMaruGothic400.className} ${newsBodyStyle}`}

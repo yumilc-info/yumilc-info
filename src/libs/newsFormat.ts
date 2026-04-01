@@ -8,7 +8,7 @@ export type NewsEntry = {
 	bodyHtml: string;
 };
 
-const escapeHtml = (value: string): string =>
+export const escapeHtml = (value: string): string =>
 	value
 		.replace(/&/g, "&amp;")
 		.replace(/</g, "&lt;")
@@ -16,14 +16,14 @@ const escapeHtml = (value: string): string =>
 		.replace(/"/g, "&quot;")
 		.replace(/'/g, "&#39;");
 
-const formatLinks = (value: string): string =>
+export const formatLinks = (value: string): string =>
 	value.replace(
 		/\[([^[\]]+)]\((https?:\/\/[^\s)]+)\)/g,
 		(_match, label: string, url: string) =>
 			`<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`,
 	);
 
-const convertToHtml = (value: string): string => {
+export const convertToHtml = (value: string): string => {
 	const paragraphs = value
 		.trim()
 		.split(/\n{2,}/)
