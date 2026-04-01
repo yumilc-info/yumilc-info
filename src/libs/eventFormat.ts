@@ -12,7 +12,9 @@ export type EventEntry = {
 	bodyHtml: string;
 };
 
-export const normalizeEventEntries = (entries: RawEventEntry[]): EventEntry[] => {
+export const normalizeEventEntries = (
+	entries: RawEventEntry[],
+): EventEntry[] => {
 	const normalized = entries.map((item, index) => {
 		if (
 			typeof item !== "object" ||
@@ -40,7 +42,6 @@ export const normalizeEventEntries = (entries: RawEventEntry[]): EventEntry[] =>
 	});
 
 	return normalized.sort(
-		(a, b) =>
-			new Date(a.eventDate).getTime() - new Date(b.eventDate).getTime(),
+		(a, b) => new Date(a.eventDate).getTime() - new Date(b.eventDate).getTime(),
 	);
 };

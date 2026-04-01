@@ -16,7 +16,11 @@ import { Montserrat400, Montserrat900, ZenMaruGothic400 } from "../const/font";
 import { bodyTextStyle } from "../const/textStyles";
 import { formatDate } from "../libs/formatDate";
 import { type RawNewsEntry, normalizeNewsEntries } from "../libs/newsFormat";
-import { type RawEventEntry, type EventEntry, normalizeEventEntries } from "../libs/eventFormat";
+import {
+	type RawEventEntry,
+	type EventEntry,
+	normalizeEventEntries,
+} from "../libs/eventFormat";
 
 import eventsData from "../../content/events/events.json";
 import topContentRaw from "../../content/pages/top.json";
