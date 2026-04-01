@@ -5,6 +5,7 @@
 	"engines": {
 		"node": ">=20.18.0"
 	},
+	"packageManager": "pnpm@10.24.0",
 	"scripts": {
 		"lint": "prettier --check . && eslint .",
 		"format": "prettier --write . && eslint . --fix",
@@ -17,8 +18,7 @@
 		"next": "^16.0.0",
 		"react": "19.2.0",
 		"react-dom": "19.2.0",
-		"react-responsive": "^10.0.1",
-		"typescript": "^5.9.3"
+		"react-responsive": "^10.0.1"
 	},
 	"devDependencies": {
 		"@next/eslint-plugin-next": "16.0.0",
@@ -30,6 +30,7 @@
 		"@typescript-eslint/parser": "^8.46.2",
 		"eslint": "^9.38.0",
 		"eslint-config-prettier": "10.1.8",
-		"prettier": "^3.6.2"
+		"prettier": "^3.6.2",
+		"typescript": "v5.9.3"
 	}
 }
