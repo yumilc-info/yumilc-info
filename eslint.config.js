@@ -55,7 +55,7 @@ const nextConfig = {
 
 module.exports = [
 	{
-		ignores: ["node_modules", ".next", "styled-system"],
+		ignores: ["node_modules", ".next", ".open-next", "styled-system"],
 	},
 	jsConfig,
 	...tsConfigs,
