@@ -8,37 +8,33 @@ jobs:
   prettier:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version-file: .node-version
           cache: "pnpm"
       - run: pnpm install
       - run: pnpm exec prettier . --check
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version-file: .node-version
           cache: "pnpm"
       - run: pnpm install
       - run: pnpm exec eslint .
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
-          node-version: 20
+          node-version-file: .node-version
           cache: "pnpm"
       - run: pnpm install
-      - name: Build
-        env:
-          NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
-          NEXT_PUBLIC_MICROCMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}
-        run: pnpm build
+      - run: pnpm build

@@ -1,67 +1,107 @@
 [
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-7-12",
-    "body": "7/12(日) #みる研【和柄文様、つくってみる？】を開催します！[参加申込はこちら](https://miruken-37.peatix.com/)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-7-18",
-    "body": "7/18(土) 【KEK】加速器ミッションが開催されます！[詳細はこちら](https://www.kek.jp/ja/event/202606181500)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-7-19",
-    "body": "7/19(日)〜20(月) 【粒や】博物ふぇすに出展します（ブース：G16）！[詳細はこちら](https://www.hakubutufes.info/)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-7-25",
-    "body": "7/25(土) ３歳〜表現遊び×科学工作×モンテッソーリ教具で遊ぼう（リズムの森）に登壇します！[お申し込みはこちら](https://forms.gle/x7oayUvTns4CrGDS6)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-7-26",
-    "body": "7/26(日) 【KEK】加速器ミッションが開催されます！[詳細はこちら](https://www.kek.jp/ja/event/202606181500)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-7-28",
-    "body": "7/28(火) 【KEK】放射線ミッションが開催されます！[詳細はこちら](https://www.kek.jp/ja/event/202606181500)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-7-30",
-    "body": "7/30(木) 「霞が関“作戦会議”体験：科学者はどうやって日本を救う？」にファシリテーターとして参加します！[詳細はこちら](https://www.kek.jp/ja/event/202606231300)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-8-2",
-    "body": "8/2(日) 夏休み宿題フェスに出展します！[詳細はこちら](https://peatix.com/event/5014532)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-8-8",
-    "body": "8/8(土) 親子で科学実験の講師をします！[詳細はこちら](https://www.city.tsukuba.lg.jp/kankobunka/event/1013507/25356.html)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-8-9",
-    "body": "8/9(日) ひみつのサイエンスショップ（満席）を開催します。"
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-8-15",
-    "body": "8/15(土) 素粒子をつくろうを開催します！[詳細はこちら](https://www.kek.jp/ja/event/202608150930)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-8-22",
-    "body": "8/22(土) オモロー授業発表会in水戸にブース出展します！[詳細はこちら](https://omoro-mito20260822.peatix.com/)."
-  },
-  {
-    "publishedAt": "2026-7-3",
-    "eventDate": "2026-8-29",
-    "body": "8/29(土) 親子で科学実験教室の講師をします！[詳細はこちら](https://www.city.tsukuba.lg.jp/kankobunka/event/1013507/18872.html)."
-  }
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-7-12",
+		"body": "7/12(日) #みる研【和柄文様、つくってみる？】を開催します！[参加申込はこちら](https://miruken-37.peatix.com/)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-7-18",
+		"body": "7/18(土) 【KEK】加速器ミッションが開催されます！[詳細はこちら](https://www.kek.jp/ja/event/202606181500)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-7-19",
+		"body": "7/19(日)〜20(月) 【粒や】博物ふぇすに出展します（ブース：G16）！[詳細はこちら](https://www.hakubutufes.info/)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-7-25",
+		"body": "7/25(土) ３歳〜表現遊び×科学工作×モンテッソーリ教具で遊ぼう（リズムの森）に登壇します！[お申し込みはこちら](https://forms.gle/x7oayUvTns4CrGDS6)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-7-26",
+		"body": "7/26(日) 【KEK】加速器ミッションが開催されます！[詳細はこちら](https://www.kek.jp/ja/event/202606181500)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-7-28",
+		"body": "7/28(火) 【KEK】放射線ミッションが開催されます！[詳細はこちら](https://www.kek.jp/ja/event/202606181500)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-7-30",
+		"body": "7/30(木) 「霞が関“作戦会議”体験：科学者はどうやって日本を救う？」にファシリテーターとして参加します！[詳細はこちら](https://www.kek.jp/ja/event/202606231300)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-8-2",
+		"body": "8/2(日) 夏休み宿題フェスに出展します！[詳細はこちら](https://peatix.com/event/5014532)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-8-8",
+		"body": "8/8(土) 親子で科学実験の講師をします！[詳細はこちら](https://www.city.tsukuba.lg.jp/kankobunka/event/1013507/25356.html)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-8-9",
+		"body": "8/9(日) ひみつのサイエンスショップ（満席）を開催します。"
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-8-15",
+		"body": "8/15(土) 素粒子をつくろうを開催します！[詳細はこちら](https://www.kek.jp/ja/event/202608150930)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-8-22",
+		"body": "8/22(土) オモロー授業発表会in水戸にブース出展します！[詳細はこちら](https://omoro-mito20260822.peatix.com/)."
+	},
+	{
+		"publishedAt": "2026-7-3",
+		"eventDate": "2026-8-29",
+		"body": "8/29(土) 親子で科学実験教室の講師をします！[詳細はこちら](https://www.city.tsukuba.lg.jp/kankobunka/event/1013507/18872.html)."
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-9-18",
+		"body": "9/18(金) TSUKUBA CONNÉCT #88（FoodTech / AgriTech）に参加します！"
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-9-21",
+		"body": "9/21(月・祝) 住宅展示場で科学工作ワークショップを開催します！"
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-9-23",
+		"body": "9/23(水・祝)〜25(金) 札幌のNoMaps2026に参加します！"
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-10-3",
+		"body": "10/3(土) 百合が丘ひまわり保育園ハロウィンマルシェ（水戸市）に出展します！"
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-10-18",
+		"body": "10/18(日) ひみつのサイエンスショップを開催します！"
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-11-7",
+		"body": "11/7(土) つくばブックフェスに出展します！"
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-11-15",
+		"body": "11/15(日) #みる研 を開催します！"
+	},
+	{
+		"publishedAt": "2026-11-19",
+		"eventDate": "2026-12-13",
+		"body": "12/13(日) つくば子ども起業ラボを開催します！"
+	}
 ]
