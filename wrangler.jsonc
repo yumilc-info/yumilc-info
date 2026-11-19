@@ -14,4 +14,8 @@
 			"service": "yumilc-info",
 		},
 	],
+	// next/image の最適化に Cloudflare Images を使う（無料枠は月 5,000 件のユニーク変換）
+	"images": {
+		"binding": "IMAGES",
+	},
 }
