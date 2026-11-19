@@ -21,4 +21,10 @@
 	"images": {
 		"binding": "IMAGES",
 	},
+	// wrangler preview（ブランチごとのプレビュー）で使うバインディング
+	"previews": {
+		"images": {
+			"binding": "IMAGES",
+		},
+	},
 }
