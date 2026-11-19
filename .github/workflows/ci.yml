@@ -37,8 +37,4 @@ jobs:
           node-version-file: .node-version
           cache: "pnpm"
       - run: pnpm install
-      - name: Build
-        env:
-          NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN: ${{ secrets.NEXT_PUBLIC_MICROCMS_SERVICE_DOMAIN }}
-          NEXT_PUBLIC_MICROCMS_API_KEY: ${{ secrets.NEXT_PUBLIC_MICROCMS_API_KEY }}
-        run: pnpm build
+      - run: pnpm build
