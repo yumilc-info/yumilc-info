@@ -7,6 +7,13 @@
 	// workers.dev の URL とプレビュー URL を使う（未指定だとデプロイ時に警告が出る）
 	"workers_dev": true,
 	"preview_urls": true,
+	// 本番のドメイン。DNS レコードは Cloudflare がデプロイ時に作る
+	"routes": [
+		{
+			"pattern": "yumilc.info",
+			"custom_domain": true,
+		},
+	],
 	"assets": {
 		"directory": ".open-next/assets",
 		"binding": "ASSETS",
