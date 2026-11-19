@@ -1,0 +1,30 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "yumilc-info",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2026-11-01",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	// workers.dev の URL とプレビュー URL を使う（未指定だとデプロイ時に警告が出る）
+	"workers_dev": true,
+	"preview_urls": true,
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS",
+	},
+	"services": [
+		{
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "yumilc-info",
+		},
+	],
+	// next/image の最適化に Cloudflare Images を使う（無料枠は月 5,000 件のユニーク変換）
+	"images": {
+		"binding": "IMAGES",
+	},
+	// wrangler preview（ブランチごとのプレビュー）で使うバインディング
+	"previews": {
+		"images": {
+			"binding": "IMAGES",
+		},
+	},
+}

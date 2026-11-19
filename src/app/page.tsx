@@ -358,6 +358,7 @@ export default function Home() {
 								<Image
 									src={yumilc}
 									alt="yumilc"
+									sizes="(min-width: 640px) 50vw, 100vw"
 									style={{
 										maxWidth: "100%",
 										height: "auto",
@@ -412,6 +413,7 @@ export default function Home() {
 								<Image
 									src={yumilc}
 									alt="yumilc"
+									sizes="(min-width: 640px) 50vw, 100vw"
 									style={{
 										maxWidth: "100%",
 										height: "auto",
